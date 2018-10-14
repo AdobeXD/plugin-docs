@@ -1,0 +1,25 @@
+details summary {
+    margin-bottom: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: #4183c4;
+    user-select: none;
+    transition: all 0.3s ease-in-out;
+}
+
+details summary:hover {
+    text-decoration: underline;
+}
+
+details summary:focus {
+    outline: none;
+}
+
+details[open] SUMMARY ~ * {
+    animation: sweep-in .5s ease-in-out;
+}
+
+@keyframes sweep-in {
+    0%    {opacity: 0; margin-left: -10px}
+    100%  {opacity: 1; margin-left: 0px}
+}

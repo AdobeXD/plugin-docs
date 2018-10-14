@@ -1,0 +1,2807 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>How to create paths &#xB7; Adobe XD Plugin Reference</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Adobe">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-collapse/collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-styled-blockquotes/plugin-styled-blockquotes.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-simpletabs/tabs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fancybox/jquery.fancybox.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+    <link rel="stylesheet" type="text/css" href="../../public/custom.css">
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../how-to-style-text-guide/">
+    
+    
+    <link rel="prev" href="../how-to-draw-lines-guide/">
+    
+
+    </head>
+    <body><div class="gitbookPluginComponent">  <!-- privacy management via evidon -->
+  <link rel="stylesheet" type="text/css" href="https://wwwimages2.adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.css">
+  <script defer src="https://wwwimages2.adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.js"></script>
+  <script defer>
+    function createTrackerID() {
+      let fmt = 'xxxxxxxx-xxxx-4xxx-1xxx-xxxxxxxxxxxx';
+      return fmt.split("").map(function (c) {
+        if (c === 'x') {
+          return Math.floor(Math.random() * 16).toString(16);
+        } else {
+          return c;
+        }
+      }).join("");
+    }
+
+    let INGEST_ENDPOINT = "https://cc-api-data.adobe.io/ingest";
+    let TRACKER_KEY = "xdplatform";
+    let ENVIRONMENT = "prod";
+    let tracker;
+    let evidonTimer = setTimeout(track, 500);
+
+    /* report page hit IF we have privacy consent from the user */
+    window.addEventListener("adobePrivacy:PrivacyConsent", function () {
+
+      // check if the user has a cookie
+      let cookies = document.cookie.split(';');
+      let trackerCookie = cookies.filter(function (v) {
+        return v.trim().substr(0, TRACKER_KEY.length + 1) === TRACKER_KEY + '=';
+      });
+      if (trackerCookie.length > 0) {
+        tracker = trackerCookie[0].split("=")[1];
+      } else {
+        tracker = createTrackerID();
+        document.cookie = TRACKER_KEY + "=" + tracker;
+      }
+
+      clearInterval(evidonTimer);
+      track();
+
+      if (typeof gitbook !== "undefined") {
+        gitbook.events.on("page.change", () => track());
+      }
+    });
+
+    function track() {
+
+      // track the page hit
+      let req = new XMLHttpRequest();
+      req.open("POST", INGEST_ENDPOINT);
+
+      req.setRequestHeader("Content-Type", "application/json");
+      req.setRequestHeader("X-API-Key", "xdplatform-web-service");
+
+      // (Note: we don't care about errors here)
+
+      let data = {
+        "events": [{
+          "project": "xdplatform-web-service",
+          "environment": ENVIRONMENT,
+          "time": new Date().toISOString(),
+          "ingesttype": "dunamis",
+          "data": {
+            "event.workflow": "XD",
+            "event.category": "WEB",
+            "event.subcategory": "VIEW",
+            "event.type": "render",
+            "event.type": "page",
+            "event.pagename": location.hostname + location.pathname,
+            "event.user_guid": tracker || createTrackerID(), // fall back to random ID (in case of no evidon)
+            "event.user_agent": navigator.userAgent,
+            "event.language": navigator.language,
+            "event.url": location.href,
+            "event.referrer": document.referrer,
+            "source.name": "XD Platform",
+            "source.platform": "Web"
+          }
+        }]
+      };
+
+      req.send(JSON.stringify(data));
+
+    }
+  </script>
+
+<header style="border-bottom: 1px solid #ddd; height: 96px; display: flex; flex-direction: row; align-items: center;">
+  <a href="/" style="height: 48px; width: 48px; margin: 0px 24px 24px; position: relative; top: 14px;">
+  <img src="/images/xd-logo.png" style="height: 48px; width: 48px;"></a>
+<h1 style="font-size: 24px; margin-top: 10px;"><a href="/">Adobe XD Platform</a></h1>
+<ul style="list-style: none; margin-top: 18px;">
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Overview</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/guides/quick-start-guide" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Quick
+            Start</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/reference/how-to-read.html" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">API
+            Reference</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="https://github.com/AdobeXD/plugin-samples" target="_blank" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Samples</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/community.html" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Community</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a target="_blank" href="https://console.adobe.io/plugins" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Submit
+            Plugin</a></li>
+</ul>
+</header></div>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../quick-start-guide/">
+            
+                <a href="../quick-start-guide/">
+            
+                    
+                    Quick start
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../debugging-guide/readme.html">
+            
+                <a href="../debugging-guide/readme.html">
+            
+                    
+                    Debugging plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../reference/structure/">
+            
+                <a href="../../reference/structure/">
+            
+                    
+                    Plugin structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../reference/structure/location.html">
+            
+                <a href="../../reference/structure/location.html">
+            
+                    
+                    Plugin location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../reference/structure/folder-structure.html">
+            
+                <a href="../../reference/structure/folder-structure.html">
+            
+                    
+                    Folder structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../reference/structure/manifest.html">
+            
+                <a href="../../reference/structure/manifest.html">
+            
+                    
+                    manifest.json
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../../reference/structure/handlers.html">
+            
+                <a href="../../reference/structure/handlers.html">
+            
+                    
+                    main.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tutorials</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    About the tutorials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../content-index.html">
+            
+                <a href="../content-index.html">
+            
+                    
+                    Working with content
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../how-to-draw-lines-guide/">
+            
+                <a href="../how-to-draw-lines-guide/">
+            
+                    
+                    How to draw lines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    How to create paths
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../how-to-style-text-guide/">
+            
+                <a href="../how-to-style-text-guide/">
+            
+                    
+                    How to style text
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../how-to-work-with-scenenodelist-guide/">
+            
+                <a href="../how-to-work-with-scenenodelist-guide/">
+            
+                    
+                    Working with a SceneNodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../io-index.html">
+            
+                <a href="../io-index.html">
+            
+                    
+                    Working with I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../how-to-export-a-rendition-guide/">
+            
+                <a href="../how-to-export-a-rendition-guide/">
+            
+                    
+                    How to export a rendition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../how-to-read-a-file-guide/">
+            
+                <a href="../how-to-read-a-file-guide/">
+            
+                    
+                    How to read a file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../how-to-make-network-requests-guide/">
+            
+                <a href="../how-to-make-network-requests-guide/">
+            
+                    
+                    How to make network requests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../how-to-integrate-with-OAuth-guide/">
+            
+                <a href="../how-to-integrate-with-OAuth-guide/">
+            
+                    
+                    How to integrate with OAuth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../ui-index.html">
+            
+                <a href="../ui-index.html">
+            
+                    
+                    Building user interfaces
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../how-to-show-an-alert-guide/">
+            
+                <a href="../how-to-show-an-alert-guide/">
+            
+                    
+                    How to show an alert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../how-to-ask-user-for-confirmation-guide/">
+            
+                <a href="../how-to-ask-user-for-confirmation-guide/">
+            
+                    
+                    Asking user for confirmation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Advanced Concepts</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../reference/">
+            
+                <a href="../../reference/">
+            
+                    
+                    About advanced concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../reference/javascript/">
+            
+                <a href="../../reference/javascript/">
+            
+                    
+                    JavaScript and XD plugin APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../reference/javascript/javascript-support.html">
+            
+                <a href="../../reference/javascript/javascript-support.html">
+            
+                    
+                    JavaScript support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../reference/javascript/sync-async.html">
+            
+                <a href="../../reference/javascript/sync-async.html">
+            
+                    
+                    Sync and async
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../reference/javascript/environment.html">
+            
+                <a href="../../reference/javascript/environment.html">
+            
+                    
+                    API environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../reference/core/">
+            
+                <a href="../../reference/core/">
+            
+                    
+                    XD concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../reference/core/scenegraph.html">
+            
+                <a href="../../reference/core/scenegraph.html">
+            
+                    
+                    The scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../reference/core/edit-context.html">
+            
+                <a href="../../reference/core/edit-context.html">
+            
+                    
+                    The edit context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../reference/core/coordinate-spaces-and-units.html">
+            
+                <a href="../../reference/core/coordinate-spaces-and-units.html">
+            
+                    
+                    Coordinate spaces &amp; units
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../../reference/core/properties-with-object-values.html">
+            
+                <a href="../../reference/core/properties-with-object-values.html">
+            
+                    
+                    Properties with object values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../../reference/core/automatic-cleanups.html">
+            
+                <a href="../../reference/core/automatic-cleanups.html">
+            
+                    
+                    Automatic cleanups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../../reference/core/apis.html">
+            
+                <a href="../../reference/core/apis.html">
+            
+                    
+                    APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../reference/ui/">
+            
+                <a href="../../reference/ui/">
+            
+                    
+                    User interface concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../reference/ui/supported-styles.html">
+            
+                <a href="../../reference/ui/supported-styles.html">
+            
+                    
+                    Styles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1.1" data-path="../../reference/ui/styles/color.html">
+            
+                <a href="../../reference/ui/styles/color.html">
+            
+                    
+                    Color
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.1.2" data-path="../../reference/ui/styles/typography.html">
+            
+                <a href="../../reference/ui/styles/typography.html">
+            
+                    
+                    Typography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../reference/ui/layout.html">
+            
+                <a href="../../reference/ui/layout.html">
+            
+                    
+                    Layout
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.2.1" data-path="../../reference/ui/layout/block.html">
+            
+                <a href="../../reference/ui/layout/block.html">
+            
+                    
+                    Block layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.2" data-path="../../reference/ui/layout/flex.html">
+            
+                <a href="../../reference/ui/layout/flex.html">
+            
+                    
+                    Flexbox layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.3" data-path="../../reference/ui/layout/positioning.html">
+            
+                <a href="../../reference/ui/layout/positioning.html">
+            
+                    
+                    Positioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="../../reference/ui/widgets.html">
+            
+                <a href="../../reference/ui/widgets.html">
+            
+                    
+                    Elements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.3.1" data-path="../../reference/ui/widgets/buttons.html">
+            
+                <a href="../../reference/ui/widgets/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.2" data-path="../../reference/ui/widgets/checkboxes.html">
+            
+                <a href="../../reference/ui/widgets/checkboxes.html">
+            
+                    
+                    Checkboxes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.3" data-path="../../reference/ui/widgets/dropdowns.html">
+            
+                <a href="../../reference/ui/widgets/dropdowns.html">
+            
+                    
+                    Dropdowns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.4" data-path="../../reference/ui/widgets/links.html">
+            
+                <a href="../../reference/ui/widgets/links.html">
+            
+                    
+                    Links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.5" data-path="../../reference/ui/widgets/rules.html">
+            
+                <a href="../../reference/ui/widgets/rules.html">
+            
+                    
+                    Rules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.6" data-path="../../reference/ui/widgets/sliders.html">
+            
+                <a href="../../reference/ui/widgets/sliders.html">
+            
+                    
+                    Sliders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.7" data-path="../../reference/ui/widgets/textfields.html">
+            
+                <a href="../../reference/ui/widgets/textfields.html">
+            
+                    
+                    Text fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.8" data-path="../../reference/ui/widgets/tooltips.html">
+            
+                <a href="../../reference/ui/widgets/tooltips.html">
+            
+                    
+                    Tooltips
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="../../reference/ui/dialogs.html">
+            
+                <a href="../../reference/ui/dialogs.html">
+            
+                    
+                    Modal dialogs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.4.1" data-path="../../reference/ui/dialogs/dom-structure.html">
+            
+                <a href="../../reference/ui/dialogs/dom-structure.html">
+            
+                    
+                    DOM structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.4.1.1" data-path="../../reference/ui/dialogs/building-dialog-with-html.html">
+            
+                <a href="../../reference/ui/dialogs/building-dialog-with-html.html">
+            
+                    
+                    Building with HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.1.2" data-path="../../reference/ui/dialogs/building-dialog-with-react.html">
+            
+                <a href="../../reference/ui/dialogs/building-dialog-with-react.html">
+            
+                    
+                    Building with React
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.2" data-path="../../reference/ui/dialogs/showing.html">
+            
+                <a href="../../reference/ui/dialogs/showing.html">
+            
+                    
+                    Showing dialogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.3" data-path="../../reference/ui/dialogs/dismissal.html">
+            
+                <a href="../../reference/ui/dialogs/dismissal.html">
+            
+                    
+                    Dismissing dialogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.4" data-path="../../reference/ui/dialogs/ux.html">
+            
+                <a href="../../reference/ui/dialogs/ux.html">
+            
+                    
+                    User experience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.5" data-path="../../reference/ui/dialogs/utility-classes.html">
+            
+                <a href="../../reference/ui/dialogs/utility-classes.html">
+            
+                    
+                    Utility classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.6" data-path="../../reference/ui/dialogs/helpers.html">
+            
+                <a href="../../reference/ui/dialogs/helpers.html">
+            
+                    
+                    Helpers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../xdpegs/">
+            
+                <a href="../../xdpegs/">
+            
+                    
+                    XD Plugin Experience Guidelines
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../xdpegs/intro.html">
+            
+                <a href="../../xdpegs/intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.2" data-path="../../xdpegs/1-performance.html">
+            
+                <a href="../../xdpegs/1-performance.html">
+            
+                    
+                    1.0 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.3" data-path="../../xdpegs/2-scenegraph.html">
+            
+                <a href="../../xdpegs/2-scenegraph.html">
+            
+                    
+                    2.0 Scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.4" data-path="../../xdpegs/3-network-io.html">
+            
+                <a href="../../xdpegs/3-network-io.html">
+            
+                    
+                    3.0 Network I/O
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.5" data-path="../../xdpegs/4-file-io.html">
+            
+                <a href="../../xdpegs/4-file-io.html">
+            
+                    
+                    4.0 File I/O
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.6" data-path="../../xdpegs/5-ui.html">
+            
+                <a href="../../xdpegs/5-ui.html">
+            
+                    
+                    5.0 User interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Sharing</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../distribution/packaging.html">
+            
+                <a href="../../distribution/packaging.html">
+            
+                    
+                    Packaging your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../distribution/options.html">
+            
+                <a href="../../distribution/options.html">
+            
+                    
+                    Distribution options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../distribution/how-to-submit-to-plugin-manager.html">
+            
+                <a href="../../distribution/how-to-submit-to-plugin-manager.html">
+            
+                    
+                    Publishing your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../distribution/marketing.html">
+            
+                <a href="../../distribution/marketing.html">
+            
+                    
+                    Marketing your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Join the Community</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../community.html">
+            
+                <a href="../../community.html">
+            
+                    
+                    Help, feedback, &amp; discussion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../CODE_OF_CONDUCT.html">
+            
+                <a href="../../CODE_OF_CONDUCT.html">
+            
+                    
+                    Code of conduct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../../CONTRIBUTING.html">
+            
+                <a href="../../CONTRIBUTING.html">
+            
+                    
+                    How to contribute
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../reference/how-to-read.html">
+            
+                <a href="../../reference/how-to-read.html">
+            
+                    
+                    API references
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../reference/how-to-read.html">
+            
+                <a href="../../reference/how-to-read.html">
+            
+                    
+                    How to read this reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../reference/application.html">
+            
+                <a href="../../reference/application.html">
+            
+                    
+                    application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../reference/clipboard.html">
+            
+                <a href="../../reference/clipboard.html">
+            
+                    
+                    clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../../reference/commands.html">
+            
+                <a href="../../reference/commands.html">
+            
+                    
+                    commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="../../reference/scenegraph.html">
+            
+                <a href="../../reference/scenegraph.html">
+            
+                    
+                    scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="../../reference/SceneNodeList.html">
+            
+                <a href="../../reference/SceneNodeList.html">
+            
+                    
+                    SceneNodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="../../reference/Color.html">
+            
+                <a href="../../reference/Color.html">
+            
+                    
+                    Color
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="../../reference/ImageFill.html">
+            
+                <a href="../../reference/ImageFill.html">
+            
+                    
+                    ImageFill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.9" data-path="../../reference/LinearGradientFill.html">
+            
+                <a href="../../reference/LinearGradientFill.html">
+            
+                    
+                    LinearGradientFill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10" data-path="../../reference/Matrix.html">
+            
+                <a href="../../reference/Matrix.html">
+            
+                    
+                    Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.11" data-path="../../reference/Shadow.html">
+            
+                <a href="../../reference/Shadow.html">
+            
+                    
+                    Shadow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.12" data-path="../../reference/Blur.html">
+            
+                <a href="../../reference/Blur.html">
+            
+                    
+                    Blur
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.13" data-path="../../reference/selection.html">
+            
+                <a href="../../reference/selection.html">
+            
+                    
+                    selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.14" data-path="../../reference/uxp/class/OS.html">
+            
+                <a href="../../reference/uxp/class/OS.html">
+            
+                    
+                    OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.15" data-path="../../reference/uxp/storage-index.html">
+            
+                <a href="../../reference/uxp/storage-index.html">
+            
+                    
+                    Storage APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.15.1" data-path="../../reference/uxp/using-file-apis.html">
+            
+                <a href="../../reference/uxp/using-file-apis.html">
+            
+                    
+                    Using the File I/O APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.15.2" data-path="../../reference/uxp/module/storage.html">
+            
+                <a href="../../reference/uxp/module/storage.html">
+            
+                    
+                    Storage module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16" data-path="../../reference/uxp/network-index.html">
+            
+                <a href="../../reference/uxp/network-index.html">
+            
+                    
+                    Network APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.16.1" data-path="../../reference/uxp/class/XMLHttpRequest.html">
+            
+                <a href="../../reference/uxp/class/XMLHttpRequest.html">
+            
+                    
+                    XMLHttpRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16.2" data-path="../../reference/uxp/function/fetch.html">
+            
+                <a href="../../reference/uxp/function/fetch.html">
+            
+                    
+                    fetch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16.3" data-path="../../reference/uxp/class/WebSocket.html">
+            
+                <a href="../../reference/uxp/class/WebSocket.html">
+            
+                    
+                    WebSocket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16.4" data-path="../../reference/uxp/class/Shell.html">
+            
+                <a href="../../reference/uxp/class/Shell.html">
+            
+                    
+                    openExternal
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17" data-path="../../reference/uxp/ui-index.html">
+            
+                <a href="../../reference/uxp/ui-index.html">
+            
+                    
+                    UI APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.1" data-path="../../reference/ui/supported-html-tags.html">
+            
+                <a href="../../reference/ui/supported-html-tags.html">
+            
+                    
+                    Supported HTML Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.2" data-path="../../reference/ui/supported-events.html">
+            
+                <a href="../../reference/ui/supported-events.html">
+            
+                    
+                    Supported events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3" data-path="../../reference/uxp/namespace/css.html">
+            
+                <a href="../../reference/uxp/namespace/css.html">
+            
+                    
+                    CSS support
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.3.1" data-path="../../reference/ui/styles/supported-css-paint-styles.html">
+            
+                <a href="../../reference/ui/styles/supported-css-paint-styles.html">
+            
+                    
+                    Supported CSS paint styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.2" data-path="../../reference/ui/styles/supported-css-layout-styles.html">
+            
+                <a href="../../reference/ui/styles/supported-css-layout-styles.html">
+            
+                    
+                    Supported CSS layout styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.3" data-path="../../reference/ui/styles/supported-css-selectors.html">
+            
+                <a href="../../reference/ui/styles/supported-css-selectors.html">
+            
+                    
+                    Supported CSS selectors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.4" data-path="../../reference/ui/styles/supported-css-text-styles.html">
+            
+                <a href="../../reference/ui/styles/supported-css-text-styles.html">
+            
+                    
+                    Supported CSS text styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.5" data-path="../../reference/ui/styles/supported-colors.html">
+            
+                <a href="../../reference/ui/styles/supported-colors.html">
+            
+                    
+                    Supported colors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4" data-path="../../reference/uxp/ui-classes-index.html">
+            
+                <a href="../../reference/uxp/ui-classes-index.html">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.4.1" data-path="../../reference/uxp/class/Attr.html">
+            
+                <a href="../../reference/uxp/class/Attr.html">
+            
+                    
+                    Attr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.2" data-path="../../reference/uxp/class/CharacterData.html">
+            
+                <a href="../../reference/uxp/class/CharacterData.html">
+            
+                    
+                    CharacterData
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.3" data-path="../../reference/uxp/class/Clipboard.html">
+            
+                <a href="../../reference/uxp/class/Clipboard.html">
+            
+                    
+                    Clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.4" data-path="../../reference/uxp/class/Comment.html">
+            
+                <a href="../../reference/uxp/class/Comment.html">
+            
+                    
+                    Comment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.5" data-path="../../reference/uxp/class/CSSRule.html">
+            
+                <a href="../../reference/uxp/class/CSSRule.html">
+            
+                    
+                    CSSRule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.6" data-path="../../reference/uxp/class/CSSRuleList.html">
+            
+                <a href="../../reference/uxp/class/CSSRuleList.html">
+            
+                    
+                    CSSRuleList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.7" data-path="../../reference/uxp/class/CSSStyleDeclaration.html">
+            
+                <a href="../../reference/uxp/class/CSSStyleDeclaration.html">
+            
+                    
+                    CSSStyleDeclaration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.8" data-path="../../reference/uxp/class/CSSStyleRule.html">
+            
+                <a href="../../reference/uxp/class/CSSStyleRule.html">
+            
+                    
+                    CSSStyleRule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.9" data-path="../../reference/uxp/class/CSSStyleSheet.html">
+            
+                <a href="../../reference/uxp/class/CSSStyleSheet.html">
+            
+                    
+                    CSSStyleSheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.10" data-path="../../reference/uxp/class/Document.html">
+            
+                <a href="../../reference/uxp/class/Document.html">
+            
+                    
+                    Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.11" data-path="../../reference/uxp/class/DocumentFragment.html">
+            
+                <a href="../../reference/uxp/class/DocumentFragment.html">
+            
+                    
+                    DocumentFragment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.12" data-path="../../reference/uxp/class/DOMException.html">
+            
+                <a href="../../reference/uxp/class/DOMException.html">
+            
+                    
+                    DOMException
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.13" data-path="../../reference/uxp/class/DOMTokenList.html">
+            
+                <a href="../../reference/uxp/class/DOMTokenList.html">
+            
+                    
+                    DOMTokenList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.14" data-path="../../reference/uxp/class/NamedNodeMap.html">
+            
+                <a href="../../reference/uxp/class/NamedNodeMap.html">
+            
+                    
+                    NamedNodeMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.15" data-path="../../reference/uxp/class/Node.html">
+            
+                <a href="../../reference/uxp/class/Node.html">
+            
+                    
+                    Node
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.16" data-path="../../reference/uxp/class/NodeList.html">
+            
+                <a href="../../reference/uxp/class/NodeList.html">
+            
+                    
+                    NodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.17" data-path="../../reference/uxp/class/StyleSheet.html">
+            
+                <a href="../../reference/uxp/class/StyleSheet.html">
+            
+                    
+                    StyleSheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.18" data-path="../../reference/uxp/class/StyleSheetList.html">
+            
+                <a href="../../reference/uxp/class/StyleSheetList.html">
+            
+                    
+                    StyleSheetList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.19" data-path="../../reference/uxp/class/Text.html">
+            
+                <a href="../../reference/uxp/class/Text.html">
+            
+                    
+                    Text
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5" data-path="../../reference/uxp/ui-html-index.html">
+            
+                <a href="../../reference/uxp/ui-html-index.html">
+            
+                    
+                    HTML elements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.5.1" data-path="../../reference/uxp/class/HTMLAnchorElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLAnchorElement.html">
+            
+                    
+                    HTMLAnchorElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.2" data-path="../../reference/uxp/class/HTMLBodyElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLBodyElement.html">
+            
+                    
+                    HTMLBodyElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.3" data-path="../../reference/uxp/class/HTMLButtonElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLButtonElement.html">
+            
+                    
+                    HTMLButtonElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.4" data-path="../../reference/uxp/class/HTMLDialogElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLDialogElement.html">
+            
+                    
+                    HTMLDialogElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.5" data-path="../../reference/uxp/class/HTMLElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLElement.html">
+            
+                    
+                    HTMLElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.6" data-path="../../reference/uxp/class/HTMLFormElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLFormElement.html">
+            
+                    
+                    HTMLFormElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.7" data-path="../../reference/uxp/class/HTMLHeadElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLHeadElement.html">
+            
+                    
+                    HTMLHeadElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.8" data-path="../../reference/uxp/class/HTMLHtmlElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLHtmlElement.html">
+            
+                    
+                    HTMLHtmlElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.9" data-path="../../reference/uxp/class/HTMLImageElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLImageElement.html">
+            
+                    
+                    HTMLImageElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.10" data-path="../../reference/uxp/class/HTMLInputElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLInputElement.html">
+            
+                    
+                    HTMLInputElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.11" data-path="../../reference/uxp/class/HTMLLabelElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLLabelElement.html">
+            
+                    
+                    HTMLLabelElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.12" data-path="../../reference/uxp/class/HTMLLinkElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLLinkElement.html">
+            
+                    
+                    HTMLLinkElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.13" data-path="../../reference/uxp/class/HTMLMenuElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLMenuElement.html">
+            
+                    
+                    HTMLMenuElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.14" data-path="../../reference/uxp/class/HTMLOptionElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLOptionElement.html">
+            
+                    
+                    HTMLOptionElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.15" data-path="../../reference/uxp/class/HTMLScriptElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLScriptElement.html">
+            
+                    
+                    HTMLScriptElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.16" data-path="../../reference/uxp/class/HTMLSelectElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLSelectElement.html">
+            
+                    
+                    HTMLSelectElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.17" data-path="../../reference/uxp/class/HTMLStyleElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLStyleElement.html">
+            
+                    
+                    HTMLStyleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.18" data-path="../../reference/uxp/class/HTMLTextAreaElement.html">
+            
+                <a href="../../reference/uxp/class/HTMLTextAreaElement.html">
+            
+                    
+                    HTMLTextAreaElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6" data-path="../../reference/uxp/events-index.html">
+            
+                <a href="../../reference/uxp/events-index.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.6.1" data-path="../../reference/uxp/class/BaseUIEvent.html">
+            
+                <a href="../../reference/uxp/class/BaseUIEvent.html">
+            
+                    
+                    BaseUIEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.2" data-path="../../reference/uxp/class/CloseEvent.html">
+            
+                <a href="../../reference/uxp/class/CloseEvent.html">
+            
+                    
+                    CloseEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.3" data-path="../../reference/uxp/class/Event.html">
+            
+                <a href="../../reference/uxp/class/Event.html">
+            
+                    
+                    Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.4" data-path="../../reference/uxp/class/EventTarget.html">
+            
+                <a href="../../reference/uxp/class/EventTarget.html">
+            
+                    
+                    EventTarget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.5" data-path="../../reference/uxp/class/FocusEvent.html">
+            
+                <a href="../../reference/uxp/class/FocusEvent.html">
+            
+                    
+                    FocusEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.6" data-path="../../reference/uxp/class/GestureEvent.html">
+            
+                <a href="../../reference/uxp/class/GestureEvent.html">
+            
+                    
+                    GestureEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.7" data-path="../../reference/uxp/class/KeyboardEvent.html">
+            
+                <a href="../../reference/uxp/class/KeyboardEvent.html">
+            
+                    
+                    KeyboardEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.8" data-path="../../reference/uxp/class/MessageEvent.html">
+            
+                <a href="../../reference/uxp/class/MessageEvent.html">
+            
+                    
+                    MessageEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.9" data-path="../../reference/uxp/class/PointerEvent.html">
+            
+                <a href="../../reference/uxp/class/PointerEvent.html">
+            
+                    
+                    PointerEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.10" data-path="../../reference/uxp/class/ProgressEvent.html">
+            
+                <a href="../../reference/uxp/class/ProgressEvent.html">
+            
+                    
+                    ProgressEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../known-issues.html">
+            
+                <a href="../../known-issues.html">
+            
+                    
+                    Known issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../changes.html">
+            
+                <a href="../../changes.html">
+            
+                    
+                    Change log
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../../GLOSSARY.html">
+            
+                <a href="../../GLOSSARY.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Upcoming</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../plugin-api-roadmap.html">
+            
+                <a href="../../plugin-api-roadmap.html">
+            
+                    
+                    Plugin API roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../..">How to create paths</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="how-to-create-paths">How to create paths</h1>
+<p>This sample demonstrates how to create path objects in XD.  The path objects are used to construct a pie chart.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Basic knowledge of <a href="../../GLOSSARY.html#html" class="glossary-term" title="Short for hypertext markup language. XD Supports a subset of HTML.">HTML</a>, <a href="../../GLOSSARY.html#css" class="glossary-term" title="Short for Cascading Style Sheets. Adobe XD supports a subset of CSS.">CSS</a>, and <a href="../../GLOSSARY.html#javascript" class="glossary-term" title="JavaScript is a common programming language that is used in many various contexts, including the web and on servers. Adobe XD uses JavaScript to help leverage the existing skills of the entire JavaScript ecosystem.">JavaScript</a></li>
+<li>Basic knowledge of <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths" target="_blank">Paths</a></li>
+<li><a href="../quick-start-guide">Quick Start Tutorial</a></li>
+<li><a href="../debugging-guide/README.md">Debugging Guide</a></li>
+</ul>
+<h2 id="development-steps">Development Steps</h2>
+<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
+<p>
+Complete code for this plugin can be found <a href="https://github.com/AdobeXD/Plugin-Samples/tree/master/how-to-create-path-objects" target="_blank">on GitHub</a>.</p>
+</div></div>
+<h3 id="1--create-plugin-scaffold">1.  Create plugin scaffold</h3>
+<p>First, edit the <a href="../../GLOSSARY.html#manifest" class="glossary-term" title="A manifest is used to declare various facts about a plugin. For example, a manifest includes the plugin&apos;s name, a unique ID, and what functions correspond with what menu items. Read more.">manifest</a> file for the plugin you created in our <a href="../quick-start-guide">Quick Start Tutorial</a>.</p>
+<p>Replace the <a href="../../GLOSSARY.html#json" class="glossary-term" title="Short for JavaScript Object Notation.">JSON</a> object in your <a href="../../GLOSSARY.html#manifest" class="glossary-term" title="A manifest is used to declare various facts about a plugin. For example, a manifest includes the plugin&apos;s name, a unique ID, and what functions correspond with what menu items. Read more.">manifest</a> with the one below, noting the changes for the following fields:</p>
+<ol>
+<li><code>id</code></li>
+<li><code>name</code></li>
+<li><code>uiEntryPoints[0].label</code></li>
+<li><code>uiEntryPoints[0].commandId</code></li>
+</ol>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;HOW_TO_CREATE_PATHS&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Create Pie Chart sample plugin&quot;</span>,
+    <span class="hljs-string">&quot;host&quot;</span>: {
+        <span class="hljs-string">&quot;app&quot;</span>: <span class="hljs-string">&quot;XD&quot;</span>,
+        <span class="hljs-string">&quot;minVersion&quot;</span>: <span class="hljs-string">&quot;13.0.0&quot;</span>
+    },
+    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,
+    <span class="hljs-string">&quot;uiEntryPoints&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;menu&quot;</span>,
+            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Create Pie Chart&quot;</span>,
+            <span class="hljs-string">&quot;commandId&quot;</span>: <span class="hljs-string">&quot;createPieChartCommand&quot;</span>
+        }
+    ]
+}
+</code></pre>
+<p>Then, update your <code>main.js</code> file, mapping the <a href="../../GLOSSARY.html#manifest" class="glossary-term" title="A manifest is used to declare various facts about a plugin. For example, a manifest includes the plugin&apos;s name, a unique ID, and what functions correspond with what menu items. Read more.">manifest</a>&apos;s <code>commandId</code> to a handler function.</p>
+<p>Replace the content of your <code>main.js</code> file with the following code:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPieChartHandlerFunction</span>(<span class="hljs-params">selection</span>) </span>{
+    <span class="hljs-comment">// The body of this function is added later</span>
+}
+
+<span class="hljs-built_in">module</span>.exports = {
+    <span class="hljs-attr">commands</span>: {
+        <span class="hljs-string">&quot;createPieChartCommand&quot;</span>: createPieChartHandlerFunction
+    }
+};
+</code></pre>
+<p>The remaining steps in this guide describe additional edits to the <code>main.js</code> file.</p>
+<h3 id="2--require-in-xd-api-dependencies">2.  Require in XD API dependencies</h3>
+<p>For this tutorial, we just need access to two XD <a href="../../GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> classes.</p>
+<p>Add the following lines to the top of your <code>main.js</code> file:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Add this to the top of your main.js file</span>
+<span class="hljs-keyword">const</span> { Path, Color } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;scenegraph&quot;</span>);
+</code></pre>
+<p>Now the <a href="../../reference/scenegraph.html#Path"><code>Path</code></a> and <a href="../../reference/Color.html"><code>Color</code></a> classes are required in and ready to be used.</p>
+<h3 id="3-create-helper-functions">3. Create helper functions</h3>
+<h5 id="calculate-a-point-on-a-circle">Calculate a point on a circle</h5>
+<p>Our plugin will need to be able to calculate the coordinates of a point on a circle.</p>
+<p>Add the lines of code below to your file:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pointOnCircle</span>(<span class="hljs-params">radius, angle</span>) </span>{
+    <span class="hljs-keyword">const</span> radians = angle * <span class="hljs-number">2.</span> * <span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">360.</span>;
+    <span class="hljs-keyword">const</span> xcoord = radius * <span class="hljs-built_in">Math</span>.cos(radians);
+    <span class="hljs-keyword">const</span> ycoord = radius * <span class="hljs-built_in">Math</span>.sin(radians);
+    <span class="hljs-keyword">return</span> xcoord + <span class="hljs-string">&quot;,&quot;</span> + ycoord;
+}
+</code></pre>
+<p>This is just straight-up <a href="../../GLOSSARY.html#javascript" class="glossary-term" title="JavaScript is a common programming language that is used in many various contexts, including the web and on servers. Adobe XD uses JavaScript to help leverage the existing skills of the entire JavaScript ecosystem.">JavaScript</a>; there&apos;s nothing specific to XD plugin APIs to cover here.</p>
+<p>We won&apos;t cover the math in depth, here&apos;s an overview what this helper function does:</p>
+<ul>
+<li>The angle is expressed in degrees. It must be converted to radians before passing it to the sine and cosine functions.</li>
+</ul>
+<h5 id="add-a-single-pie-wedge-to-the-scenegraph">Add a single pie wedge to the scenegraph</h5>
+<p>Our plugin will also need to be able to add a single pie wedge to the <a href="../../GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a>.</p>
+<p>Add the lines of code below to your file. Each of the numbered comments are explained below the code:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createWedge</span>(<span class="hljs-params">selection, radius, startAngle, endAngle, color</span>) </span>{ <span class="hljs-comment">// [1]</span>
+    <span class="hljs-keyword">const</span> startPt = pointOnCircle(radius, startAngle);
+    <span class="hljs-keyword">const</span> endPt = pointOnCircle(radius, endAngle);
+    <span class="hljs-keyword">const</span> pathData = <span class="hljs-string">`M0,0 L<span class="hljs-subst">${startPt}</span> A<span class="hljs-subst">${radius}</span>,<span class="hljs-subst">${radius}</span>,0,0,1,<span class="hljs-subst">${endPt}</span> L0,0`</span>; <span class="hljs-comment">// [2]</span>
+    <span class="hljs-keyword">const</span> wedge = <span class="hljs-keyword">new</span> Path(); <span class="hljs-comment">// [3]</span>
+    wedge.pathData = pathData; <span class="hljs-comment">// [4]</span>
+    wedge.fill = <span class="hljs-keyword">new</span> Color(color); <span class="hljs-comment">// [5]</span>
+    wedge.translation = {<span class="hljs-attr">x</span>: radius, <span class="hljs-attr">y</span>: radius};  <span class="hljs-comment">// [6]</span>
+    selection.insertionParent.addChild(wedge); <span class="hljs-comment">// [7]</span>
+}
+</code></pre>
+<ol>
+<li>This function accepts five arguments:<ol>
+<li>The current selection in the scene graph (<a href="../../reference/selection.html"><code>selection</code></a>)</li>
+<li>The pie chart radius (<code>chartRadius</code>)</li>
+<li>The start radian of the wedge (<code>startAngle</code>)</li>
+<li>The end radian of the wedge (<code>endAngle</code>)</li>
+<li>The color of the wedge (<a href="../../reference/color.html"><code>color</code></a>)</li>
+</ol>
+</li>
+<li>Based on these arguments, <code>pathData</code> is constructed. The pen is moved to the origin, a line is drawn to the first point on the edge of the circle, an arc is drawn to the second point on the edge of the circle, and then a line is drawn back to the origin. For more information on how to create path data, please refer to <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths" target="_blank">Paths</a></li>
+<li>Create a new <a href="../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> of <a href="../../reference/scenegraph.html#Path"><code>Path</code></a></li>
+<li>Set <code>pathData</code></li>
+<li>Set the color of the path object</li>
+<li>Move the path object down and to the right by <code>radius</code> units.  As a result, the pie chart will appear with its top left corner positioned at <code>0,0</code></li>
+<li>Insert the path object into the currently-selected artboard</li>
+</ol>
+<h3 id="4-create-the-main-function">4. Create the main function</h3>
+<p>In this step, we&apos;ll build out the main function, <code>createLinesHandlerFunction</code>, that we added in the first step.</p>
+<p>This function creates four wedges:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPieChartHandlerFunction</span>(<span class="hljs-params">selection</span>) </span>{
+    createWedge(selection, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">90</span>, <span class="hljs-string">&quot;red&quot;</span>);
+    createWedge(selection, <span class="hljs-number">100</span>, <span class="hljs-number">90</span>, <span class="hljs-number">135</span>, <span class="hljs-string">&quot;blue&quot;</span>);
+    createWedge(selection, <span class="hljs-number">100</span>, <span class="hljs-number">135</span>, <span class="hljs-number">225</span>, <span class="hljs-string">&quot;yellow&quot;</span>);
+    createWedge(selection, <span class="hljs-number">100</span>, <span class="hljs-number">225</span>, <span class="hljs-number">360</span>, <span class="hljs-string">&quot;purple&quot;</span>);
+}
+</code></pre>
+<p>Note that the end angle of each wedge matches the start angle of the next wedge. As a result, the wedges fit together to create a complete pie chart!</p>
+<h3 id="5-run-the-plugin">5. Run the plugin</h3>
+<p>Ater saving all your changes, reload the plugin in XD and run it.  The result should be similar to the following:</p>
+<p>     <a href="../../images/readme-assets/pie-chart.png" rel="grouped" title="" target="_self" class="fancybox">
+       <img src="../../images/readme-assets/pie-chart.png" alt="">
+     </a></p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Want to expand on what you learned here? Have a look at these references to see options for customizing this sample plugin:</p>
+<ul>
+<li><a href="../../reference/scenegraph.html#path">Path</a></li>
+<li><a href="../../reference/Color.html">Color</a></li>
+<li><a href="../../reference/commands.html">Commands</a></li>
+</ul>
+<p>Ready to explore further? Take a look at our other resources:</p>
+<ul>
+<li><a href="..">Tutorials</a></li>
+<li><a href="https://github.com/AdobeXD/plugin-samples" target="_blank">Sample code repos</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../how-to-draw-lines-guide/" class="navigation navigation-prev " aria-label="Previous page: How to draw lines">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../how-to-style-text-guide/" class="navigation navigation-next " aria-label="Next page: How to style text">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"How to create paths","level":"2.2.2","depth":2,"next":{"title":"How to style text","level":"2.2.3","depth":2,"path":"guides/how-to-style-text-guide/index.md","ref":"./guides/how-to-style-text-guide/index.md","articles":[]},"previous":{"title":"How to draw lines","level":"2.2.1","depth":2,"path":"guides/how-to-draw-lines-guide/index.md","ref":"./guides/how-to-draw-lines-guide/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|Text|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|Text|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"gi","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"gi","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"gi","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./guides/debugging-guide/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-plugins","alt":"reload-plugins","nro":1,"url":"/images/readme-assets/reload-plugins.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-plugins","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./guides/debugging-guide/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":2,"url":"/images/readme-assets/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./guides/debugging-guide/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":3,"url":"/images/readme-assets/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./guides/how-to-style-text-guide/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":4,"url":"./assets/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./guides/how-to-show-an-alert-guide/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":5,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./guides/how-to-show-an-alert-guide/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":6,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":7,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":8,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":9,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":10,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":11,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":12,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":13,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":14,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":15,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":16,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":17,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":18,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":19,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":20,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":21,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":22,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":23,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":24,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":25,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":26,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":27,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":28,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":29,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":30,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":31,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/widgets/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":32,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/widgets/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":33,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/widgets/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":34,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/widgets/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":35,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/widgets/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":36,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/widgets/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":37,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/widgets/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":38,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/widgets/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":39,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/widgets/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":40,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/widgets/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":41,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/widgets/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":42,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/widgets/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":43,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/widgets/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":44,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/widgets/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":45,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/widgets/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":46,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/widgets/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":47,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/widgets/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":48,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":49,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/scenegraph.html#fig6.1.5.1","level":"6.1.5","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":50,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.5.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, guides, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"guides/how-to-create-paths-guide/index.md","mtime":"2018-10-14T03:15:01.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-14T21:20:05.775Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapse/collapse.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-simpletabs/tabs.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fancybox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fancybox/jquery.mousewheel.pack.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fancybox/jquery.fancybox.pack.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fancybox/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    <div class="gitbookPluginComponent"><div style="background-size: cover; background-color: rgb(44, 44, 44);">
+    <div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: baseline; margin: 0 28px; line-height: 32px;">
+        <p style="margin: 0;" class="footer evidon-notice-link">&#xA9; Copyright 2018 Adobe. All rights reserved. / <a rel="noopener noreferrer" target="_blank" href="https://www.adobe.com/privacy.html">Privacy</a>
+            / <a target="_blank" rel="noopener noreferrer" href="https://www.adobe.com/legal/terms.html">Terms of Use</a> / <a target="_blank" rel="noopener noreferrer" href="https://www.adobe.com/privacy/cookies.html">Cookies</a> /
+        </p>
+    </div>
+</div></div></body>
+</html>
+

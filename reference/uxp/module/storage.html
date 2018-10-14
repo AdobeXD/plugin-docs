@@ -1,0 +1,3733 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Storage module &#xB7; Adobe XD Plugin Reference</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Adobe">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-collapse/collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-styled-blockquotes/plugin-styled-blockquotes.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-simpletabs/tabs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fancybox/jquery.fancybox.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../public/custom.css">
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../network-index.html">
+    
+    
+    <link rel="prev" href="../using-file-apis.html">
+    
+
+    </head>
+    <body><div class="gitbookPluginComponent">  <!-- privacy management via evidon -->
+  <link rel="stylesheet" type="text/css" href="https://wwwimages2.adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.css">
+  <script defer src="https://wwwimages2.adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.js"></script>
+  <script defer>
+    function createTrackerID() {
+      let fmt = 'xxxxxxxx-xxxx-4xxx-1xxx-xxxxxxxxxxxx';
+      return fmt.split("").map(function (c) {
+        if (c === 'x') {
+          return Math.floor(Math.random() * 16).toString(16);
+        } else {
+          return c;
+        }
+      }).join("");
+    }
+
+    let INGEST_ENDPOINT = "https://cc-api-data.adobe.io/ingest";
+    let TRACKER_KEY = "xdplatform";
+    let ENVIRONMENT = "prod";
+    let tracker;
+    let evidonTimer = setTimeout(track, 500);
+
+    /* report page hit IF we have privacy consent from the user */
+    window.addEventListener("adobePrivacy:PrivacyConsent", function () {
+
+      // check if the user has a cookie
+      let cookies = document.cookie.split(';');
+      let trackerCookie = cookies.filter(function (v) {
+        return v.trim().substr(0, TRACKER_KEY.length + 1) === TRACKER_KEY + '=';
+      });
+      if (trackerCookie.length > 0) {
+        tracker = trackerCookie[0].split("=")[1];
+      } else {
+        tracker = createTrackerID();
+        document.cookie = TRACKER_KEY + "=" + tracker;
+      }
+
+      clearInterval(evidonTimer);
+      track();
+
+      if (typeof gitbook !== "undefined") {
+        gitbook.events.on("page.change", () => track());
+      }
+    });
+
+    function track() {
+
+      // track the page hit
+      let req = new XMLHttpRequest();
+      req.open("POST", INGEST_ENDPOINT);
+
+      req.setRequestHeader("Content-Type", "application/json");
+      req.setRequestHeader("X-API-Key", "xdplatform-web-service");
+
+      // (Note: we don't care about errors here)
+
+      let data = {
+        "events": [{
+          "project": "xdplatform-web-service",
+          "environment": ENVIRONMENT,
+          "time": new Date().toISOString(),
+          "ingesttype": "dunamis",
+          "data": {
+            "event.workflow": "XD",
+            "event.category": "WEB",
+            "event.subcategory": "VIEW",
+            "event.type": "render",
+            "event.type": "page",
+            "event.pagename": location.hostname + location.pathname,
+            "event.user_guid": tracker || createTrackerID(), // fall back to random ID (in case of no evidon)
+            "event.user_agent": navigator.userAgent,
+            "event.language": navigator.language,
+            "event.url": location.href,
+            "event.referrer": document.referrer,
+            "source.name": "XD Platform",
+            "source.platform": "Web"
+          }
+        }]
+      };
+
+      req.send(JSON.stringify(data));
+
+    }
+  </script>
+
+<header style="border-bottom: 1px solid #ddd; height: 96px; display: flex; flex-direction: row; align-items: center;">
+  <a href="/" style="height: 48px; width: 48px; margin: 0px 24px 24px; position: relative; top: 14px;">
+  <img src="/images/xd-logo.png" style="height: 48px; width: 48px;"></a>
+<h1 style="font-size: 24px; margin-top: 10px;"><a href="/">Adobe XD Platform</a></h1>
+<ul style="list-style: none; margin-top: 18px;">
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Overview</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/guides/quick-start-guide" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Quick
+            Start</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/reference/how-to-read.html" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">API
+            Reference</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="https://github.com/AdobeXD/plugin-samples" target="_blank" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Samples</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/community.html" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Community</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a target="_blank" href="https://console.adobe.io/plugins" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Submit
+            Plugin</a></li>
+</ul>
+</header></div>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../guides/quick-start-guide/">
+            
+                <a href="../../../guides/quick-start-guide/">
+            
+                    
+                    Quick start
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../guides/debugging-guide/readme.html">
+            
+                <a href="../../../guides/debugging-guide/readme.html">
+            
+                    
+                    Debugging plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../structure/">
+            
+                <a href="../../structure/">
+            
+                    
+                    Plugin structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../structure/location.html">
+            
+                <a href="../../structure/location.html">
+            
+                    
+                    Plugin location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../structure/folder-structure.html">
+            
+                <a href="../../structure/folder-structure.html">
+            
+                    
+                    Folder structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../structure/manifest.html">
+            
+                <a href="../../structure/manifest.html">
+            
+                    
+                    manifest.json
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../../structure/handlers.html">
+            
+                <a href="../../structure/handlers.html">
+            
+                    
+                    main.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tutorials</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../../guides/">
+            
+                <a href="../../../guides/">
+            
+                    
+                    About the tutorials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../../guides/content-index.html">
+            
+                <a href="../../../guides/content-index.html">
+            
+                    
+                    Working with content
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../../guides/how-to-draw-lines-guide/">
+            
+                <a href="../../../guides/how-to-draw-lines-guide/">
+            
+                    
+                    How to draw lines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../../../guides/how-to-create-paths-guide/">
+            
+                <a href="../../../guides/how-to-create-paths-guide/">
+            
+                    
+                    How to create paths
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../../../guides/how-to-style-text-guide/">
+            
+                <a href="../../../guides/how-to-style-text-guide/">
+            
+                    
+                    How to style text
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../../../guides/how-to-work-with-scenenodelist-guide/">
+            
+                <a href="../../../guides/how-to-work-with-scenenodelist-guide/">
+            
+                    
+                    Working with a SceneNodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../../guides/io-index.html">
+            
+                <a href="../../../guides/io-index.html">
+            
+                    
+                    Working with I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../../guides/how-to-export-a-rendition-guide/">
+            
+                <a href="../../../guides/how-to-export-a-rendition-guide/">
+            
+                    
+                    How to export a rendition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../../../guides/how-to-read-a-file-guide/">
+            
+                <a href="../../../guides/how-to-read-a-file-guide/">
+            
+                    
+                    How to read a file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../../guides/how-to-make-network-requests-guide/">
+            
+                <a href="../../../guides/how-to-make-network-requests-guide/">
+            
+                    
+                    How to make network requests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../../../guides/how-to-integrate-with-OAuth-guide/">
+            
+                <a href="../../../guides/how-to-integrate-with-OAuth-guide/">
+            
+                    
+                    How to integrate with OAuth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../../guides/ui-index.html">
+            
+                <a href="../../../guides/ui-index.html">
+            
+                    
+                    Building user interfaces
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../../../guides/how-to-show-an-alert-guide/">
+            
+                <a href="../../../guides/how-to-show-an-alert-guide/">
+            
+                    
+                    How to show an alert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../../../guides/how-to-ask-user-for-confirmation-guide/">
+            
+                <a href="../../../guides/how-to-ask-user-for-confirmation-guide/">
+            
+                    
+                    Asking user for confirmation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Advanced Concepts</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    About advanced concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../javascript/">
+            
+                <a href="../../javascript/">
+            
+                    
+                    JavaScript and XD plugin APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../javascript/javascript-support.html">
+            
+                <a href="../../javascript/javascript-support.html">
+            
+                    
+                    JavaScript support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../javascript/sync-async.html">
+            
+                <a href="../../javascript/sync-async.html">
+            
+                    
+                    Sync and async
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../javascript/environment.html">
+            
+                <a href="../../javascript/environment.html">
+            
+                    
+                    API environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../core/">
+            
+                <a href="../../core/">
+            
+                    
+                    XD concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../core/scenegraph.html">
+            
+                <a href="../../core/scenegraph.html">
+            
+                    
+                    The scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../core/edit-context.html">
+            
+                <a href="../../core/edit-context.html">
+            
+                    
+                    The edit context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../core/coordinate-spaces-and-units.html">
+            
+                <a href="../../core/coordinate-spaces-and-units.html">
+            
+                    
+                    Coordinate spaces &amp; units
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../../core/properties-with-object-values.html">
+            
+                <a href="../../core/properties-with-object-values.html">
+            
+                    
+                    Properties with object values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../../core/automatic-cleanups.html">
+            
+                <a href="../../core/automatic-cleanups.html">
+            
+                    
+                    Automatic cleanups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../../core/apis.html">
+            
+                <a href="../../core/apis.html">
+            
+                    
+                    APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../ui/">
+            
+                <a href="../../ui/">
+            
+                    
+                    User interface concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../ui/supported-styles.html">
+            
+                <a href="../../ui/supported-styles.html">
+            
+                    
+                    Styles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1.1" data-path="../../ui/styles/color.html">
+            
+                <a href="../../ui/styles/color.html">
+            
+                    
+                    Color
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.1.2" data-path="../../ui/styles/typography.html">
+            
+                <a href="../../ui/styles/typography.html">
+            
+                    
+                    Typography
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../ui/layout.html">
+            
+                <a href="../../ui/layout.html">
+            
+                    
+                    Layout
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.2.1" data-path="../../ui/layout/block.html">
+            
+                <a href="../../ui/layout/block.html">
+            
+                    
+                    Block layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.2" data-path="../../ui/layout/flex.html">
+            
+                <a href="../../ui/layout/flex.html">
+            
+                    
+                    Flexbox layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.3" data-path="../../ui/layout/positioning.html">
+            
+                <a href="../../ui/layout/positioning.html">
+            
+                    
+                    Positioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="../../ui/widgets.html">
+            
+                <a href="../../ui/widgets.html">
+            
+                    
+                    Elements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.3.1" data-path="../../ui/widgets/buttons.html">
+            
+                <a href="../../ui/widgets/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.2" data-path="../../ui/widgets/checkboxes.html">
+            
+                <a href="../../ui/widgets/checkboxes.html">
+            
+                    
+                    Checkboxes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.3" data-path="../../ui/widgets/dropdowns.html">
+            
+                <a href="../../ui/widgets/dropdowns.html">
+            
+                    
+                    Dropdowns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.4" data-path="../../ui/widgets/links.html">
+            
+                <a href="../../ui/widgets/links.html">
+            
+                    
+                    Links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.5" data-path="../../ui/widgets/rules.html">
+            
+                <a href="../../ui/widgets/rules.html">
+            
+                    
+                    Rules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.6" data-path="../../ui/widgets/sliders.html">
+            
+                <a href="../../ui/widgets/sliders.html">
+            
+                    
+                    Sliders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.7" data-path="../../ui/widgets/textfields.html">
+            
+                <a href="../../ui/widgets/textfields.html">
+            
+                    
+                    Text fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.8" data-path="../../ui/widgets/tooltips.html">
+            
+                <a href="../../ui/widgets/tooltips.html">
+            
+                    
+                    Tooltips
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="../../ui/dialogs.html">
+            
+                <a href="../../ui/dialogs.html">
+            
+                    
+                    Modal dialogs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.4.1" data-path="../../ui/dialogs/dom-structure.html">
+            
+                <a href="../../ui/dialogs/dom-structure.html">
+            
+                    
+                    DOM structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.4.1.1" data-path="../../ui/dialogs/building-dialog-with-html.html">
+            
+                <a href="../../ui/dialogs/building-dialog-with-html.html">
+            
+                    
+                    Building with HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.1.2" data-path="../../ui/dialogs/building-dialog-with-react.html">
+            
+                <a href="../../ui/dialogs/building-dialog-with-react.html">
+            
+                    
+                    Building with React
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.2" data-path="../../ui/dialogs/showing.html">
+            
+                <a href="../../ui/dialogs/showing.html">
+            
+                    
+                    Showing dialogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.3" data-path="../../ui/dialogs/dismissal.html">
+            
+                <a href="../../ui/dialogs/dismissal.html">
+            
+                    
+                    Dismissing dialogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.4" data-path="../../ui/dialogs/ux.html">
+            
+                <a href="../../ui/dialogs/ux.html">
+            
+                    
+                    User experience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.5" data-path="../../ui/dialogs/utility-classes.html">
+            
+                <a href="../../ui/dialogs/utility-classes.html">
+            
+                    
+                    Utility classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.6" data-path="../../ui/dialogs/helpers.html">
+            
+                <a href="../../ui/dialogs/helpers.html">
+            
+                    
+                    Helpers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../../xdpegs/">
+            
+                <a href="../../../xdpegs/">
+            
+                    
+                    XD Plugin Experience Guidelines
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../../xdpegs/intro.html">
+            
+                <a href="../../../xdpegs/intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.2" data-path="../../../xdpegs/1-performance.html">
+            
+                <a href="../../../xdpegs/1-performance.html">
+            
+                    
+                    1.0 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.3" data-path="../../../xdpegs/2-scenegraph.html">
+            
+                <a href="../../../xdpegs/2-scenegraph.html">
+            
+                    
+                    2.0 Scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.4" data-path="../../../xdpegs/3-network-io.html">
+            
+                <a href="../../../xdpegs/3-network-io.html">
+            
+                    
+                    3.0 Network I/O
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.5" data-path="../../../xdpegs/4-file-io.html">
+            
+                <a href="../../../xdpegs/4-file-io.html">
+            
+                    
+                    4.0 File I/O
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.6" data-path="../../../xdpegs/5-ui.html">
+            
+                <a href="../../../xdpegs/5-ui.html">
+            
+                    
+                    5.0 User interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Sharing</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../distribution/packaging.html">
+            
+                <a href="../../../distribution/packaging.html">
+            
+                    
+                    Packaging your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../../distribution/options.html">
+            
+                <a href="../../../distribution/options.html">
+            
+                    
+                    Distribution options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../../distribution/how-to-submit-to-plugin-manager.html">
+            
+                <a href="../../../distribution/how-to-submit-to-plugin-manager.html">
+            
+                    
+                    Publishing your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../../distribution/marketing.html">
+            
+                <a href="../../../distribution/marketing.html">
+            
+                    
+                    Marketing your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Join the Community</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../../community.html">
+            
+                <a href="../../../community.html">
+            
+                    
+                    Help, feedback, &amp; discussion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../../CODE_OF_CONDUCT.html">
+            
+                <a href="../../../CODE_OF_CONDUCT.html">
+            
+                    
+                    Code of conduct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../../../CONTRIBUTING.html">
+            
+                <a href="../../../CONTRIBUTING.html">
+            
+                    
+                    How to contribute
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../how-to-read.html">
+            
+                <a href="../../how-to-read.html">
+            
+                    
+                    API references
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../how-to-read.html">
+            
+                <a href="../../how-to-read.html">
+            
+                    
+                    How to read this reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../application.html">
+            
+                <a href="../../application.html">
+            
+                    
+                    application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../clipboard.html">
+            
+                <a href="../../clipboard.html">
+            
+                    
+                    clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../../commands.html">
+            
+                <a href="../../commands.html">
+            
+                    
+                    commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="../../scenegraph.html">
+            
+                <a href="../../scenegraph.html">
+            
+                    
+                    scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="../../SceneNodeList.html">
+            
+                <a href="../../SceneNodeList.html">
+            
+                    
+                    SceneNodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="../../Color.html">
+            
+                <a href="../../Color.html">
+            
+                    
+                    Color
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="../../ImageFill.html">
+            
+                <a href="../../ImageFill.html">
+            
+                    
+                    ImageFill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.9" data-path="../../LinearGradientFill.html">
+            
+                <a href="../../LinearGradientFill.html">
+            
+                    
+                    LinearGradientFill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10" data-path="../../Matrix.html">
+            
+                <a href="../../Matrix.html">
+            
+                    
+                    Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.11" data-path="../../Shadow.html">
+            
+                <a href="../../Shadow.html">
+            
+                    
+                    Shadow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.12" data-path="../../Blur.html">
+            
+                <a href="../../Blur.html">
+            
+                    
+                    Blur
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.13" data-path="../../selection.html">
+            
+                <a href="../../selection.html">
+            
+                    
+                    selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.14" data-path="../class/OS.html">
+            
+                <a href="../class/OS.html">
+            
+                    
+                    OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.15" data-path="../storage-index.html">
+            
+                <a href="../storage-index.html">
+            
+                    
+                    Storage APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.15.1" data-path="../using-file-apis.html">
+            
+                <a href="../using-file-apis.html">
+            
+                    
+                    Using the File I/O APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.1.15.2" data-path="storage.html">
+            
+                <a href="storage.html">
+            
+                    
+                    Storage module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16" data-path="../network-index.html">
+            
+                <a href="../network-index.html">
+            
+                    
+                    Network APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.16.1" data-path="../class/XMLHttpRequest.html">
+            
+                <a href="../class/XMLHttpRequest.html">
+            
+                    
+                    XMLHttpRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16.2" data-path="../function/fetch.html">
+            
+                <a href="../function/fetch.html">
+            
+                    
+                    fetch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16.3" data-path="../class/WebSocket.html">
+            
+                <a href="../class/WebSocket.html">
+            
+                    
+                    WebSocket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16.4" data-path="../class/Shell.html">
+            
+                <a href="../class/Shell.html">
+            
+                    
+                    openExternal
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17" data-path="../ui-index.html">
+            
+                <a href="../ui-index.html">
+            
+                    
+                    UI APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.1" data-path="../../ui/supported-html-tags.html">
+            
+                <a href="../../ui/supported-html-tags.html">
+            
+                    
+                    Supported HTML Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.2" data-path="../../ui/supported-events.html">
+            
+                <a href="../../ui/supported-events.html">
+            
+                    
+                    Supported events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3" data-path="../namespace/css.html">
+            
+                <a href="../namespace/css.html">
+            
+                    
+                    CSS support
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.3.1" data-path="../../ui/styles/supported-css-paint-styles.html">
+            
+                <a href="../../ui/styles/supported-css-paint-styles.html">
+            
+                    
+                    Supported CSS paint styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.2" data-path="../../ui/styles/supported-css-layout-styles.html">
+            
+                <a href="../../ui/styles/supported-css-layout-styles.html">
+            
+                    
+                    Supported CSS layout styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.3" data-path="../../ui/styles/supported-css-selectors.html">
+            
+                <a href="../../ui/styles/supported-css-selectors.html">
+            
+                    
+                    Supported CSS selectors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.4" data-path="../../ui/styles/supported-css-text-styles.html">
+            
+                <a href="../../ui/styles/supported-css-text-styles.html">
+            
+                    
+                    Supported CSS text styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.3.5" data-path="../../ui/styles/supported-colors.html">
+            
+                <a href="../../ui/styles/supported-colors.html">
+            
+                    
+                    Supported colors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4" data-path="../ui-classes-index.html">
+            
+                <a href="../ui-classes-index.html">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.4.1" data-path="../class/Attr.html">
+            
+                <a href="../class/Attr.html">
+            
+                    
+                    Attr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.2" data-path="../class/CharacterData.html">
+            
+                <a href="../class/CharacterData.html">
+            
+                    
+                    CharacterData
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.3" data-path="../class/Clipboard.html">
+            
+                <a href="../class/Clipboard.html">
+            
+                    
+                    Clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.4" data-path="../class/Comment.html">
+            
+                <a href="../class/Comment.html">
+            
+                    
+                    Comment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.5" data-path="../class/CSSRule.html">
+            
+                <a href="../class/CSSRule.html">
+            
+                    
+                    CSSRule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.6" data-path="../class/CSSRuleList.html">
+            
+                <a href="../class/CSSRuleList.html">
+            
+                    
+                    CSSRuleList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.7" data-path="../class/CSSStyleDeclaration.html">
+            
+                <a href="../class/CSSStyleDeclaration.html">
+            
+                    
+                    CSSStyleDeclaration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.8" data-path="../class/CSSStyleRule.html">
+            
+                <a href="../class/CSSStyleRule.html">
+            
+                    
+                    CSSStyleRule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.9" data-path="../class/CSSStyleSheet.html">
+            
+                <a href="../class/CSSStyleSheet.html">
+            
+                    
+                    CSSStyleSheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.10" data-path="../class/Document.html">
+            
+                <a href="../class/Document.html">
+            
+                    
+                    Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.11" data-path="../class/DocumentFragment.html">
+            
+                <a href="../class/DocumentFragment.html">
+            
+                    
+                    DocumentFragment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.12" data-path="../class/DOMException.html">
+            
+                <a href="../class/DOMException.html">
+            
+                    
+                    DOMException
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.13" data-path="../class/DOMTokenList.html">
+            
+                <a href="../class/DOMTokenList.html">
+            
+                    
+                    DOMTokenList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.14" data-path="../class/NamedNodeMap.html">
+            
+                <a href="../class/NamedNodeMap.html">
+            
+                    
+                    NamedNodeMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.15" data-path="../class/Node.html">
+            
+                <a href="../class/Node.html">
+            
+                    
+                    Node
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.16" data-path="../class/NodeList.html">
+            
+                <a href="../class/NodeList.html">
+            
+                    
+                    NodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.17" data-path="../class/StyleSheet.html">
+            
+                <a href="../class/StyleSheet.html">
+            
+                    
+                    StyleSheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.18" data-path="../class/StyleSheetList.html">
+            
+                <a href="../class/StyleSheetList.html">
+            
+                    
+                    StyleSheetList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.4.19" data-path="../class/Text.html">
+            
+                <a href="../class/Text.html">
+            
+                    
+                    Text
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5" data-path="../ui-html-index.html">
+            
+                <a href="../ui-html-index.html">
+            
+                    
+                    HTML elements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.5.1" data-path="../class/HTMLAnchorElement.html">
+            
+                <a href="../class/HTMLAnchorElement.html">
+            
+                    
+                    HTMLAnchorElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.2" data-path="../class/HTMLBodyElement.html">
+            
+                <a href="../class/HTMLBodyElement.html">
+            
+                    
+                    HTMLBodyElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.3" data-path="../class/HTMLButtonElement.html">
+            
+                <a href="../class/HTMLButtonElement.html">
+            
+                    
+                    HTMLButtonElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.4" data-path="../class/HTMLDialogElement.html">
+            
+                <a href="../class/HTMLDialogElement.html">
+            
+                    
+                    HTMLDialogElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.5" data-path="../class/HTMLElement.html">
+            
+                <a href="../class/HTMLElement.html">
+            
+                    
+                    HTMLElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.6" data-path="../class/HTMLFormElement.html">
+            
+                <a href="../class/HTMLFormElement.html">
+            
+                    
+                    HTMLFormElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.7" data-path="../class/HTMLHeadElement.html">
+            
+                <a href="../class/HTMLHeadElement.html">
+            
+                    
+                    HTMLHeadElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.8" data-path="../class/HTMLHtmlElement.html">
+            
+                <a href="../class/HTMLHtmlElement.html">
+            
+                    
+                    HTMLHtmlElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.9" data-path="../class/HTMLImageElement.html">
+            
+                <a href="../class/HTMLImageElement.html">
+            
+                    
+                    HTMLImageElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.10" data-path="../class/HTMLInputElement.html">
+            
+                <a href="../class/HTMLInputElement.html">
+            
+                    
+                    HTMLInputElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.11" data-path="../class/HTMLLabelElement.html">
+            
+                <a href="../class/HTMLLabelElement.html">
+            
+                    
+                    HTMLLabelElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.12" data-path="../class/HTMLLinkElement.html">
+            
+                <a href="../class/HTMLLinkElement.html">
+            
+                    
+                    HTMLLinkElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.13" data-path="../class/HTMLMenuElement.html">
+            
+                <a href="../class/HTMLMenuElement.html">
+            
+                    
+                    HTMLMenuElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.14" data-path="../class/HTMLOptionElement.html">
+            
+                <a href="../class/HTMLOptionElement.html">
+            
+                    
+                    HTMLOptionElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.15" data-path="../class/HTMLScriptElement.html">
+            
+                <a href="../class/HTMLScriptElement.html">
+            
+                    
+                    HTMLScriptElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.16" data-path="../class/HTMLSelectElement.html">
+            
+                <a href="../class/HTMLSelectElement.html">
+            
+                    
+                    HTMLSelectElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.17" data-path="../class/HTMLStyleElement.html">
+            
+                <a href="../class/HTMLStyleElement.html">
+            
+                    
+                    HTMLStyleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.5.18" data-path="../class/HTMLTextAreaElement.html">
+            
+                <a href="../class/HTMLTextAreaElement.html">
+            
+                    
+                    HTMLTextAreaElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6" data-path="../events-index.html">
+            
+                <a href="../events-index.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.17.6.1" data-path="../class/BaseUIEvent.html">
+            
+                <a href="../class/BaseUIEvent.html">
+            
+                    
+                    BaseUIEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.2" data-path="../class/CloseEvent.html">
+            
+                <a href="../class/CloseEvent.html">
+            
+                    
+                    CloseEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.3" data-path="../class/Event.html">
+            
+                <a href="../class/Event.html">
+            
+                    
+                    Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.4" data-path="../class/EventTarget.html">
+            
+                <a href="../class/EventTarget.html">
+            
+                    
+                    EventTarget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.5" data-path="../class/FocusEvent.html">
+            
+                <a href="../class/FocusEvent.html">
+            
+                    
+                    FocusEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.6" data-path="../class/GestureEvent.html">
+            
+                <a href="../class/GestureEvent.html">
+            
+                    
+                    GestureEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.7" data-path="../class/KeyboardEvent.html">
+            
+                <a href="../class/KeyboardEvent.html">
+            
+                    
+                    KeyboardEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.8" data-path="../class/MessageEvent.html">
+            
+                <a href="../class/MessageEvent.html">
+            
+                    
+                    MessageEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.9" data-path="../class/PointerEvent.html">
+            
+                <a href="../class/PointerEvent.html">
+            
+                    
+                    PointerEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17.6.10" data-path="../class/ProgressEvent.html">
+            
+                <a href="../class/ProgressEvent.html">
+            
+                    
+                    ProgressEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../../known-issues.html">
+            
+                <a href="../../../known-issues.html">
+            
+                    
+                    Known issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../../changes.html">
+            
+                <a href="../../../changes.html">
+            
+                    
+                    Change log
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../../../GLOSSARY.html">
+            
+                <a href="../../../GLOSSARY.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Upcoming</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../../plugin-api-roadmap.html">
+            
+                <a href="../../../plugin-api-roadmap.html">
+            
+                    
+                    Plugin API roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../..">Storage module</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a id="module-storage"></a></p>
+<h2 id="storage">storage</h2>
+<ul>
+<li><a href="#module-storage">storage</a><ul>
+<li><a href="#module-storage-entry">.Entry</a><ul>
+<li><a href="#module-storage-entry-name">.name</a> : <code>string</code></li>
+<li><a href="#module-storage-entry-provider">.provider</a> : <code>FileSystemProvider</code></li>
+<li><a href="#module-storage-entry-url">.url</a> : <code>URL</code></li>
+<li><a href="#module-storage-entry-nativepath">.nativePath</a> : <code>string</code></li>
+<li><a href="#module-storage-entry-isentry">.isEntry</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entry-isfile">.isFile</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entry-isfolder">.isFolder</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entry-tostring">.toString()</a> &#x21D2; <code>string</code></li>
+<li><a href="#module-storage-entry-copyto">.copyTo(folder, options)</a> &#x21D2; <code>Promise</code></li>
+<li><a href="#module-storage-entry-moveto">.moveTo(folder, options)</a> &#x21D2; <code>Promise</code></li>
+<li><a href="#module-storage-entry-delete">.delete()</a> &#x21D2; <code>Promise</code></li>
+<li><a href="#module-storage-entry-getmetadata">.getMetadata()</a> &#x21D2; <code>Promise.&lt;EntryMetadata&gt;</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-entrymetadata">.EntryMetadata</a><ul>
+<li><a href="#module-storage-entrymetadata-name">.name</a> : <code>string</code></li>
+<li><a href="#module-storage-entrymetadata-size">.size</a> : <code>number</code></li>
+<li><a href="#module-storage-entrymetadata-datecreated">.dateCreated</a> : <code>Date</code></li>
+<li><a href="#module-storage-entrymetadata-datemodified">.dateModified</a> : <code>Date</code></li>
+<li><a href="#module-storage-entrymetadata-isfile">.isFile</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entrymetadata-isfolder">.isFolder</a> : <code>boolean</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-file">.File</a><ul>
+<li><a href="#module-storage-file-mode">.mode</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-file-read">.read(options)</a> &#x21D2; <code>Promise.&lt;(string or ArrayBuffer)&gt;</code></li>
+<li><a href="#module-storage-file-write">.write(data, options)</a></li>
+</ul>
+</li>
+<li><a href="#module-storage-filesystemprovider">.FileSystemProvider</a><ul>
+<li><a href="#module-storage-filesystemprovider-getfileforopening">.getFileForOpening(options)</a> &#x21D2; <code>Promise.&lt;?File&gt;</code>  or  <code>Promise.&lt;!Array.&lt;File&gt;&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getfileforsaving">.getFileForSaving(suggestedName, options)</a> &#x21D2; <code>Promise.&lt;?File&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getfolder">.getFolder()</a> &#x21D2; <code>Promise.&lt;?Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-gettemporaryfolder">.getTemporaryFolder()</a> &#x21D2; <code>Promise.&lt;Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getdatafolder">.getDataFolder()</a> &#x21D2; <code>Promise.&lt;Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getpluginfolder">.getPluginFolder()</a> &#x21D2; <code>Promise.&lt;Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getfsurl">.getFsUrl(entry)</a> &#x21D2; <code>URL</code></li>
+<li><a href="#module-storage-filesystemprovider-getnativepath">.getNativePath(entry)</a> &#x21D2; <code>string</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-folder">.Folder</a> &#x21D0; <code>Entry</code><ul>
+<li><a href="#module-storage-folder-getentries">.getEntries()</a> &#x21D2; <code>Promise.&lt;Array.&lt;Entry&gt;&gt;</code></li>
+<li><a href="#module-storage-folder-createfile">.createFile(name, options)</a> &#x21D2; <code>Promise.&lt;File&gt;</code></li>
+<li><a href="#module-storage-folder-createfolder">.createFolder(name)</a> &#x21D2; <code>Folder</code></li>
+<li><a href="#module-storage-folder-getentry">.getEntry(filePath)</a> &#x21D2; <code>Promise.&lt;(File or Folder)&gt;</code></li>
+<li><a href="#module-storage-folder-renameentry">.renameEntry(entry, newName, options)</a> &#x21D2; <code>Promise</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-localfilesystem">.localFileSystem</a> : <code>LocalFileSystemProvider</code></li>
+<li><a href="#module-storage-errors">.errors</a> : <code>Errors</code><ul>
+<li><a href="#module-storage-errors-abstractmethodinvocationerror">.AbstractMethodInvocationError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-providermismatcherror">.ProviderMismatchError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryisnotanentryerror">.EntryIsNotAnEntryError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryisnotafoldererror">.EntryIsNotAFolderError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryisnotafileerror">.EntryIsNotAFileError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-notafilesystemerror">.NotAFileSystemError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-outofspaceerror">.OutOfSpaceError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-permissiondeniederror">.PermissionDeniedError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryexistserror">.EntryExistsError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-fileisreadonlyerror">.FileIsReadOnlyError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-domainnotsupportederror">.DomainNotSupportedError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-invalidfilenameerror">.InvalidFileNameError</a> &#x21D0; <code>Error</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-filetypes">.fileTypes</a><ul>
+<li><a href="#module-storage-filetypes-text">.text</a></li>
+<li><a href="#module-storage-filetypes-images">.images</a></li>
+<li><a href="#module-storage-filetypes-all">.all</a></li>
+</ul>
+</li>
+<li><a href="#module-storage-formats">.formats</a><ul>
+<li><a href="#module-storage-formats-utf8">.utf8</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-formats-binary">.binary</a> : <code>Symbol</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-modes">.modes</a><ul>
+<li><a href="#module-storage-modes-readonly">.readOnly</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-modes-readwrite">.readWrite</a> : <code>Symbol</code></li>
+</ul>
+</li>
+<li><a href="#module-storage-types">.types</a><ul>
+<li><a href="#module-storage-types-file">.file</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-types-folder">.folder</a> : <code>Symbol</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-entry"></a></p>
+<h3 id="storageentry">storage.Entry</h3>
+<p>An <code>Entry</code> is the base <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> for <code>File</code> and <code>Folder</code>. You&apos;ll
+never instantiate an <code>Entry</code> directly, but it provides
+the common fields and methods that both <code>File</code> and <code>Folder</code>
+share.</p>
+<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
+<p></p>
+<p>Important:</p>
+<ul>
+<li>An Entry object may exist even if the corresponding file/folder on disk does not
+currently exist.</li>
+<li>It&apos;s possible for multiple Entry objects to represent the same item on disk,
+for example if the item was picked via multiple separate file picker invocations.</li>
+</ul>
+</div></div>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage"><code>storage</code></a>
+<strong>Since</strong>: XD 13</p>
+<ul>
+<li><a href="#module-storage-entry">.Entry</a><ul>
+<li><a href="#module-storage-entry-name">.name</a> : <code>string</code></li>
+<li><a href="#module-storage-entry-provider">.provider</a> : <code>FileSystemProvider</code></li>
+<li><a href="#module-storage-entry-url">.url</a> : <code>URL</code></li>
+<li><a href="#module-storage-entry-nativepath">.nativePath</a> : <code>string</code></li>
+<li><a href="#module-storage-entry-isentry">.isEntry</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entry-isfile">.isFile</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entry-isfolder">.isFolder</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entry-tostring">.toString()</a> &#x21D2; <code>string</code></li>
+<li><a href="#module-storage-entry-copyto">.copyTo(folder, options)</a> &#x21D2; <code>Promise</code></li>
+<li><a href="#module-storage-entry-moveto">.moveTo(folder, options)</a> &#x21D2; <code>Promise</code></li>
+<li><a href="#module-storage-entry-delete">.delete()</a> &#x21D2; <code>Promise</code></li>
+<li><a href="#module-storage-entry-getmetadata">.getMetadata()</a> &#x21D2; <code>Promise.&lt;EntryMetadata&gt;</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-entry-name"></a></p>
+<h4 id="entryname--string">entry.name : <code>string</code></h4>
+<p>The name of this entry. Read-only.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Read only</strong>: true
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(anEntry.name);
+</code></pre>
+<p><a id="module-storage-entry-provider"></a></p>
+<h4 id="entryprovider--filesystemprovider">entry.provider : <code>FileSystemProvider</code></h4>
+<p>The associated provider that services this entry. Read-only.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Read only</strong>: true
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (entryOne.provider !== entryTwo.provider) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;Providers are not the same&quot;</span>);
+}
+</code></pre>
+<p><a id="module-storage-entry-url"></a></p>
+<h4 id="entryurl--url">entry.url : <code>URL</code></h4>
+<p>The url of this entry. You can use this url as the <code>src</code> attribute of an <code>&lt;img&gt;</code> tag in the UI. Read-only.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Read only</strong>: true
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(anEntry.url);
+</code></pre>
+<p><a id="module-storage-entry-nativepath"></a></p>
+<h4 id="entrynativepath--string">entry.nativePath : <code>string</code></h4>
+<p>The platform native file-system path of this entry. Read-only</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Read only</strong>: true
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(anEntry.nativePath);
+</code></pre>
+<h4 id="entryisentry--boolean">entry.isEntry : <code>boolean</code></h4>
+<p>Indicates that this <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> is an <code>Entry</code>. Useful for type-checking.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (something.isEntry) {
+    <span class="hljs-keyword">return</span> something.getMetadata();
+}
+</code></pre>
+<p><a id="module-storage-entry-isfile"></a></p>
+<h4 id="entryisfile--boolean">entry.isFile : <code>boolean</code></h4>
+<p>Indicates that this <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> is <strong>not</strong> a <code>File</code>. Useful for type-
+checking.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Read only</strong>: true
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (!anEntry.isFile) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;This entry is not a file.&quot;</span>;
+}
+</code></pre>
+<p><a id="module-storage-entry-isfolder"></a></p>
+<h4 id="entryisfolder--boolean">entry.isFolder : <code>boolean</code></h4>
+<p>Indicates that this <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> is <strong>not</strong> a folder. Useful for type-
+checking.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Read only</strong>: true
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (!anEntry.isFolder) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;This entry is not a folder.&quot;</span>;
+}
+</code></pre>
+<p><a id="module-storage-entry-tostring"></a></p>
+<h4 id="entrytostring-&#x21D2;-string">entry.toString() &#x21D2; <code>string</code></h4>
+<p>Returns the details of the given entry like name, type and native path in a readable string format.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Since</strong>: XD 13</p>
+<p><a id="module-storage-entry-copyto"></a></p>
+<h4 id="entrycopytofolder-options-&#x21D2;-promise">entry.copyTo(folder, options) &#x21D2; <code>Promise</code></h4>
+<p>Copies this entry to the specified <code>folder</code>.</p>
+<p>The Entry object passed to this function will continue to reference the
+original item - it is <em>not</em> updated to reference the copy.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li><code>EntryExists</code> if the attempt would overwrite an entry and <code>overwrite</code> is <code>false</code></li>
+<li><code>PermissionDenied</code> if the underlying file system rejects the attempt</li>
+<li><code>OutOfSpace</code> if the file system is out of storage space</li>
+</ul>
+<p><strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>folder</td>
+<td><code>Folder</code></td>
+<td></td>
+<td>the folder to which to copy this entry</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>*</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.overwrite]</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>if <code>true</code>, allows overwriting existing entries</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFile.copyTo(someFolder);
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFile.copyTo(someFolder, {<span class="hljs-attr">overwrite</span>: <span class="hljs-literal">true</span>});
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFolder.copyTo(anotherFolder, {<span class="hljs-attr">overwrite</span>: <span class="hljs-literal">true</span>});
+</code></pre>
+<p><a id="module-storage-entry-moveto"></a></p>
+<h4 id="entrymovetofolder-options-&#x21D2;-promise">entry.moveTo(folder, options) &#x21D2; <code>Promise</code></h4>
+<p>Moves this entry to the target folder, optionally specifying a new name.</p>
+<p>The Entry object passed to this function is automatically updated to
+reference the new location, however any <em>other</em> Entry objects
+referencing the original item will not be updated, and will thus no
+longer point to an item that exists on disk.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>folder</td>
+<td><code>Folder</code></td>
+<td></td>
+<td>the folder to which to move this entry</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>*</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.overwrite]</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>If <code>true</code> allows the move to overwrite existing files</td>
+</tr>
+<tr>
+<td>[options.newName]</td>
+<td><code>string</code></td>
+<td></td>
+<td>If specified, the entry is renamed to this name</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFile.moveTo(someFolder);
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFile.moveTo(someFolder, {<span class="hljs-attr">overwrite</span>: <span class="hljs-literal">true</span>});
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFolder.moveTo(anotherFolder, {<span class="hljs-attr">overwrite</span>: <span class="hljs-literal">true</span>});
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFile.moveTo(someFolder, {<span class="hljs-attr">newName</span>: <span class="hljs-string">&apos;masterpiece.txt&apos;</span>})
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> someFile.moveTo(someFolder, {<span class="hljs-attr">newName</span>: <span class="hljs-string">&apos;novel.txt&apos;</span>, {<span class="hljs-attr">overwrite</span>: <span class="hljs-literal">true</span>})
+</code></pre>
+<p><a id="module-storage-entry-delete"></a></p>
+<h4 id="entrydelete-&#x21D2;-promise">entry.delete() &#x21D2; <code>Promise</code></h4>
+<p>Removes this entry from the file system. If the entry is a folder, all the
+contents will also be removed.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> aFile.delete();
+</code></pre>
+<p><a id="module-storage-entry-getmetadata"></a></p>
+<h4 id="entrygetmetadata-&#x21D2;-promiseentrymetadata">entry.getMetadata() &#x21D2; <code>Promise.&lt;EntryMetadata&gt;</code></h4>
+<p>Returns this entry&apos;s metadata.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-entry"><code>Entry</code></a>
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> metadata = <span class="hljs-keyword">await</span> aFile.getMetadata();
+</code></pre>
+<p><a id="module-storage-entrymetadata"></a></p>
+<h3 id="storageentrymetadata">storage.EntryMetadata</h3>
+<p>Metadata for an entry. It includes useful information such as:</p>
+<ul>
+<li>size of the file (if a file)</li>
+<li>date created</li>
+<li>date modified</li>
+<li>name</li>
+</ul>
+<p>You&apos;ll never instantiate an <code>EntryMetadata</code> directly; instead use
+<a href="#module-storage-entry-getmetadata">getMetadata</a> to get metadata for a
+specific File or Folder entry.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage"><code>storage</code></a></p>
+<ul>
+<li><a href="#module-storage-entrymetadata">.EntryMetadata</a><ul>
+<li><a href="#module-storage-entrymetadata-name">.name</a> : <code>string</code></li>
+<li><a href="#module-storage-entrymetadata-size">.size</a> : <code>number</code></li>
+<li><a href="#module-storage-entrymetadata-datecreated">.dateCreated</a> : <code>Date</code></li>
+<li><a href="#module-storage-entrymetadata-datemodified">.dateModified</a> : <code>Date</code></li>
+<li><a href="#module-storage-entrymetadata-isfile">.isFile</a> : <code>boolean</code></li>
+<li><a href="#module-storage-entrymetadata-isfolder">.isFolder</a> : <code>boolean</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-entrymetadata-name"></a></p>
+<h4 id="entrymetadataname--string">entryMetadata.name : <code>string</code></h4>
+<p>The name of the entry.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entrymetadata"><code>EntryMetadata</code></a></p>
+<p><a id="module-storage-entrymetadata-size"></a></p>
+<h4 id="entrymetadatasize--number">entryMetadata.size : <code>number</code></h4>
+<p>The size of the entry, if a file. Zero if a folder.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entrymetadata"><code>EntryMetadata</code></a></p>
+<p><a id="module-storage-entrymetadata-datecreated"></a></p>
+<h4 id="entrymetadatadatecreated--date">entryMetadata.dateCreated : <code>Date</code></h4>
+<p>The date this entry was created.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entrymetadata"><code>EntryMetadata</code></a></p>
+<p><a id="module-storage-entrymetadata-datemodified"></a></p>
+<h4 id="entrymetadatadatemodified--date">entryMetadata.dateModified : <code>Date</code></h4>
+<p>The date this entry was modified.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entrymetadata"><code>EntryMetadata</code></a></p>
+<p><a id="module-storage-entrymetadata-isfile"></a></p>
+<h4 id="entrymetadataisfile--boolean">entryMetadata.isFile : <code>boolean</code></h4>
+<p>Indicates if the entry is a file</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entrymetadata"><code>EntryMetadata</code></a></p>
+<p><a id="module-storage-entrymetadata-isfolder"></a></p>
+<h4 id="entrymetadataisfolder--boolean">entryMetadata.isFolder : <code>boolean</code></h4>
+<p>Indicates if the entry is a folder</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-entrymetadata"><code>EntryMetadata</code></a></p>
+<p><a id="module-storage-file"></a></p>
+<h3 id="storagefile">storage.File</h3>
+<p>Represents a file on a file system. Provides methods for reading from and
+writing to the file. You&apos;ll never instantiate a <code>File</code> directly; instead
+you&apos;ll get access via a <a href="#module-storage-filesystemprovider">FileSystemProvider</a>.
+method such as <a href="#module-storage-filesystemprovider-getfileforopening"><code>getFileForOpening()</code></a>.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage"><code>storage</code></a>
+<strong>Since</strong>: XD 13</p>
+<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
+<p></p>
+<p>Important:</p>
+<ul>
+<li><p>A File object may exist even if the corresponding file on disk does not currently exist.</p>
+</li>
+<li><p>It&apos;s possible for multiple File objects to represent the same file on disk,
+for example if the file was picked via multiple separate file picker invocations.</p>
+</li>
+</ul>
+</div></div>
+<ul>
+<li><a href="#module-storage-file">.File</a><ul>
+<li><a href="#module-storage-file-mode">.mode</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-file-read">.read(options)</a> &#x21D2; <code>Promise.&lt;(string or ArrayBuffer)&gt;</code></li>
+<li><a href="#module-storage-file-write">.write(data, options)</a></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-file-mode"></a></p>
+<h4 id="filemode--symbol">file.mode : <code>Symbol</code></h4>
+<p>Indicates whether this File object supports read-only or read-write
+access. See <a href="#module-storage-modes-readonly">readOnly</a> and <a href="#module-storage-modes-readwrite">readWrite</a>.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#module-storage-file"><code>File</code></a>
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span> (aFile.mode === modes.readOnly) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;Can&apos;t write to a file opened as read-only.&quot;</span>);
+}
+</code></pre>
+<p><a id="module-storage-file-read"></a></p>
+<h4 id="filereadoptions-&#x21D2;-promisestring-or-arraybuffer">file.read(options) &#x21D2; <code>Promise.&lt;(string or ArrayBuffer)&gt;</code></h4>
+<p>Reads data from the file and returns it. The file format can be specified
+with the <code>format</code> option. If a format is not supplied, the file is assumed
+to be a text file using UTF8 encoding.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-file"><code>File</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;(string or ArrayBuffer)&gt;</code> - the contents of the file
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.format]</td>
+<td><code>Symbol</code></td>
+<td><code>formats.utf8</code></td>
+<td>Optional. Format to read: one of <a href="#module-storage-formats-utf8"><code>storage.formats.utf8</code></a> or <a href="#module-storage-formats-binary"><code>storage.formats.binary</code></a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> myNovel.read(); <span class="hljs-comment">// &apos;text&apos; is a string</span>
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> myNovel.read({<span class="hljs-attr">format</span>: formats.binary}); <span class="hljs-comment">// &apos;data&apos; is an ArrayBuffer</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;File is &quot;</span> + data.byteLength + <span class="hljs-string">&quot; bytes long.&quot;</span>);
+</code></pre>
+<p><a id="module-storage-file-write"></a></p>
+<h4 id="filewritedata-options">file.write(data, options)</h4>
+<p>Writes data to a file, appending if desired. The format of the file
+is controlled via the <code>format</code> option, and defaults to UTF8.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-file"><code>File</code></a>
+<strong>Throws</strong>:</p>
+<ul>
+<li><code>FileIsReadOnly</code> if writing to a read-only file</li>
+<li><code>OutOfSpace</code> If writing to the file causes the file system to exceed the available space (or quota)</li>
+</ul>
+<p><strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td><code>string</code>  or  <code>ArrayBuffer</code></td>
+<td></td>
+<td>Data to write to the file</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.format]</td>
+<td><code>Symbol</code></td>
+<td><code>formats.utf8</code></td>
+<td>Optional. Format to write: <a href="#module-storage-formats-utf8"><code>storage.formats.utf8</code></a> or <a href="#module-storage-formats-binary"><code>storage.formats.binary</code></a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> myNovel.write(<span class="hljs-string">&quot;It was a dark and stormy night.\n&quot;</span>);
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>([<span class="hljs-number">0xFF</span>, <span class="hljs-number">0xA1</span>]);
+<span class="hljs-keyword">await</span> aDataFile.write(data, {<span class="hljs-attr">format</span>: formats.binary});  <span class="hljs-comment">// writes a 2-byte file</span>
+</code></pre>
+<p><a id="module-storage-filesystemprovider"></a></p>
+<h3 id="storagefilesystemprovider">storage.FileSystemProvider</h3>
+<p>Provides access to files and folders on a file system. You don&apos;t instantiate
+this directly; instead you&apos;ll use an <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> that has already been created for
+you.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage"><code>storage</code></a>
+<strong>Since</strong>: XD 13</p>
+<ul>
+<li><a href="#module-storage-filesystemprovider">.FileSystemProvider</a><ul>
+<li><a href="#module-storage-filesystemprovider-getfileforopening">.getFileForOpening(options)</a> &#x21D2; <code>Promise.&lt;?File&gt;</code>  or  <code>Promise.&lt;!Array.&lt;File&gt;&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getfileforsaving">.getFileForSaving(suggestedName, options)</a> &#x21D2; <code>Promise.&lt;?File&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getfolder">.getFolder()</a> &#x21D2; <code>Promise.&lt;?Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-gettemporaryfolder">.getTemporaryFolder()</a> &#x21D2; <code>Promise.&lt;Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getdatafolder">.getDataFolder()</a> &#x21D2; <code>Promise.&lt;Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getpluginfolder">.getPluginFolder()</a> &#x21D2; <code>Promise.&lt;Folder&gt;</code></li>
+<li><a href="#module-storage-filesystemprovider-getfsurl">.getFsUrl(entry)</a> &#x21D2; <code>URL</code></li>
+<li><a href="#module-storage-filesystemprovider-getnativepath">.getNativePath(entry)</a> &#x21D2; <code>string</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-filesystemprovider-getfileforopening"></a></p>
+<h4 id="filesystemprovidergetfileforopeningoptions-&#x21D2;-promisefile--or--promisearrayfile">fileSystemProvider.getFileForOpening(options) &#x21D2; <code>Promise.&lt;File&gt;</code>  or  <code>Promise.&lt;Array.&lt;File&gt;&gt;</code></h4>
+<p>Gets a file (or files) suitable for reading by displaying an &quot;Open&quot; file
+picker <a href="../../../GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a> to the user. File entries returned by this API are read-only -
+use <a href="#module-storage-filesystemprovider-getfileforsaving">getFileForSaving</a>
+to get a File entry you can write to.</p>
+<p>The user can select multiple files only if the <code>allowMultiple</code> option is <code>true</code>.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;?File&gt;</code>  or  <code>Promise.&lt;!Array.&lt;File&gt;&gt;</code> - <code>?File</code> if <code>allowMultiple</code> is false (null if picker canceled); or <code>!Array&lt;File&gt;</code> if <code>allowMultiple</code> is true (length 0 if picker canceled)
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.types]</td>
+<td><code>Array.&lt;string&gt;</code></td>
+<td><code>[&apos;*&apos;]</code></td>
+<td>Optional. Allowed file extensions, with no &quot;.&quot; prefix; use <a href="#module-storage-filetypes-all"><code>storage.fileTypes.all</code></a> to allow any file to be picked</td>
+</tr>
+<tr>
+<td>[options.allowMultiple]</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Optional. If true, multiple files can be selected and this API returns <code>Array&lt;File&gt;</code>.<br><br>If false, only one file can be selected and this API returns a <code>File</code> directly.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> file = <span class="hljs-keyword">await</span> fs.getFileForOpening();
+<span class="hljs-keyword">if</span> (!file) {
+    <span class="hljs-comment">// file picker dialog was canceled</span>
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> file.read();
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> files = <span class="hljs-keyword">await</span> fs.getFileForOpening({<span class="hljs-attr">allowMultiple</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">types</span>: fileTypes.images});
+<span class="hljs-keyword">if</span> (files.length === <span class="hljs-number">0</span>) {
+    <span class="hljs-comment">// no files selected</span>
+}
+</code></pre>
+<p><a id="module-storage-filesystemprovider-getfileforsaving"></a></p>
+<h4 id="filesystemprovidergetfileforsavingsuggestedname-options-&#x21D2;-promisefile">fileSystemProvider.getFileForSaving(suggestedName, options) &#x21D2; <code>Promise.&lt;?File&gt;</code></h4>
+<p>Gets a file reference suitable for read-write by displaying a &quot;Save&quot; file
+picker <a href="../../../GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a> to the user.</p>
+<p>If the act of writing to the file would overwrite it, the file picker
+will prompt the user to confirm before returning a result to you.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;?File&gt;</code> - returns the selected file, or <code>null</code> if canceled
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>suggestedName</td>
+<td><code>string</code></td>
+<td>Required. The file extension should match one of the options specified in the <code>types</code> option.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.types]</td>
+<td><code>Array.&lt;string&gt;</code></td>
+<td>Required. Allowed file extensions, with no &quot;.&quot; prefix.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> file = <span class="hljs-keyword">await</span> fs.getFileForSaving(<span class="hljs-string">&quot;output.txt&quot;</span>, { <span class="hljs-attr">types</span>: [ <span class="hljs-string">&quot;txt&quot;</span> ]});
+<span class="hljs-keyword">if</span> (!file) {
+    <span class="hljs-comment">// file picker was cancelled</span>
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">await</span> file.write(<span class="hljs-string">&quot;It was a dark and stormy night&quot;</span>);
+</code></pre>
+<p><a id="module-storage-filesystemprovider-getfolder"></a></p>
+<h4 id="filesystemprovidergetfolder-&#x21D2;-promisefolder">fileSystemProvider.getFolder() &#x21D2; <code>Promise.&lt;?Folder&gt;</code></h4>
+<p>Gets a folder from the file system via a folder picker <a href="../../../GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a>. The files
+and folders within can be accessed via <a href="#module-storage-folder-getentries">getEntries</a>. Any
+files within are read-write.</p>
+<p>If the user cancels the picker, <code>null</code> is returned instead.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;?Folder&gt;</code> - the selected folder or <code>null</code> if picker is canceled.
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> folder = <span class="hljs-keyword">await</span> fs.getFolder();
+<span class="hljs-keyword">const</span> myNovel = (<span class="hljs-keyword">await</span> fs.getEntries()).find(<span class="hljs-function"><span class="hljs-params">entry</span> =&gt;</span> entry.name.includes(<span class="hljs-string">&apos;novel&apos;</span>));
+<span class="hljs-keyword">const</span> text = <span class="hljs-keyword">await</span> myNovel.read();
+</code></pre>
+<p><a id="module-storage-filesystemprovider-gettemporaryfolder"></a></p>
+<h4 id="filesystemprovidergettemporaryfolder-&#x21D2;-promisefolder">fileSystemProvider.getTemporaryFolder() &#x21D2; <code>Promise.&lt;Folder&gt;</code></h4>
+<p>Returns a temporary folder. The contents of the folder may be lost when
+the host <a href="../../../GLOSSARY.html#application" class="glossary-term" title="An XD-specific namespace that provides access to various methods that aren&apos;t specific to the XD document. Read more.">application</a> is closed.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a>
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> temp = <span class="hljs-keyword">await</span> fs.getTemporaryFolder();
+</code></pre>
+<p><a id="module-storage-filesystemprovider-getdatafolder"></a></p>
+<h4 id="filesystemprovidergetdatafolder-&#x21D2;-promisefolder">fileSystemProvider.getDataFolder() &#x21D2; <code>Promise.&lt;Folder&gt;</code></h4>
+<p>Returns a folder that can be used for storing plugin-specific data without needing user
+interaction though a file picker. Its contents remain persistent when the host
+<a href="../../../GLOSSARY.html#application" class="glossary-term" title="An XD-specific namespace that provides access to various methods that aren&apos;t specific to the XD document. Read more.">application</a> is updated <em>and</em> when your plugin is updated.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a>
+<strong>Since</strong>: XD 13</p>
+<p><a id="module-storage-filesystemprovider-getpluginfolder"></a></p>
+<h4 id="filesystemprovidergetpluginfolder-&#x21D2;-promisefolder">fileSystemProvider.getPluginFolder() &#x21D2; <code>Promise.&lt;Folder&gt;</code></h4>
+<p>Returns an plugin&apos;s folder &#x2013; this folder and everything within it are read only.
+This contains all the Plugin related packaged assets.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a>
+<strong>Since</strong>: XD 13</p>
+<p><a id="module-storage-filesystemprovider-getfsurl"></a></p>
+<h4 id="filesystemprovidergetfsurlentry-&#x21D2;-url">fileSystemProvider.getFsUrl(entry) &#x21D2; <code>URL</code></h4>
+<p>Returns the fs url of given entry.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entry</td>
+<td><code>Entry</code></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-storage-filesystemprovider-getnativepath"></a></p>
+<h4 id="filesystemprovidergetnativepathentry-&#x21D2;-string">fileSystemProvider.getNativePath(entry) &#x21D2; <code>string</code></h4>
+<p>Returns the platform native file system path of given entry.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-filesystemprovider"><code>FileSystemProvider</code></a></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entry</td>
+<td><code>Entry</code></td>
+</tr>
+</tbody>
+</table>
+<p><a id="module-storage-folder"></a></p>
+<h3 id="storagefolder-&#x21D0;-entry">storage.Folder &#x21D0; <code>Entry</code></h3>
+<p>Represents a folder on a file system. You&apos;ll never instantiate this directly,
+but will get it by calling <a href="#module-storage-filesystemprovider-gettemporaryfolder">getTemporaryFolder</a>,
+<a href="#module-storage-filesystemprovider-getfolder">getFolder</a>, or via
+<a href="#module-storage-folder-getentries">getEntries</a>.</p>
+<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
+<p></p>
+<p>Important:</p>
+<ul>
+<li>A Folder object may exist even if the corresponding folder on disk does not currently
+exist.</li>
+<li>It&apos;s possible for multiple Folder objects to represent the same folder on disk,
+for example if the folder was picked via multiple separate folder picker invocations.</li>
+</ul>
+</div></div>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage"><code>storage</code></a>
+<strong>Extends</strong>: <code>Entry</code>
+<strong>Since</strong>: XD 13</p>
+<ul>
+<li><a href="#module-storage-folder">.Folder</a> &#x21D0; <code>Entry</code><ul>
+<li><a href="#module-storage-folder-getentries">.getEntries()</a> &#x21D2; <code>Promise.&lt;Array.&lt;Entry&gt;&gt;</code></li>
+<li><a href="#module-storage-folder-createfile">.createFile(name, options)</a> &#x21D2; <code>Promise.&lt;File&gt;</code></li>
+<li><a href="#module-storage-folder-createfolder">.createFolder(name)</a> &#x21D2; <code>Folder</code></li>
+<li><a href="#module-storage-folder-getentry">.getEntry(filePath)</a> &#x21D2; <code>Promise.&lt;(File or Folder)&gt;</code></li>
+<li><a href="#module-storage-folder-renameentry">.renameEntry(entry, newName, options)</a> &#x21D2; <code>Promise</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-folder-getentries"></a></p>
+<h4 id="foldergetentries-&#x21D2;-promisearrayentry">folder.getEntries() &#x21D2; <code>Promise.&lt;Array.&lt;Entry&gt;&gt;</code></h4>
+<p>Returns an array of entries contained within this folder.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-folder"><code>Folder</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;Array.&lt;Entry&gt;&gt;</code> - The entries within the folder.
+<strong>Since</strong>: XD 13
+<strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> entries = <span class="hljs-keyword">await</span> aFolder.getEntries();
+<span class="hljs-keyword">const</span> allFiles = entries.filter(<span class="hljs-function"><span class="hljs-params">entry</span> =&gt;</span> entry.isFile);
+</code></pre>
+<p><a id="module-storage-folder-createfile"></a></p>
+<h4 id="foldercreatefilename-options-&#x21D2;-promisefile">folder.createFile(name, options) &#x21D2; <code>Promise.&lt;File&gt;</code></h4>
+<p>Creates a File object within this folder, which need not correspond to a file that exists on disk
+yet.</p>
+<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
+<p></p>
+<p>Important:</p>
+<ul>
+<li>If the file already exists on disk (and <code>overwrite</code> is true), creates a File object but does not
+modify the existing file on disk in any way.</li>
+<li>If the file does not exist yet, creates a File object but does <em>not</em> create the file on disk yet.
+You can then use <a href="#module-storage-file-write">write</a> to create the file and give it
+content.</li>
+</ul>
+</div></div>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-folder"><code>Folder</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;File&gt;</code> - the created file entry
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td></td>
+<td>the name of the file to create.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.overwrite]</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>If <code>false</code>, the call will fail if the file already exists. If <code>true</code>, the call will succeed regardless of whether the file currently exists on disk.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> myNovelTxtFile = <span class="hljs-keyword">await</span> aFolder.createFile(<span class="hljs-string">&quot;mynovel.txt&quot;</span>);
+</code></pre>
+<p><a id="module-storage-folder-createfolder"></a></p>
+<h4 id="foldercreatefoldername-&#x21D2;-folder">folder.createFolder(name) &#x21D2; <code>Folder</code></h4>
+<p>Creates a Folder object within this folder <em>and</em> creates the folder on disk. Unlike <code>createFile()</code>,
+this call <em>does</em> modify the disk, and it cannot be used if the folder already exists
+(use <a href="#module-storage-folder-getentry">getEntry</a> in that case).</p>
+<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
+<p></p>
+<p>Important:</p>
+<ul>
+<li>If the folder already exists on disk, fails with an error.</li>
+<li>If the folder does not exist yet, immediately creates it on disk and then returns a Folder object
+for it.</li>
+</ul>
+</div></div>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-folder"><code>Folder</code></a>
+<strong>Returns</strong>: <code>Folder</code> - the created folder entry object
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>the name of the folder to create.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> myCollectionsFolder = <span class="hljs-keyword">await</span> aFolder.createFolder(<span class="hljs-string">&quot;collections&quot;</span>);
+</code></pre>
+<p><a id="module-storage-folder-getentry"></a></p>
+<h4 id="foldergetentryfilepath-&#x21D2;-promisefile-or-folder">folder.getEntry(filePath) &#x21D2; <code>Promise.&lt;(File or Folder)&gt;</code></h4>
+<p>Returns a File or Folder entry for an item that already exists on disk within this folder or
+its hierarchy of subfolders. Fails if no entry with the given name/path currently exists on disk.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-folder"><code>Folder</code></a>
+<strong>Returns</strong>: <code>Promise.&lt;(File or Folder)&gt;</code> - the fetched entry.
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filePath</td>
+<td><code>string</code></td>
+<td>Name, with optional relative path prefix, of an existing entry within this folder</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> myNovel = <span class="hljs-keyword">await</span> aFolder.getEntry(<span class="hljs-string">&quot;mynovel.txt&quot;</span>);
+</code></pre>
+<p><a id="module-storage-folder-renameentry"></a></p>
+<h4 id="folderrenameentryentry-newname-options-&#x21D2;-promise">folder.renameEntry(entry, newName, options) &#x21D2; <code>Promise</code></h4>
+<p>Renames an item on disk to a new name within the same folder. The Entry object passed to this
+function is automatically updated to reference the new name, however any <em>other</em> Entry objects
+referencing the original item will not be updated, and will thus no longer point to an item that
+exists on disk.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#module-storage-folder"><code>Folder</code></a>
+<strong>Since</strong>: XD 13</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entry</td>
+<td><code>Entry</code></td>
+<td></td>
+<td>entry to rename (File or Folder). Must exist.</td>
+</tr>
+<tr>
+<td>newName</td>
+<td><code>string</code></td>
+<td></td>
+<td>the new name to assign</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>any</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.overwrite]</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>if <code>true</code>, renaming can overwrite an existing entry</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">await</span> myNovels.rename(myNovel, <span class="hljs-string">&quot;myFantasticNovel.txt&quot;</span>);
+</code></pre>
+<p><a id="module-storage-localfilesystem"></a></p>
+<h3 id="storagelocalfilesystem--localfilesystemprovider">storage.localFileSystem : <code>LocalFileSystemProvider</code></h3>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage"><code>storage</code></a></p>
+<p><a id="module-storage-errors"></a></p>
+<h3 id="storageerrors--errors">storage.errors : <code>Errors</code></h3>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage"><code>storage</code></a></p>
+<ul>
+<li><a href="#module-storage-errors">.errors</a> : <code>Errors</code><ul>
+<li><a href="#module-storage-errors-abstractmethodinvocationerror">.AbstractMethodInvocationError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-providermismatcherror">.ProviderMismatchError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryisnotanentryerror">.EntryIsNotAnEntryError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryisnotafoldererror">.EntryIsNotAFolderError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryisnotafileerror">.EntryIsNotAFileError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-notafilesystemerror">.NotAFileSystemError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-outofspaceerror">.OutOfSpaceError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-permissiondeniederror">.PermissionDeniedError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-entryexistserror">.EntryExistsError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-fileisreadonlyerror">.FileIsReadOnlyError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-domainnotsupportederror">.DomainNotSupportedError</a> &#x21D0; <code>Error</code></li>
+<li><a href="#module-storage-errors-invalidfilenameerror">.InvalidFileNameError</a> &#x21D0; <code>Error</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-errors-abstractmethodinvocationerror"></a></p>
+<h4 id="errorsabstractmethodinvocationerror-&#x21D0;-error">errors.AbstractMethodInvocationError &#x21D0; <code>Error</code></h4>
+<p>Attempted to invoke an abstract method.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-providermismatcherror"></a></p>
+<h4 id="errorsprovidermismatcherror-&#x21D0;-error">errors.ProviderMismatchError &#x21D0; <code>Error</code></h4>
+<p>Attempted to execute a command that required the providers of all
+entries to match.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-entryisnotanentryerror"></a></p>
+<h4 id="errorsentryisnotanentryerror-&#x21D0;-error">errors.EntryIsNotAnEntryError &#x21D0; <code>Error</code></h4>
+<p>The object passed as an entry is not actually an <code>Entry</code>.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-entryisnotafoldererror"></a></p>
+<h4 id="errorsentryisnotafoldererror-&#x21D0;-error">errors.EntryIsNotAFolderError &#x21D0; <code>Error</code></h4>
+<p>The entry is not a folder, but was expected to be a folder.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-entryisnotafileerror"></a></p>
+<h4 id="errorsentryisnotafileerror-&#x21D0;-error">errors.EntryIsNotAFileError &#x21D0; <code>Error</code></h4>
+<p>The entry is not a file, but was expected to be.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-notafilesystemerror"></a></p>
+<h4 id="errorsnotafilesystemerror-&#x21D0;-error">errors.NotAFileSystemError &#x21D0; <code>Error</code></h4>
+<p>The <a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> was expected to be a file system, but wasn&apos;t.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-outofspaceerror"></a></p>
+<h4 id="errorsoutofspaceerror-&#x21D0;-error">errors.OutOfSpaceError &#x21D0; <code>Error</code></h4>
+<p>The file system is out of space (or quota has been exceeded)</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-permissiondeniederror"></a></p>
+<h4 id="errorspermissiondeniederror-&#x21D0;-error">errors.PermissionDeniedError &#x21D0; <code>Error</code></h4>
+<p>The file system revoked permission to complete the requested
+action.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-entryexistserror"></a></p>
+<h4 id="errorsentryexistserror-&#x21D0;-error">errors.EntryExistsError &#x21D0; <code>Error</code></h4>
+<p>An attempt was made to overwrite an entry without indicating
+that it was safe to do so via <code>overwrite: true</code>.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-fileisreadonlyerror"></a></p>
+<h4 id="errorsfileisreadonlyerror-&#x21D0;-error">errors.FileIsReadOnlyError &#x21D0; <code>Error</code></h4>
+<p>An attempt was made to write to a file that was opened as
+read-only.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-domainnotsupportederror"></a></p>
+<h4 id="errorsdomainnotsupportederror-&#x21D0;-error">errors.DomainNotSupportedError &#x21D0; <code>Error</code></h4>
+<p>Domain is not supported by the current FileSystemProvider
+<a href="../../../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a>.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-errors-invalidfilenameerror"></a></p>
+<h4 id="errorsinvalidfilenameerror-&#x21D0;-error">errors.InvalidFileNameError &#x21D0; <code>Error</code></h4>
+<p>The file name contains invalid characters</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> <a href="../../../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of <a href="#module-storage-errors"><code>errors</code></a>
+<strong>Extends</strong>: <code>Error</code></p>
+<p><a id="module-storage-filetypes"></a></p>
+<h3 id="storagefiletypes">storage.fileTypes</h3>
+<p>This namespace describes the various file type extensions that can used be used in some FS file open methods.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> constant of <a href="#module-storage"><code>storage</code></a></p>
+<ul>
+<li><a href="#module-storage-filetypes">.fileTypes</a><ul>
+<li><a href="#module-storage-filetypes-text">.text</a></li>
+<li><a href="#module-storage-filetypes-images">.images</a></li>
+<li><a href="#module-storage-filetypes-all">.all</a></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-filetypes-text"></a></p>
+<h4 id="filetypestext">fileTypes.text</h4>
+<p>Text file extensions</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-filetypes"><code>fileTypes</code></a></p>
+<p><a id="module-storage-filetypes-images"></a></p>
+<h4 id="filetypesimages">fileTypes.images</h4>
+<p>Image file extensions</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-filetypes"><code>fileTypes</code></a></p>
+<p><a id="module-storage-filetypes-all"></a></p>
+<h4 id="filetypesall">fileTypes.all</h4>
+<p>All file types</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-filetypes"><code>fileTypes</code></a></p>
+<p><a id="module-storage-formats"></a></p>
+<h3 id="storageformats">storage.formats</h3>
+<p>This namespace describes the file content formats supported in FS methods like read and write.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> constant of <a href="#module-storage"><code>storage</code></a></p>
+<ul>
+<li><a href="#module-storage-formats">.formats</a><ul>
+<li><a href="#module-storage-formats-utf8">.utf8</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-formats-binary">.binary</a> : <code>Symbol</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-formats-utf8"></a></p>
+<h4 id="formatsutf8--symbol">formats.utf8 : <code>Symbol</code></h4>
+<p>UTF8 File encoding</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-formats"><code>formats</code></a></p>
+<p><a id="module-storage-formats-binary"></a></p>
+<h4 id="formatsbinary--symbol">formats.binary : <code>Symbol</code></h4>
+<p>Binary file encoding</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-formats"><code>formats</code></a></p>
+<p><a id="module-storage-modes"></a></p>
+<h3 id="storagemodes">storage.modes</h3>
+<p>This namespace describes the access modes that can be supported by a given File entry.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> constant of <a href="#module-storage"><code>storage</code></a></p>
+<ul>
+<li><a href="#module-storage-modes">.modes</a><ul>
+<li><a href="#module-storage-modes-readonly">.readOnly</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-modes-readwrite">.readWrite</a> : <code>Symbol</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-modes-readonly"></a></p>
+<h4 id="modesreadonly--symbol">modes.readOnly : <code>Symbol</code></h4>
+<p>The file is read-only; attempts to write will fail.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-modes"><code>modes</code></a></p>
+<p><a id="module-storage-modes-readwrite"></a></p>
+<h4 id="modesreadwrite--symbol">modes.readWrite : <code>Symbol</code></h4>
+<p>The file is read-write.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-modes"><code>modes</code></a></p>
+<p><a id="module-storage-types"></a></p>
+<h3 id="storagetypes">storage.types</h3>
+<p>This namespace describes the type of the entry. Whether file or folder etc.</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> constant of <a href="#module-storage"><code>storage</code></a></p>
+<ul>
+<li><a href="#module-storage-types">.types</a><ul>
+<li><a href="#module-storage-types-file">.file</a> : <code>Symbol</code></li>
+<li><a href="#module-storage-types-folder">.folder</a> : <code>Symbol</code></li>
+</ul>
+</li>
+</ul>
+<p><a id="module-storage-types-file"></a></p>
+<h4 id="typesfile--symbol">types.file : <code>Symbol</code></h4>
+<p>A file; used when creating an entity</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-types"><code>types</code></a></p>
+<p><a id="module-storage-types-folder"></a></p>
+<h4 id="typesfolder--symbol">types.folder : <code>Symbol</code></h4>
+<p>A folder; used when creating an entity</p>
+<p><strong>Kind</strong>: <a href="../../../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> property of <a href="#module-storage-types"><code>types</code></a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../using-file-apis.html" class="navigation navigation-prev " aria-label="Previous page: Using the File I/O APIs">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../network-index.html" class="navigation navigation-next " aria-label="Next page: Network APIs">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Storage module","level":"6.1.15.2","depth":3,"next":{"title":"Network APIs","level":"6.1.16","depth":2,"path":"reference/uxp/network-index.md","ref":"./reference/uxp/network-index.md","articles":[{"title":"XMLHttpRequest","level":"6.1.16.1","depth":3,"path":"reference/uxp/class/XMLHttpRequest.md","ref":"./reference/uxp/class/XMLHttpRequest.md","articles":[]},{"title":"fetch","level":"6.1.16.2","depth":3,"path":"reference/uxp/function/fetch.md","ref":"./reference/uxp/function/fetch.md","articles":[]},{"title":"WebSocket","level":"6.1.16.3","depth":3,"path":"reference/uxp/class/WebSocket.md","ref":"./reference/uxp/class/WebSocket.md","articles":[]},{"title":"openExternal","level":"6.1.16.4","depth":3,"path":"reference/uxp/class/Shell.md","ref":"./reference/uxp/class/Shell.md","articles":[]}]},"previous":{"title":"Using the File I/O APIs","level":"6.1.15.1","depth":3,"path":"reference/uxp/using-file-apis.md","ref":"./reference/uxp/using-file-apis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|Text|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|Text|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"gi","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"gi","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"gi","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./guides/debugging-guide/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-plugins","alt":"reload-plugins","nro":1,"url":"/images/readme-assets/reload-plugins.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-plugins","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./guides/debugging-guide/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":2,"url":"/images/readme-assets/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./guides/debugging-guide/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":3,"url":"/images/readme-assets/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./guides/how-to-style-text-guide/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":4,"url":"./assets/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./guides/how-to-show-an-alert-guide/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":5,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./guides/how-to-show-an-alert-guide/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":6,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":7,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":8,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":9,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":10,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":11,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":12,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":13,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":14,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":15,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":16,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":17,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":18,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":19,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":20,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":21,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":22,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":23,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":24,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":25,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":26,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":27,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":28,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":29,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":30,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/widgets/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":31,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/widgets/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":32,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/widgets/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":33,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/widgets/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":34,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/widgets/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":35,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/widgets/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":36,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/widgets/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":37,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/widgets/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":38,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/widgets/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":39,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/widgets/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":40,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/widgets/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":41,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/widgets/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":42,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/widgets/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":43,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/widgets/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":44,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/widgets/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":45,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/widgets/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":46,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/widgets/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":47,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/widgets/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":48,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":49,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/scenegraph.html#fig6.1.5.1","level":"6.1.5","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":50,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.5.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, guides, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"reference/uxp/module/storage.md","mtime":"2018-10-14T21:19:46.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-14T21:20:05.775Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-collapse/collapse.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-simpletabs/tabs.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fancybox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fancybox/jquery.mousewheel.pack.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fancybox/jquery.fancybox.pack.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fancybox/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    <div class="gitbookPluginComponent"><div style="background-size: cover; background-color: rgb(44, 44, 44);">
+    <div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: baseline; margin: 0 28px; line-height: 32px;">
+        <p style="margin: 0;" class="footer evidon-notice-link">&#xA9; Copyright 2018 Adobe. All rights reserved. / <a rel="noopener noreferrer" target="_blank" href="https://www.adobe.com/privacy.html">Privacy</a>
+            / <a target="_blank" rel="noopener noreferrer" href="https://www.adobe.com/legal/terms.html">Terms of Use</a> / <a target="_blank" rel="noopener noreferrer" href="https://www.adobe.com/privacy/cookies.html">Cookies</a> /
+        </p>
+    </div>
+</div></div></body>
+</html>
+

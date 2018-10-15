@@ -858,6 +858,19 @@
             
         </li>
     
+        <li class="chapter " data-level="3.4.2.4" data-path="reference/ui/layout/utility-classes.html">
+            
+                <a href="reference/ui/layout/utility-classes.html">
+            
+                    
+                    Utility classes
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1000,52 +1013,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.4.4.1" data-path="reference/ui/dialogs/dom-structure.html">
-            
-                <a href="reference/ui/dialogs/dom-structure.html">
-            
-                    
-                    DOM structure
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.4.4.1.1" data-path="reference/ui/dialogs/building-dialog-with-html.html">
-            
-                <a href="reference/ui/dialogs/building-dialog-with-html.html">
-            
-                    
-                    Building with HTML
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4.4.1.2" data-path="reference/ui/dialogs/building-dialog-with-react.html">
-            
-                <a href="reference/ui/dialogs/building-dialog-with-react.html">
-            
-                    
-                    Building with React
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4.4.2" data-path="reference/ui/dialogs/showing.html">
+        <li class="chapter " data-level="3.4.4.1" data-path="reference/ui/dialogs/showing.html">
             
                 <a href="reference/ui/dialogs/showing.html">
             
@@ -1058,51 +1026,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.4.4.3" data-path="reference/ui/dialogs/dismissal.html">
+        <li class="chapter " data-level="3.4.4.2" data-path="reference/ui/dialogs/dismissal.html">
             
                 <a href="reference/ui/dialogs/dismissal.html">
             
                     
                     Dismissing dialogs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4.4.4" data-path="reference/ui/dialogs/ux.html">
-            
-                <a href="reference/ui/dialogs/ux.html">
-            
-                    
-                    User experience
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4.4.5" data-path="reference/ui/dialogs/utility-classes.html">
-            
-                <a href="reference/ui/dialogs/utility-classes.html">
-            
-                    
-                    Utility classes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.4.4.6" data-path="reference/ui/dialogs/helpers.html">
-            
-                <a href="reference/ui/dialogs/helpers.html">
-            
-                    
-                    Helpers
             
                 </a>
             
@@ -2452,245 +2381,7 @@
 <li><strong>Export Renditions</strong> - You cannot make multiple concurrent calls to <code>application.createRenditions()</code>, since it was not guaranteed to work correctly in this case. Either wait for for the Promise from one call to finish before calling again, or accumulate all your requests into one array and make a single call for all of them.</li>
 <li>The undocumented global APIs <code>localStorage</code> and <code>sessionStorage</code> have been removed for now.</li>
 </ul>
-<hr>
-<h2 id="general-prerelease-13011-the-breaking-changes-update">General Prerelease 13.0.11: The Breaking Changes Update</h2>
-<p>This release has UI polish and other finishing touches. It also comes with several breaking changes, as it was felt it to be better to break things <em>now</em> rather than after the API has shipped to the whole world.</p>
-<h3 id="new-api-features">New API Features</h3>
-<ul>
-<li>Repeat Grid: Set sequences of text or image data using the new <a href="reference/scenegraph.html#RepeatGrid+attachTextDataSeries"><code>attachTextDataSeries()</code></a> and <a href="reference/scenegraph.html#RepeatGrid+attachImageDataSeries"><code>attachImageDataSeries()</code></a> APIs.</li>
-<li>File IO: New <code>createFile()</code> and <code>createFolder()</code> APIs (in addition to the existing, more generic <code>createEntry()</code> API)</li>
-<li>Menus:<ul>
-<li>Menu items can have keyboard shortcuts</li>
-<li>Menu items can be nested into plugin-specific submenus</li>
-<li>Menu item labels can be localized</li>
-<li>See <a href="reference/structure/manifest.html">manifest.json documentation</a> for details.</li>
-</ul>
-</li>
-</ul>
-<h3 id="fixes-and-improvements">Fixes and improvements</h3>
-<ul>
-<li>If <code>application.createRenditions()</code> is passed bad arguments, the error string it throws now contains a much more useful message.</li>
-<li><code>createEntry()</code> will <em>not</em> create a file on disk until you write to it.</li>
-<li>Dialogs have received minor layout tweaks and polish.</li>
-<li><a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">Dialog</a> buttons on Windows are in the correct location.</li>
-<li>Dialogs can be wider on Windows than previous builds.</li>
-<li>On Windows it&apos;s now possible to show multiple dialogs in sequence, like on macOS. Be sure to wait for the first <a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a>&apos;s promise to resolve before showing a second <a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a>.</li>
-<li>Text fields are no longer limited to 150 characters.</li>
-<li>When upgrading or downgrading plugins, the plugin folder is now recursively deleted. This will no longer cause an error when attempting an installation.</li>
-<li>Images within dialogs now render while the <a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a> is animating (macOS only).</li>
-<li>Dialogs on Windows now will expand or shrink appropriately to fit the content.</li>
-<li>On Windows, showing multiple dialogs in sequence should no longer result in a crash.</li>
-<li>Tab order is now working correctly on macOS.</li>
-<li>Secure Websockets are now supported.</li>
-<li>When launching XD, plugin data that is orphaned (that is, a corresponding plugin isn&apos;t installed) will no longer be deleted. In the past, This could cause unexpected loss of preferences or data.</li>
-</ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
-<p><strong><a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">Scenegraph</a></strong></p>
-<ul>
-<li>The BitmapFill <a href="GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> has been replaced with a more streamlined <a href="reference/ImageFill.html">ImageFill</a> <a href="GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a>.</li>
-<li><code>SceneNode.transform</code> is now read-only. Use other APIs to change a <a href="GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s position or rotation.</li>
-<li>If a Text <a href="GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has varying styles within it (<code>textNode.styleRanges.length &gt; 1</code>), changing its text content strips out the variation and sets the style of <em>all</em> the new content to the <em>first</em> style of the original text.</li>
-<li>Minor: It is now an error to set <code>fill</code> or <code>fillEnabled</code> on a <a href="reference/scenegraph.html#Line"><code>Line</code></a> (previously doing so silently did nothing).</li>
-<li>Minor: It is now an error to set <code>stroke</code>, <code>strokeEnabled</code>, <a href="reference/shadow.html"><code>shadow</code></a>, or <a href="reference/blur.html"><code>blur</code></a> on an <a href="reference/scenegraph.html#Artboard"><code>Artboard</code></a> (previously doing so silently did nothing or resulted in buggy behavior).</li>
-</ul>
-<p><strong>Export Renditions</strong></p>
-<ul>
-<li>The result of <code>application.createRenditions()</code> is now an array of objects with an <code>outputFile</code> property, rather than an array of output files directly.</li>
-</ul>
-<p><strong>Commands</strong></p>
-<ul>
-<li>The <code>flipHorizontal()</code> and <code>flipVertical()</code> APIs have been removed for now. They will be reinstated once this feature is officially available to users.</li>
-</ul>
-<p><strong>File IO</strong></p>
-<ul>
-<li><code>getFileForOpening()</code> returns a File instead of an array if <code>allowMultiple</code> is false (the default value).</li>
-<li><code>getFileForOpening()</code>: the <code>types</code> parameter is now <em>required</em>, no longer optional. To allow the user to pick files of any type, use <code>types: [&quot;.*&quot;]</code>.</li>
-</ul>
-<p><strong>Network IO</strong></p>
-<ul>
-<li><code>openExternal()</code> only supports <code>http</code> and <code>https</code> endpoints.</li>
-<li><a href="reference/uxp/class/XMLHttpRequest.html"> <code>XMLHttpRequest</code> </a>, <code>fetch()</code>, and <a href="reference/uxp/class/Websocket.html"> <code>Websocket</code> </a> supports only secure endpoints on macOS.</li>
-</ul>
-<p><strong>User Interface</strong></p>
-<ul>
-<li>Canceling a <a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a> via the Esc key will not reject the <code>showModal()</code> promise; instead it will be resolved the string value <code>&quot;reasonCanceled&quot;</code>.</li>
-<li>When rendering dialogs, the suggested pattern now adds a <code>&lt;hr/&gt;</code> after your <code>&lt;h1&gt;</code> to draw the separator. If you don&apos;t add an <code>&lt;hr/&gt;</code>, there will be no divider between your heading and the content.</li>
-</ul>
-<h3 id="known-issues">Known Issues</h3>
-<p>Please see <a href="known-issues.html">this page</a> for a comprehensive list.</p>
-<hr>
-<h2 id="general-prerelease-v1201114-2018-08-24-the-plugin-update">General Prerelease (v12.0.11.14, 2018-08-24): The Plugin Update</h2>
-<p>This release marks the first time plugins have been available to the general prerelease group. As such, it is now possible for users to install new plugins and develop their own plugins.</p>
-<h3 id="new-features">New Features</h3>
-<ul>
-<li><p>This build has a plugin manager! You can install new plugins from the online plugin listing by using <strong>Plugins &gt; Discover Plugins...</strong>. You can manage your installed plugins (including those in development) by visiting <strong>Plugins &gt; Manage Plugins...</strong>.</p>
-<div class="alert alert-warning hints-alert"><div class="hints-icon"><i class="fa fa fa-file-text-o"></i></div><div class="hints-container">
-<p>
-We will provide information on submitting your plugin for submission to the XD plugin manager at a later date.</p>
-</div></div>
-</li>
-<li><p>Whenever a plugin needs to work asynchronously, XD will now block user interaction with the document. This is visible as a small <a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">dialog</a> with the wording &quot;Plugin xyz is working&quot;.</p>
-<div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa fa-info-circle"></i></div><div class="hints-container">
-<p>
-Known issue: this appears even while other dialogs from the plugin are visible, although it is always underneath them in the visible hierarchy. As such you may see these dialogs briefly while your own plugin dialogs are animating in or out.</p>
-</div></div>
-</li>
-</ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
-<ul>
-<li>Plugin development must now occur in a special <code>develop</code> folder. This folder is in the same location as the previous <code>plugins</code> folder. This is the only plugin that will be scanned when the <strong>Reload Plugins</strong> command is invoked.</li>
-</ul>
-<h3 id="known-issues">Known Issues</h3>
-<p>Please see <a href="known-issues.html">this page</a> for a comprehensive list.</p>
-<hr>
-<h2 id="focus-group-release-4-the-ui-update">Focus Group Release 4: The UI Update</h2>
-<p>The following has changed in this release.</p>
-<h3 id="breaking-changes">Breaking Changes</h3>
-<ul>
-<li>The File I/O APIs have moved to a new module. Use <code>require(&quot;uxp&quot;).storage.localFileSystem</code> to get access to the local file system provider.</li>
-<li>Your plugins must now use the typical <code>module.exports</code> form to return commands. Instead of using <code>return</code>, just replace it with <code>module.exports =</code>.</li>
-<li>If you want to render any UI controls in your plugins, you will need to be on macOS 10.12 or better (or Windows).</li>
-</ul>
-<h3 id="export-renditions">Export Renditions</h3>
-<p>For an example of using export renditions, <a href="tutorials/how-to-generate-an-export-rendition">see this tutorial</a>.</p>
-<h3 id="file-io-improvements">File I/O Improvements</h3>
-<p>You can now obtain the native path of an entry:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> pathOnDisk = someFileEntry.nativePath;
-</code></pre>
-<p>You can also request a file entry from a folder using a path-like string:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> somefile = <span class="hljs-keyword">await</span> (<span class="hljs-keyword">await</span> getPluginFolder()).getEntry(<span class="hljs-string">&apos;path/to/some/file&apos;</span>);
-</code></pre>
-<p>Plugins can now store persistent information in their own folder without user mediation.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;uxp&quot;</span>).storage.localFileSystem;
-<span class="hljs-keyword">const</span> dataFolder = <span class="hljs-keyword">await</span> fs.getDataFolder();
-</code></pre>
-<p>For more, <a href="reference/uxp/module/storage.html">see the full reference</a>.</p>
-<h3 id="open-external-browser">Open External Browser</h3>
-<p>You can now open the system browser by using a simple API:</p>
-<pre><code class="lang-js"><span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;uxp&quot;</span>).shell.openExternal(<span class="hljs-string">&quot;https://www.google.com&quot;</span>);
-</code></pre>
-<h3 id="user-interface">User Interface</h3>
-<p>Read about <a href="reference/ui/ui-concepts.md">the user interface options here!</a>.</p>
-<h3 id="known-issues">Known Issues</h3>
-<ul>
-<li>Asynchronous operations<ul>
-<li>When a plugin command runs asynchronously, <em>do not interact with XD at all</em> via mouse or keyboard until your plugin code is completely done executing. Doing
-so could freeze XD, break Undo, or corrupt the document. In the future, XD will block the UI to ensure other actions can&apos;t interfere with your plugin in mid-operation.</li>
-</ul>
-</li>
-<li>UI<ul>
-<li>Text fields are limited to 150 characters.</li>
-<li><a href="GLOSSARY.html#dialog" class="glossary-term" title="Represents a user interface concept whereby a sheet or window is displayed and asks the user for more information (hence the word &quot;dialog&quot; -- the user and computer are dialoguing together).">Dialog</a> boxes on Windows have a fairly narrow maximum width.</li>
-<li>Checkboxes on Windows take up too much space</li>
-</ul>
-</li>
-<li>Network I/O<ul>
-<li>Web sockets cannot connect to <code>wss://</code> URLs yet. You can only connect to insecure <code>ws://</code> URLs.</li>
-<li>Web socket extensions are not supported</li>
-<li>Synchronous <a href="GLOSSARY.html#xhr" class="glossary-term" title="Short for XMLHttpRequest.">XHR</a> is not supported</li>
-<li>Sending or receiving blobs using <a href="GLOSSARY.html#xhr" class="glossary-term" title="Short for XMLHttpRequest.">XHR</a> is not supported</li>
-<li><code>responseURL</code> is not supported on <a href="GLOSSARY.html#xhr" class="glossary-term" title="Short for XMLHttpRequest.">XHR</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="previous-build-focus-group-release-3"><em>Previous Build:</em> Focus Group Release 3</h2>
-<p><em>Note: some of the release notes here may be obsoleted by changes in the newer release(s) above.</em></p>
-<p>The following has changed in this release.</p>
-<h3 id="breaking-changes">Breaking Changes</h3>
-<ul>
-<li><code>xdplugin.json</code> has been renamed to <code>manifest.json</code>.</li>
-<li><code>manifest.json</code> requires a <code>version</code> key with the plugin version in <code>x.y.z</code> form.</li>
-</ul>
-<h3 id="networking-apis">Networking APIs</h3>
-<p>Networking APIs now work correctly on Windows.</p>
-<h3 id="asynchronous-scenegraph-access">Asynchronous Scenegraph Access</h3>
-<p>In order to access the <a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> asynchronously, your menu handler must return a <code>Promise</code>. Until the promise has been resolved, the <a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> can be manipulated asynchronously. Should the promise be rejected, any changes to the <a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> will be undone, just as if an error were thrown from synchronous code.</p>
-<p><em><strong>Important caveat:</strong></em> In this build, when a plugin command runs asynchronously, <em>you should not interact with XD at all</em> via mouse or keyboard until your plugin code is completely done executing. Doing so could freeze XD, break Undo, or corrupt the document. In the future, XD will block the UI to ensure other actions can&apos;t interfere with your plugin in mid-operation.</p>
-<p>For example:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;localFileSystem&quot;</span>).localFileSystem;
-<span class="hljs-keyword">const</span> { Rectangle, Color } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;scenegraph&quot;</span>);
 
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addColoredSquareHandler</span>(<span class="hljs-params">selection</span>) </span>{
-    <span class="hljs-keyword">const</span> [file] = <span class="hljs-keyword">await</span> fs.getFileForOpening();
-    <span class="hljs-keyword">const</span> colorValue = <span class="hljs-keyword">await</span> file.read(); <span class="hljs-comment">// read the CSS or named color from a user&apos;s file</span>
-    <span class="hljs-keyword">const</span> shape = <span class="hljs-keyword">new</span> Rectangle();
-    shape.width = <span class="hljs-number">100</span>;
-    shape.height = <span class="hljs-number">100</span>;
-    shape.fill = <span class="hljs-keyword">new</span> Color(colorValue); <span class="hljs-comment">// and create a rectangle with the color in the file</span>
-    selection.insertionParent.addChild(shape);
-}
-
-<span class="hljs-keyword">return</span> {
-    <span class="hljs-attr">commands</span>: {
-        <span class="hljs-string">&quot;addColoredSquareCommand&quot;</span>: addColoredSquareHandler
-    }
-}
-</code></pre>
-<p>See the <a href="../reference/file-IO.md">File I/O API Reference</a> for more information about creating, reading, and writing files.</p>
-<h3 id="known-issues">Known Issues</h3>
-<ul>
-<li>Note that Websockets do not currently work with SSL (<code>wss://</code>). This is planned for a future release.</li>
-<li>The <a href="GLOSSARY.html#developer-console" class="glossary-term" title="Displays logs and errors generated by your plugin, helping you debug your code.">developer console</a> currently logs a lot of information unrelated to plugins. This will be fixed in a future release.</li>
-</ul>
-<hr>
-<h2 id="previous-build-focus-group-release-2"><em>Previous Build:</em> Focus Group Release 2</h2>
-<p><em>Note: some of the release notes here may be obsoleted by changes in the newer release(s) above.</em></p>
-<p>We modified some of the APIs, added an in-app console log view and replaced the plugin reload mechanism.</p>
-<h3 id="developer-console">Developer Console</h3>
-<p>We now have an in-app <a href="GLOSSARY.html#developer-console" class="glossary-term" title="Displays logs and errors generated by your plugin, helping you debug your code.">developer console</a> that allows you to see errors and plugin generated logs while executing plugins. The console log is enabled from the <em>Plugins</em> menu.</p>
-<pre><code>Mac: Plugins &gt; Development &gt; Developer Console
-Win: Plugins &gt; Developer Console
-</code></pre><h3 id="reloading-plugins">Reloading Plugins</h3>
-<p>We have replaced the previous 3 keyboard shortcut options with a new <code>Reload Plugins</code> command. The new command reloads all plugins found in the plugins folder, even newly added plugins. You can invoke plugin reload from the <em>Plugins</em> menu or via keyboard shortcuts:</p>
-<pre><code>Mac: Plugins &gt; Development &gt; Reload Plugins (Cmd-Shift-R)
-Win: Plugins &gt; Reload Plugins (Ctrl-Shift-R)
-</code></pre><h3 id="apis">APIs</h3>
-<p>These are high level API changes made in this release. Specific API details are available in the reference section of the documentation.</p>
-<h3 id="file-and-network">File and Network</h3>
-<p>File and Network APIs are now available. To protect the <a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> any asynchronous file or network API must be called after all <a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> APIs are invoked. Trying to call into a <a href="GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> API after an asynchronous call will fail.</p>
-<h3 id="commands">Commands</h3>
-<p>Added</p>
-<pre><code>alignLeft()
-alignRight()
-alignHorizontalCenter()
-alignTop()
-alignBottom()
-alignVerticalCenter()
-distributeHorizontal()
-distributeVertical()
-alignToPixelGrid()
-</code></pre><p>Removed</p>
-<pre><code>createSymbol()
-createRepeatGrid()
-</code></pre><h3 id="scenenode">SceneNode</h3>
-<p>Removed</p>
-<pre><code>localDrawBounds
-</code></pre><p>Replaced</p>
-<pre><code>hasCustomName
-</code></pre><p>with</p>
-<pre><code>hasDefaultName
-</code></pre><p>So the complete opposite API</p>
-<h3 id="rectangle">Rectangle</h3>
-<p>Replaced</p>
-<pre><code>topLeftCornerRadius
-topRightCornerRadius
-bottomRightCornerRadius
-bottomLeftCornerRadius
-</code></pre><p>with</p>
-<pre><code>cornerRadii
-</code></pre><p>Replaced</p>
-<pre><code>getEffectiveCornerRadii()
-</code></pre><p>with</p>
-<pre><code>effectiveCornerRadii
-</code></pre><h3 id="repeatgrid">RepeatGrid</h3>
-<p>Modified</p>
-<pre><code>columns
-rows
-</code></pre><p>to</p>
-<pre><code>numColumns
-numRows
-</code></pre>
                                 
                                 </section>
                             
@@ -2733,7 +2424,7 @@ numRows
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Change log","level":"6.3","depth":1,"next":{"title":"Glossary","level":"6.4","depth":1,"path":"GLOSSARY.md","ref":"./GLOSSARY.md","articles":[]},"previous":{"title":"Known issues","level":"6.2","depth":1,"path":"known-issues.md","ref":"./known-issues.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox","bulk-redirect"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|Text|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|Text|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"gi","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"gi","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"gi","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./tutorials/debugging/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-plugins","alt":"reload-plugins","nro":1,"url":"/images/reload-plugins.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-plugins","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./tutorials/debugging/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":2,"url":"/images/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./tutorials/debugging/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":3,"url":"/images/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":4,"url":"./assets/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":5,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":6,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":7,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":8,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":9,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":10,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":11,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":12,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":13,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":14,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":15,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":16,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":17,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":18,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":19,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":20,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":21,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":22,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":23,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":24,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":25,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":26,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":27,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":28,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":29,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":30,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":31,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":32,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":33,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":34,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":35,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":36,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":37,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":38,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":39,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":40,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":41,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":42,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":43,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":44,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":45,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":46,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":47,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/elements/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":48,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":49,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.2","level":"3.4.4","list_caption":"Figure: Dialog Anatomy","alt":"Dialog Anatomy","nro":50,"url":"./assets/dialog-anatomy.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dialog Anatomy","attributes":{},"skip":false,"key":"3.4.4.2"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.3","level":"3.4.4","list_caption":"Figure: macOS Dialog Example","alt":"macOS Dialog Example","nro":51,"url":"./assets/Example%20About%20Dialog%20on%20macOS.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Dialog Example","attributes":{},"skip":false,"key":"3.4.4.3"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.4","level":"3.4.4","list_caption":"Figure: Windows Dialog Example","alt":"Windows Dialog Example","nro":52,"url":"./assets/Example%20About%20Dialog%20on%20UWP.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Dialog Example","attributes":{},"skip":false,"key":"3.4.4.4"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.5","level":"3.4.4","list_caption":"Figure: A Simple Dialog","alt":"A Simple Dialog","nro":53,"url":"./assets/dialog.png","index":5,"caption_template":"Figure: _CAPTION_","label":"A Simple Dialog","attributes":{},"skip":false,"key":"3.4.4.5"},{"backlink":"./reference/scenegraph.html#fig6.1.5.1","level":"6.1.5","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":54,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.5.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, tutorials, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"changes.md","mtime":"2018-10-14T22:31:56.848Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T02:11:17.452Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Change log","level":"6.3","depth":1,"next":{"title":"Glossary","level":"6.4","depth":1,"path":"GLOSSARY.md","ref":"./GLOSSARY.md","articles":[]},"previous":{"title":"Known issues","level":"6.2","depth":1,"path":"known-issues.md","ref":"./known-issues.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox","bulk-redirect"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|Text|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|Text|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"gi","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"gi","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"gi","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./tutorials/debugging/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-plugins","alt":"reload-plugins","nro":1,"url":"/images/reload-plugins.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-plugins","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./tutorials/debugging/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":2,"url":"/images/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./tutorials/debugging/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":3,"url":"/images/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":4,"url":"/images/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.2","level":"2.2.3","list_caption":"Figure: Rainbow text","alt":"Rainbow text","nro":5,"url":"/images/rainbow.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Rainbow text","attributes":{},"skip":false,"key":"2.2.3.2"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":6,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":7,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":8,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":9,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":10,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":11,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":12,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":13,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":14,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":15,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":16,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":17,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":18,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":19,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":20,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":21,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":22,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":23,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":24,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":25,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":26,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":27,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":28,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":29,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":30,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":31,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":32,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":33,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":34,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":35,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":36,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":37,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":38,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":39,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":40,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":41,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":42,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":43,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":44,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":45,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":46,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":47,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":48,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/elements/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":49,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":50,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.2","level":"3.4.4","list_caption":"Figure: Dialog Anatomy","alt":"Dialog Anatomy","nro":51,"url":"./assets/dialog-anatomy.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dialog Anatomy","attributes":{},"skip":false,"key":"3.4.4.2"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.3","level":"3.4.4","list_caption":"Figure: macOS Dialog Example","alt":"macOS Dialog Example","nro":52,"url":"./assets/Example%20About%20Dialog.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Dialog Example","attributes":{},"skip":false,"key":"3.4.4.3"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.4","level":"3.4.4","list_caption":"Figure: Windows Dialog Example","alt":"Windows Dialog Example","nro":53,"url":"./assets/Example%20About%20Dialog%20on%20UWP.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Dialog Example","attributes":{},"skip":false,"key":"3.4.4.4"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.5","level":"3.4.4","list_caption":"Figure: A Simple Dialog","alt":"A Simple Dialog","nro":54,"url":"./assets/dialog.png","index":5,"caption_template":"Figure: _CAPTION_","label":"A Simple Dialog","attributes":{},"skip":false,"key":"3.4.4.5"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.6","level":"3.4.4","list_caption":"Figure: Example Alert","alt":"Example Alert","nro":55,"url":"../assets/helper-alert.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Example Alert","attributes":{},"skip":false,"key":"3.4.4.6"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.7","level":"3.4.4","list_caption":"Figure: Example Error Alert","alt":"Example Error Alert","nro":56,"url":"./assets/Example%20Error%20Alert.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Example Error Alert","attributes":{},"skip":false,"key":"3.4.4.7"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.8","level":"3.4.4","list_caption":"Figure: Example Confirmation Dialog","alt":"Example Confirmation Dialog","nro":57,"url":"./assets/Example%20Confirmation%20Dialog.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Example Confirmation Dialog","attributes":{},"skip":false,"key":"3.4.4.8"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.9","level":"3.4.4","list_caption":"Figure: Example Warning Dialog","alt":"Example Warning Dialog","nro":58,"url":"./assets/Example%20Warning%20Dialog.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Example Warning Dialog","attributes":{},"skip":false,"key":"3.4.4.9"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.10","level":"3.4.4","list_caption":"Figure: Example Prompt Dialog","alt":"Example Prompt Dialog","nro":59,"url":"./assets/Example%20Prompt%20Dialog.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Example Prompt Dialog","attributes":{},"skip":false,"key":"3.4.4.10"},{"backlink":"./reference/scenegraph.html#fig6.1.5.1","level":"6.1.5","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":60,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.5.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, tutorials, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"changes.md","mtime":"2018-10-15T05:57:06.118Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T07:35:58.551Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

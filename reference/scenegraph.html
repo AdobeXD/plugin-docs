@@ -2447,53 +2447,53 @@ traversing the entire document tree using the <a href="#RootNode"><code>document
 <p>Base <a href="../GLOSSARY.html#class" class="glossary-term" title="A template (of sorts) used to instantiate objects. An instance has the same instance methods and properties as specified in the class.">class</a> of all <a href="../GLOSSARY.html#scenegraph" class="glossary-term" title="A scenegraph represents the user&apos;s document. It is so called because it is a tree (a kind of graph) of nodes that, when taken together, represents the entire &quot;scene&quot; of the document. Adobe XD provides an API for manipulating the scenegraph. Learn more about the scenegraph.">scenegraph</a> nodes. Nodes will always be an <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> of some <em>subclass</em> of <a href="../GLOSSARY.html#scenenode" class="glossary-term" title="A SceneNode represents a node within the user&apos;s scenegraph.">SceneNode</a>.</p>
 <ul>
 <li><em><a href="#SceneNode">SceneNode</a></em><ul>
-<li><em><a href="#SceneNode+guid">.guid</a> : <code>string</code></em></li>
-<li><em><a href="#SceneNode+parent">.parent</a> : <a href="#SceneNode"><code>SceneNode</code></a></em></li>
-<li><em><a href="#SceneNode+children">.children</a> : <code>!SceneNodeList</code></em></li>
-<li><em><a href="#SceneNode+isInArtworkTree">.isInArtworkTree</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+isContainer">.isContainer</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+selected">.selected</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+visible">.visible</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+opacity">.opacity</a> : <code>number</code></em></li>
-<li><em><a href="#SceneNode+transform">.transform</a> : <code>!Matrix</code></em></li>
-<li><em><a href="#SceneNode+translation">.translation</a> : <code>!{x:number, y:number}</code></em></li>
-<li><em><a href="#SceneNode+rotation">.rotation</a> : <code>number</code></em></li>
-<li><em><a href="#SceneNode+globalBounds">.globalBounds</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
-<li><em><a href="#SceneNode+localBounds">.localBounds</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
-<li><em><a href="#SceneNode+boundsInParent">.boundsInParent</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
-<li><em><a href="#SceneNode+topLeftInParent">.topLeftInParent</a> : !<a href="#Point"><code>Point</code></a></em></li>
-<li><em><a href="#SceneNode+localCenterPoint">.localCenterPoint</a> : !<a href="#Point"><code>Point</code></a></em></li>
-<li><em><a href="#SceneNode+globalDrawBounds">.globalDrawBounds</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
-<li><em><a href="#SceneNode+name">.name</a> : <code>string</code></em></li>
-<li><em><a href="#SceneNode+hasDefaultName">.hasDefaultName</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+locked">.locked</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+markedForExport">.markedForExport</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+hasLinkedContent">.hasLinkedContent</a> : <code>boolean</code></em></li>
-<li><em><a href="#SceneNode+removeFromParent">.removeFromParent()</a></em></li>
-<li><em><a href="#SceneNode+moveInParentCoordinates">.moveInParentCoordinates(deltaX, deltaY)</a></em></li>
-<li><em><a href="#SceneNode+placeInParentCoordinates">.placeInParentCoordinates(registrationPoint, parentPoint)</a></em></li>
-<li><em><a href="#SceneNode+rotateAround">.rotateAround(deltaAngle, rotationCenter)</a></em></li>
-<li><em><a href="#SceneNode+resize">.resize(width, height)</a></em></li>
+<li><em><a href="#SceneNode-guid">.guid</a> : <code>string</code></em></li>
+<li><em><a href="#SceneNode-parent">.parent</a> : <a href="#SceneNode"><code>SceneNode</code></a></em></li>
+<li><em><a href="#SceneNode-children">.children</a> : <code>!SceneNodeList</code></em></li>
+<li><em><a href="#SceneNode-isInArtworkTree">.isInArtworkTree</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-isContainer">.isContainer</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-selected">.selected</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-visible">.visible</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-opacity">.opacity</a> : <code>number</code></em></li>
+<li><em><a href="#SceneNode-transform">.transform</a> : <code>!Matrix</code></em></li>
+<li><em><a href="#SceneNode-translation">.translation</a> : <code>!{x:number, y:number}</code></em></li>
+<li><em><a href="#SceneNode-rotation">.rotation</a> : <code>number</code></em></li>
+<li><em><a href="#SceneNode-globalBounds">.globalBounds</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
+<li><em><a href="#SceneNode-localBounds">.localBounds</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
+<li><em><a href="#SceneNode-boundsInParent">.boundsInParent</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
+<li><em><a href="#SceneNode-topLeftInParent">.topLeftInParent</a> : !<a href="#Point"><code>Point</code></a></em></li>
+<li><em><a href="#SceneNode-localCenterPoint">.localCenterPoint</a> : !<a href="#Point"><code>Point</code></a></em></li>
+<li><em><a href="#SceneNode-globalDrawBounds">.globalDrawBounds</a> : !<a href="#Bounds"><code>Bounds</code></a></em></li>
+<li><em><a href="#SceneNode-name">.name</a> : <code>string</code></em></li>
+<li><em><a href="#SceneNode-hasDefaultName">.hasDefaultName</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-locked">.locked</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-markedForExport">.markedForExport</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-hasLinkedContent">.hasLinkedContent</a> : <code>boolean</code></em></li>
+<li><em><a href="#SceneNode-removeFromParent">.removeFromParent()</a></em></li>
+<li><em><a href="#SceneNode-moveInParentCoordinates">.moveInParentCoordinates(deltaX, deltaY)</a></em></li>
+<li><em><a href="#SceneNode-placeInParentCoordinates">.placeInParentCoordinates(registrationPoint, parentPoint)</a></em></li>
+<li><em><a href="#SceneNode-rotateAround">.rotateAround(deltaAngle, rotationCenter)</a></em></li>
+<li><em><a href="#SceneNode-resize">.resize(width, height)</a></em></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="SceneNode+guid"></a></p>
+<p><a id="SceneNode-guid"></a></p>
 <h3 id="scenenodeguid--string"><em>sceneNode.guid : <code>string</code></em></h3>
 <p>Returns a unique identifier for this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> that stays the same when the file is closed &amp; reopened, or if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is moved to a different part of the document. Cut-Paste will result in a new <a href="../GLOSSARY.html#guid" class="glossary-term" title="A globally unique identifier.">guid</a>, however.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="SceneNode+parent"></a></p>
+<p><a id="SceneNode-parent"></a></p>
 <h3 id="scenenodeparent--scenenode"><em>sceneNode.parent : <a href="#SceneNode"><code>SceneNode</code></a></em></h3>
 <p>Returns the parent <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>. Null if this is the root <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, or a freshly constructed <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> which has not been added to a parent yet.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="SceneNode+children"></a></p>
+<p><a id="SceneNode-children"></a></p>
 <h3 id="scenenodechildren--scenenodelist"><em>sceneNode.children : <code>!SceneNodeList</code></em></h3>
 <p>Returns a list of this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s children. List is length 0 if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has no children. The first child is lowest in the z order.</p>
 <p>This list is <em>not an Array</em>, so you must use <code>at(i)</code> instead of <code>[i]</code> to access children by index. It has a number of Array-like
 methods such as <code>forEach()</code> for convenience, however.</p>
-<p>The list is immutable. Use <a href="#SceneNode+removeFromParent">removeFromParent</a> and <a href="#Group+addChild">addChild</a> to add/remove child nodes.</p>
+<p>The list is immutable. Use <a href="#SceneNode-removeFromParent">removeFromParent</a> and <a href="#Group-addChild">addChild</a> to add/remove child nodes.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>Example</strong>  </p>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> node = ...;
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Node has &quot;</span> + node.children.length + <span class="hljs-string">&quot; children&quot;</span>);
@@ -2504,107 +2504,107 @@ node.children.forEach(<span class="hljs-function"><span class="hljs-keyword">fun
 });
 </code></pre>
 <hr>
-<p><a id="SceneNode+isInArtworkTree"></a></p>
+<p><a id="SceneNode-isInArtworkTree"></a></p>
 <h3 id="scenenodeisinartworktree--boolean"><em>sceneNode.isInArtworkTree : <code>boolean</code></em></h3>
 <p>True if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s parent chain connects back to the document root <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="SceneNode+isContainer"></a></p>
+<p><a id="SceneNode-isContainer"></a></p>
 <h3 id="scenenodeiscontainer--boolean"><em>sceneNode.isContainer : <code>boolean</code></em></h3>
 <p>True if this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is a type that could have children (e.g. an Artboard, Group, Boolean Group, etc.).</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="SceneNode+selected"></a></p>
+<p><a id="SceneNode-selected"></a></p>
 <h3 id="scenenodeselected--boolean"><em>sceneNode.selected : <code>boolean</code></em></h3>
 <p>True if this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is part of the current selection. To get a list of <em>all</em> selected nodes or change which nodes are selected, use <a href="selection.html">selection</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong>: <a href="selection.html">selection</a>  </p>
 <hr>
-<p><a id="SceneNode+visible"></a></p>
+<p><a id="SceneNode-visible"></a></p>
 <h3 id="scenenodevisible--boolean"><em>sceneNode.visible : <code>boolean</code></em></h3>
 <p>False if this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has been hidden by the user (eyeball toggle in Layers panel). If true, the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> may still be invisible for other reasons: a parent or grandparent has visible=false, the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has opacity=0%, the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is clipped by a mask, etc.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a>  </p>
 <hr>
-<p><a id="SceneNode+opacity"></a></p>
+<p><a id="SceneNode-opacity"></a></p>
 <h3 id="scenenodeopacity--number-00---10"><em>sceneNode.opacity : <code>number</code></em> (0.0 - 1.0)</h3>
 <p><a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">Node</a>&apos;s opacity setting. The overall visual opacity seen in the document is determined by combining this value with the opacities of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s entire parent chain, as well as the opacity settings of its fill/stroke properties if this is a leaf <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a>  </p>
 <hr>
-<p><a id="SceneNode+transform"></a></p>
+<p><a id="SceneNode-transform"></a></p>
 <h3 id="scenenodetransform--matrix"><em>sceneNode.transform : <code>!Matrix</code></em></h3>
 <p>Affine transform matrix that converts from the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <em>local coordinate space</em> to its parent&apos;s coordinate space. The matrix never has
 skew or scale components, and if this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is an Artboard the matrix never has rotation either. Rather than reading the raw matrix values
-directly, it may be easier to use the <a href="#SceneNode+translation">translation</a> and <a href="#SceneNode+rotation">rotation</a> properties.</p>
-<p>To move or resize a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, use the <a href="#SceneNode+translation">translation</a> property or APIs like <a href="#SceneNode+placeInParentCoordinates">placeInParentCoordinates()</a> or <a href="#SceneNode+rotateAround">rotateAround()</a>.
-Setting the entire transform matrix directly is not allowed. To resize a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, use <a href="#SceneNode+resize">resize()</a>.</p>
+directly, it may be easier to use the <a href="#SceneNode-translation">translation</a> and <a href="#SceneNode-rotation">rotation</a> properties.</p>
+<p>To move or resize a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, use the <a href="#SceneNode-translation">translation</a> property or APIs like <a href="#SceneNode-placeInParentCoordinates">placeInParentCoordinates()</a> or <a href="#SceneNode-rotateAround">rotateAround()</a>.
+Setting the entire transform matrix directly is not allowed. To resize a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, use <a href="#SceneNode-resize">resize()</a>.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> transforms &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p>This getter returns a fresh Matrix each time, so its fields can be mutated by the caller without interfering with the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s state.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true
 <strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+translation">translation</a></li>
-<li><a href="#SceneNode+rotation">rotation</a></li>
-<li><a href="#SceneNode+moveInParentCoordinates">moveInParentCoordinates</a></li>
-<li><a href="#SceneNode+placeInParentCoordinates">placeInParentCoordinates</a></li>
-<li><a href="#SceneNode+rotateAround">rotateAround</a></li>
-<li><a href="#SceneNode+globalBounds">globalBounds</a></li>
-<li><a href="#SceneNode+localBounds">localBounds</a></li>
-<li><a href="#SceneNode+boundsInParent">boundsInParent</a></li>
-<li><a href="#SceneNode+topLeftInParent">topLeftInParent</a></li>
+<li><a href="#SceneNode-translation">translation</a></li>
+<li><a href="#SceneNode-rotation">rotation</a></li>
+<li><a href="#SceneNode-moveInParentCoordinates">moveInParentCoordinates</a></li>
+<li><a href="#SceneNode-placeInParentCoordinates">placeInParentCoordinates</a></li>
+<li><a href="#SceneNode-rotateAround">rotateAround</a></li>
+<li><a href="#SceneNode-globalBounds">globalBounds</a></li>
+<li><a href="#SceneNode-localBounds">localBounds</a></li>
+<li><a href="#SceneNode-boundsInParent">boundsInParent</a></li>
+<li><a href="#SceneNode-topLeftInParent">topLeftInParent</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+translation"></a></p>
+<p><a id="SceneNode-translation"></a></p>
 <h3 id="scenenodetranslation--xnumber-ynumber"><em>sceneNode.translation : <code>!{x:number, y:number}</code></em></h3>
-<p>The translate component of this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <a href="#SceneNode+transform">transform</a>. Since translation is applied after any rotation in
+<p>The translate component of this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <a href="#SceneNode-transform">transform</a>. Since translation is applied after any rotation in
 the transform Matrix, translation occurs along the parent&apos;s X/Y axes, not the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s own local X/Y axes. This is equivalent to
 the <code>e</code> &amp; <code>f</code> fields in the transform Matrix.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> positioning &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+moveInParentCoordinates">moveInParentCoordinates</a></li>
-<li><a href="#SceneNode+placeInParentCoordinates">placeInParentCoordinates</a></li>
-<li><a href="#SceneNode+topLeftInParent">topLeftInParent</a></li>
+<li><a href="#SceneNode-moveInParentCoordinates">moveInParentCoordinates</a></li>
+<li><a href="#SceneNode-placeInParentCoordinates">placeInParentCoordinates</a></li>
+<li><a href="#SceneNode-topLeftInParent">topLeftInParent</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+rotation"></a></p>
+<p><a id="SceneNode-rotation"></a></p>
 <h3 id="scenenoderotation--number"><em>sceneNode.rotation : <code>number</code></em></h3>
-<p>The rotation component of this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <a href="#SceneNode+transform">transform</a>, in clockwise degrees.</p>
+<p>The rotation component of this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <a href="#SceneNode-transform">transform</a>, in clockwise degrees.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> transforms &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
-<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong>: <a href="#SceneNode+rotateAround">rotateAround</a>  </p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong>: <a href="#SceneNode-rotateAround">rotateAround</a>  </p>
 <hr>
-<p><a id="SceneNode+globalBounds"></a></p>
+<p><a id="SceneNode-globalBounds"></a></p>
 <h3 id="scenenodeglobalbounds--bounds"><em>sceneNode.globalBounds : !<a href="#Bounds"><code>Bounds</code></a></em></h3>
 <p>The <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <em>path bounds</em> in document-global coordinate space (represented by a bounding box aligned with global X/Y axes). Path bounds match the selection outline seen in the XD, but exclude some visual parts of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> (outer stroke, drop shadow / blur, etc.).</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> bounding boxes &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+globalDrawBounds">globalDrawBounds</a></li>
-<li><a href="#SceneNode+localBounds">localBounds</a></li>
-<li><a href="#SceneNode+boundsInParent">boundsInParent</a></li>
+<li><a href="#SceneNode-globalDrawBounds">globalDrawBounds</a></li>
+<li><a href="#SceneNode-localBounds">localBounds</a></li>
+<li><a href="#SceneNode-boundsInParent">boundsInParent</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+localBounds"></a></p>
+<p><a id="SceneNode-localBounds"></a></p>
 <h3 id="scenenodelocalbounds--bounds"><em>sceneNode.localBounds : !<a href="#Bounds"><code>Bounds</code></a></em></h3>
 <p>The <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <em>path bounds</em> in its own local coordinate space. This coordinate space may be rotated and translated relative to the parent&apos;s coordinate space. Path bounds match the selection outline seen in XD, but exclude some visual parts of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> (outerstroke, drop shadow / blur, etc.).</p>
 <p>The visual top-left of a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s path bounds is located at (localBounds.x, localBounds.y). This value is <em>not</em> necessarily (0,0) in the local coordinate space: for example, a text <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s baseline is at y=0 in local coordinates, so the top of the text has a negative y value.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> bounding boxes &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+globalBounds">globalBounds</a></li>
-<li><a href="#SceneNode+boundsInParent">boundsInParent</a></li>
+<li><a href="#SceneNode-globalBounds">globalBounds</a></li>
+<li><a href="#SceneNode-boundsInParent">boundsInParent</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+boundsInParent"></a></p>
+<p><a id="SceneNode-boundsInParent"></a></p>
 <h3 id="scenenodeboundsinparent--bounds"><em>sceneNode.boundsInParent : !<a href="#Bounds"><code>Bounds</code></a></em></h3>
 <p>The <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <em>path bounds</em> in its parent&apos;s coordinate space (represented by a bounding box aligned with the parent&apos;s X/Y axes - so if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has rotation, the top-left of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is not necessarily located at the top-left of boundsInParent). Path bounds match the selection outline seen in XD, but exclude some visual parts of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> (outer stroke, drop shadow / blur, etc.).</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> bounding boxes &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+globalBounds">globalBounds</a></li>
-<li><a href="#SceneNode+localBounds">localBounds</a></li>
-<li><a href="#SceneNode+topLeftInParent">topLeftInParent</a></li>
+<li><a href="#SceneNode-globalBounds">globalBounds</a></li>
+<li><a href="#SceneNode-localBounds">localBounds</a></li>
+<li><a href="#SceneNode-topLeftInParent">topLeftInParent</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+topLeftInParent"></a></p>
+<p><a id="SceneNode-topLeftInParent"></a></p>
 <h3 id="scenenodetopleftinparent--point"><em>sceneNode.topLeftInParent : !<a href="#Point"><code>Point</code></a></em></h3>
 <p>The position of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s upper-left corner (localBounds.x, localBounds.y) in its parent&apos;s coordinate space. If the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is
 rotated, this is not the same as the top-left corner of boundsInParent.
@@ -2612,58 +2612,58 @@ This is a shortcut for <code>node.transform.transformPoint({x: node.localBounds.
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> bounding boxes &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+boundsInParent">boundsInParent</a></li>
-<li><a href="#SceneNode+localBounds">localBounds</a></li>
+<li><a href="#SceneNode-boundsInParent">boundsInParent</a></li>
+<li><a href="#SceneNode-localBounds">localBounds</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+localCenterPoint"></a></p>
+<p><a id="SceneNode-localCenterPoint"></a></p>
 <h3 id="scenenodelocalcenterpoint--point"><em>sceneNode.localCenterPoint : !<a href="#Point"><code>Point</code></a></em></h3>
-<p>The position of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s centerpoint in its own local coordinate space. Useful as an argument to <a href="#SceneNode+rotateAround">rotateAround</a>.
+<p>The position of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s centerpoint in its own local coordinate space. Useful as an argument to <a href="#SceneNode-rotateAround">rotateAround</a>.
 This is a shortcut for <code>{x: localBounds.x + localBounds.width/2, y: localBounds.y + localBounds.height/2})</code></p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> bounding boxes &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
-<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong>: <a href="#SceneNode+localBounds">localBounds</a>  </p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong>: <a href="#SceneNode-localBounds">localBounds</a>  </p>
 <hr>
-<p><a id="SceneNode+globalDrawBounds"></a></p>
+<p><a id="SceneNode-globalDrawBounds"></a></p>
 <h3 id="scenenodeglobaldrawbounds--bounds"><em>sceneNode.globalDrawBounds : !<a href="#Bounds"><code>Bounds</code></a></em></h3>
 <p>The <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s <em>draw bounds</em> in document-global coordinate space. Draw bounds are larger than the selection outline seen in XD, including outer stroke, drop shadow / blur, etc. - every visible pixel of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is encompassed by these bounds. This matches the image dimensions if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is exported as a PNG/JPEG bitmap.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> bounding boxes &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true<br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+globalBounds">globalBounds</a></li>
+<li><a href="#SceneNode-globalBounds">globalBounds</a></li>
 </ul>
 <hr>
-<p><a id="SceneNode+name"></a></p>
+<p><a id="SceneNode-name"></a></p>
 <h3 id="scenenodename--string"><em>sceneNode.name : <code>string</code></em></h3>
 <p><a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">Node</a> name as seen in the Layers panel. Also used as filename during Export.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a>  </p>
 <hr>
-<p><a id="SceneNode+hasDefaultName"></a></p>
+<p><a id="SceneNode-hasDefaultName"></a></p>
 <h3 id="scenenodehasdefaultname--boolean"><em>sceneNode.hasDefaultName : <code>boolean</code></em></h3>
-<p>True if <a href="#SceneNode+name">name</a> is a generic, auto-generated string (e.g. &quot;Rectangle 5&quot;). False if name has been explicitly set.</p>
+<p>True if <a href="#SceneNode-name">name</a> is a generic, auto-generated string (e.g. &quot;Rectangle 5&quot;). False if name has been explicitly set.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="SceneNode+locked"></a></p>
+<p><a id="SceneNode-locked"></a></p>
 <h3 id="scenenodelocked--boolean"><em>sceneNode.locked : <code>boolean</code></em></h3>
 <p>True if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is locked, meaning it cannot normally be selected.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a>  </p>
 <hr>
-<p><a id="SceneNode+markedForExport"></a></p>
+<p><a id="SceneNode-markedForExport"></a></p>
 <h3 id="scenenodemarkedforexport--boolean"><em>sceneNode.markedForExport : <code>boolean</code></em></h3>
 <p>True if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> should be included in the output of <em>File &gt; Export &gt; Batch</em> and other bulk-export workflows.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a>  </p>
 <hr>
-<p><a id="SceneNode+hasLinkedContent"></a></p>
+<p><a id="SceneNode-hasLinkedContent"></a></p>
 <h3 id="scenenodehaslinkedcontent--boolean"><em>sceneNode.hasLinkedContent : <code>boolean</code></em></h3>
 <p>True if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s appearance comes from a link to an external resource, such as Creative Cloud Libraries or a
 separate XD document (in the case of a Linked Symbol <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a>).</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="SceneNode+removeFromParent"></a></p>
+<p><a id="SceneNode-removeFromParent"></a></p>
 <h3 id="scenenoderemovefromparent"><em>sceneNode.removeFromParent()</em></h3>
 <p>Remove this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> from its parent, effectively deleting it from the document.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#SceneNode"><code>SceneNode</code></a>  </p>
 <hr>
-<p><a id="SceneNode+moveInParentCoordinates"></a></p>
+<p><a id="SceneNode-moveInParentCoordinates"></a></p>
 <h3 id="scenenodemoveinparentcoordinatesdeltax-deltay"><em>sceneNode.moveInParentCoordinates(deltaX, deltaY)</em></h3>
 <p>Move the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> by the given number of pixels along the parent&apos;s X/Y axes (if this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has no rotation, this is identical to
 moving the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> along its own local X/Y axes). This is equivalent to modifying the value returned by &apos;translation&apos; and then
@@ -2671,8 +2671,8 @@ setting it back.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> positioning &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>See</strong></p>
 <ul>
-<li><a href="#SceneNode+placeInParentCoordinates">placeInParentCoordinates</a></li>
-<li><a href="#SceneNode+translation">translation</a></li>
+<li><a href="#SceneNode-placeInParentCoordinates">placeInParentCoordinates</a></li>
+<li><a href="#SceneNode-translation">translation</a></li>
 </ul>
 <table>
 <thead>
@@ -2693,7 +2693,7 @@ setting it back.</p>
 </tbody>
 </table>
 <hr>
-<p><a id="SceneNode+placeInParentCoordinates"></a></p>
+<p><a id="SceneNode-placeInParentCoordinates"></a></p>
 <h3 id="scenenodeplaceinparentcoordinatesregistrationpoint-parentpoint"><em>sceneNode.placeInParentCoordinates(registrationPoint, parentPoint)</em></h3>
 <p>Move the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> so the given point in its local coordinates is placed at the given point in its parent&apos;s coordinates (taking into account
 any rotation on this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, etc.).</p>
@@ -2728,12 +2728,12 @@ any rotation on this <a href="../GLOSSARY.html#node" class="glossary-term" title
 node.placeInParentCoordinates(nodeTopLeft, parentCenter);
 </code></pre>
 <hr>
-<p><a id="SceneNode+rotateAround"></a></p>
+<p><a id="SceneNode-rotateAround"></a></p>
 <h3 id="scenenoderotatearounddeltaangle-rotationcenter"><em>sceneNode.rotateAround(deltaAngle, rotationCenter)</em></h3>
 <p>Rotate the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> clockwise by the given number of degrees around the given point in the plugin&apos;s local coordinate space. If this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>
 already has nonzero rotation, this operation <em>adds</em> to its existing angle.</p>
 <p>For an overview of <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> transforms &amp; coordinate systems, see <a href="../index.md#coordinate-spaces">Coordinate spaces</a>.</p>
-<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>See</strong>: <a href="#SceneNode+rotation">rotation</a>  </p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#SceneNode"><code>SceneNode</code></a><br><strong>See</strong>: <a href="#SceneNode-rotation">rotation</a>  </p>
 <table>
 <thead>
 <tr>
@@ -2764,7 +2764,7 @@ node.rotateAround(<span class="hljs-number">45</span>, node.localCenterPoint);
 node.rotateAround(rotationDelta, node.localCenterPoint);
 </code></pre>
 <hr>
-<p><a id="SceneNode+resize"></a></p>
+<p><a id="SceneNode-resize"></a></p>
 <h3 id="scenenoderesizewidth-height"><em>sceneNode.resize(width, height)</em></h3>
 <p>Attempts to change <code>localBounds.width</code> &amp; <code>height</code> to match the specified sizes. The result is not guaranteed to
 match your requested size, since some nodes have limits on their ability to resize.</p>
@@ -2814,10 +2814,10 @@ does not lie within an Artboard. Artboards must be grouped contiguously at the b
 visual appearance of its own.</p>
 <ul>
 <li><a href="#RootNode">RootNode</a><ul>
-<li><a href="#Group+addChild">.addChild(node, index)</a></li>
-<li><a href="#Group+addChildAfter">.addChildAfter(node, relativeTo)</a></li>
-<li><a href="#Group+addChildBefore">.addChildBefore(node, relativeTo)</a></li>
-<li><a href="#Group+removeAllChildren">.removeAllChildren()</a></li>
+<li><a href="#Group-addChild">.addChild(node, index)</a></li>
+<li><a href="#Group-addChildAfter">.addChildAfter(node, relativeTo)</a></li>
+<li><a href="#Group-addChildBefore">.addChildBefore(node, relativeTo)</a></li>
+<li><a href="#Group-removeAllChildren">.removeAllChildren()</a></li>
 </ul>
 </li>
 </ul>
@@ -2854,16 +2854,16 @@ commands.group();
 </code></pre>
 <ul>
 <li><a href="#Group">Group</a><ul>
-<li><a href="#Group+addChild">.addChild(node, index)</a></li>
-<li><a href="#Group+addChildAfter">.addChildAfter(node, relativeTo)</a></li>
-<li><a href="#Group+addChildBefore">.addChildBefore(node, relativeTo)</a></li>
-<li><a href="#Group+removeAllChildren">.removeAllChildren()</a></li>
-<li><a href="#Group+mask">.mask</a> : ?<a href="#SceneNode"><code>SceneNode</code></a></li>
+<li><a href="#Group-addChild">.addChild(node, index)</a></li>
+<li><a href="#Group-addChildAfter">.addChildAfter(node, relativeTo)</a></li>
+<li><a href="#Group-addChildBefore">.addChildBefore(node, relativeTo)</a></li>
+<li><a href="#Group-removeAllChildren">.removeAllChildren()</a></li>
+<li><a href="#Group-mask">.mask</a> : ?<a href="#SceneNode"><code>SceneNode</code></a></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Group+addChild"></a></p>
+<p><a id="Group-addChild"></a></p>
 <h4 id="groupaddchildnode-index">group.addChild(node, index)</h4>
 <p>Adds a child <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> to this container <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>. You can only add leaf nodes this way; to create structured subtrees of content,
 use <a href="commands.html">commands</a>.</p>
@@ -2890,7 +2890,7 @@ use <a href="commands.html">commands</a>.</p>
 </tbody>
 </table>
 <hr>
-<p><a id="Group+addChildAfter"></a></p>
+<p><a id="Group-addChildAfter"></a></p>
 <h4 id="groupaddchildafternode-relativeto">group.addChildAfter(node, relativeTo)</h4>
 <p>Inserts a child <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> after the given reference <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#Group"><code>Group</code></a> and other container nodes</p>
@@ -2916,7 +2916,7 @@ use <a href="commands.html">commands</a>.</p>
 </tbody>
 </table>
 <hr>
-<p><a id="Group+addChildBefore"></a></p>
+<p><a id="Group-addChildBefore"></a></p>
 <h4 id="groupaddchildbeforenode-relativeto">group.addChildBefore(node, relativeTo)</h4>
 <p>Inserts a child <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> before the given reference <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#Group"><code>Group</code></a> and other container nodes</p>
@@ -2942,12 +2942,12 @@ use <a href="commands.html">commands</a>.</p>
 </tbody>
 </table>
 <hr>
-<p><a id="Group+removeAllChildren"></a></p>
+<p><a id="Group-removeAllChildren"></a></p>
 <h4 id="groupremoveallchildren">group.removeAllChildren()</h4>
 <p>Removes all children from this <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>. Equivalent to calling removeFromParent() on each child in turn, but faster.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#Group"><code>Group</code></a> and other container nodes</p>
 <hr>
-<p><a id="Group+mask"></a></p>
+<p><a id="Group-mask"></a></p>
 <h3 id="groupmask--scenenode">group.mask : ?<a href="#SceneNode"><code>SceneNode</code></a></h3>
 <p>The mask shape applied to this group, if any. This object is also present in the group&apos;s <code>children</code> list. Though it has no direct visual appearance of its own, the mask affects the entire group&apos;s appearance by clipping all its other content.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Group"><code>Group</code></a><br><strong>Read only</strong>: true  </p>
@@ -2966,26 +2966,26 @@ which is a container <a href="../GLOSSARY.html#node" class="glossary-term" title
 or a fill.</p>
 <ul>
 <li><em><a href="#GraphicNode">GraphicNode</a></em><ul>
-<li><em><a href="#GraphicNode+fill">.fill</a> : ?<code>Color</code>  or  <code>LinearGradientFill</code>  or  <code>RadialGradientFill</code>  or  <code>ImageFill</code></em></li>
-<li><em><a href="#GraphicNode+fillEnabled">.fillEnabled</a> : <code>boolean</code></em></li>
-<li><em><a href="#GraphicNode+stroke">.stroke</a> : <code>?Color</code></em></li>
-<li><em><a href="#GraphicNode+strokeEnabled">.strokeEnabled</a> : <code>boolean</code></em></li>
-<li><em><a href="#GraphicNode+strokeWidth">.strokeWidth</a> : <code>number</code></em></li>
-<li><em><a href="#GraphicNode+strokePosition">.strokePosition</a> : <code>string</code></em></li>
-<li><em><a href="#GraphicNode+strokeEndCaps">.strokeEndCaps</a> : <code>string</code></em></li>
-<li><em><a href="#GraphicNode+strokeJoins">.strokeJoins</a> : <code>string</code></em></li>
-<li><em><a href="#GraphicNode+strokeMiterLimit">.strokeMiterLimit</a> : <code>number</code></em></li>
-<li><em><a href="#GraphicNode+strokeDashArray">.strokeDashArray</a> : <code>!Array&lt;number&gt;</code></em></li>
-<li><em><a href="#GraphicNode+strokeDashOffset">.strokeDashOffset</a> : <code>number</code></em></li>
-<li><em><a href="#GraphicNode+shadow">.shadow</a> : <code>?Shadow</code></em></li>
-<li><em><a href="#GraphicNode+blur">.blur</a> : <code>?Blur</code></em></li>
-<li><em><a href="#GraphicNode+pathData">.pathData</a> : <code>string</code></em></li>
-<li><em><a href="#GraphicNode+hasLinkedGraphicFill">.hasLinkedGraphicFill</a> : <code>boolean</code></em></li>
+<li><em><a href="#GraphicNode-fill">.fill</a> : ?<code>Color</code>  or  <code>LinearGradientFill</code>  or  <code>RadialGradientFill</code>  or  <code>ImageFill</code></em></li>
+<li><em><a href="#GraphicNode-fillEnabled">.fillEnabled</a> : <code>boolean</code></em></li>
+<li><em><a href="#GraphicNode-stroke">.stroke</a> : <code>?Color</code></em></li>
+<li><em><a href="#GraphicNode-strokeEnabled">.strokeEnabled</a> : <code>boolean</code></em></li>
+<li><em><a href="#GraphicNode-strokeWidth">.strokeWidth</a> : <code>number</code></em></li>
+<li><em><a href="#GraphicNode-strokePosition">.strokePosition</a> : <code>string</code></em></li>
+<li><em><a href="#GraphicNode-strokeEndCaps">.strokeEndCaps</a> : <code>string</code></em></li>
+<li><em><a href="#GraphicNode-strokeJoins">.strokeJoins</a> : <code>string</code></em></li>
+<li><em><a href="#GraphicNode-strokeMiterLimit">.strokeMiterLimit</a> : <code>number</code></em></li>
+<li><em><a href="#GraphicNode-strokeDashArray">.strokeDashArray</a> : <code>!Array&lt;number&gt;</code></em></li>
+<li><em><a href="#GraphicNode-strokeDashOffset">.strokeDashOffset</a> : <code>number</code></em></li>
+<li><em><a href="#GraphicNode-shadow">.shadow</a> : <code>?Shadow</code></em></li>
+<li><em><a href="#GraphicNode-blur">.blur</a> : <code>?Blur</code></em></li>
+<li><em><a href="#GraphicNode-pathData">.pathData</a> : <code>string</code></em></li>
+<li><em><a href="#GraphicNode-hasLinkedGraphicFill">.hasLinkedGraphicFill</a> : <code>boolean</code></em></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="GraphicNode+fill"></a></p>
+<p><a id="GraphicNode-fill"></a></p>
 <h3 id="graphicnodefill--color--or--lineargradientfill--or--radialgradientfill--or--imagefill"><em>graphicNode.fill : <code>?Color</code>  or  <code>LinearGradientFill</code>  or  <code>RadialGradientFill</code>  or  <code>ImageFill</code></em></h3>
 <p><strong>Default</strong>: <code>null</code></p>
 <p>The fill applied to this shape, if any. If this property is null <em>or</em> <code>fillEnabled</code> is false, no fill is drawn.
@@ -3002,18 +3002,18 @@ See <a href="../index.md#object-value-properties">&quot;Properties with object v
 The RadialGradientFill type is not documented and its API may change. Plugins currently cannot modify or otherwise work with radial gradients.</p>
 </div></div>
 <hr>
-<p><a id="GraphicNode+fillEnabled"></a></p>
+<p><a id="GraphicNode-fillEnabled"></a></p>
 <h3 id="graphicnodefillenabled--boolean"><em>graphicNode.fillEnabled : <code>boolean</code></em></h3>
 <p><strong>Default</strong>: <code>true</code></p>
 <p>If false, the <code>fill</code> is not rendered. The user can toggle this via a checkbox in the Properties panel.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+stroke"></a></p>
+<p><a id="GraphicNode-stroke"></a></p>
 <h3 id="graphicnodestroke--color"><em>graphicNode.stroke : <code>?Color</code></em></h3>
 <p><strong>Default</strong>: <code>null</code></p>
 <p>The stroke color applied to this shape, if any. If this property is null <em>or</em> <code>strokeEnabled</code> is false, no stroke is drawn.
 Freshly created nodes have no stroke by default. Artboard objects ignore stroke settings.</p>
-<p>Depending on the <a href="#GraphicNode+strokeWidth"><code>strokeWidth</code></a> and <a href="#GraphicNode+strokePosition"><code>strokePosition</code></a>, the path outline
+<p>Depending on the <a href="#GraphicNode-strokeWidth"><code>strokeWidth</code></a> and <a href="#GraphicNode-strokePosition"><code>strokePosition</code></a>, the path outline
 of a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> may need to be positioned on fractional pixels in order for the stroke itself to be crisply aligned to the pixel grid.
 For example, if a horizontal line uses a 1px center stroke, the line&apos;s y should end in .5 to keep the stroke on-pixel.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a><br><strong>Example</strong>  </p>
@@ -3022,42 +3022,42 @@ For example, if a horizontal line uses a 1px center stroke, the line&apos;s y sh
 <p>To modify an existing stroke, always be sure to re-invoke the <code>stroke</code> setter rather than just changing the Color object&apos;s properties inline.
 See <a href="../index.md#object-value-properties">&quot;Properties with object values&quot;</a>.</p>
 <hr>
-<p><a id="GraphicNode+strokeEnabled"></a></p>
+<p><a id="GraphicNode-strokeEnabled"></a></p>
 <h3 id="graphicnodestrokeenabled--boolean"><em>graphicNode.strokeEnabled : <code>boolean</code></em></h3>
 <p><strong>Default</strong>: <code>false</code></p>
 <p>If false, the <code>stroke</code> is not rendered. The user can toggle this via a checkbox in the Properties panel.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokeWidth"></a></p>
+<p><a id="GraphicNode-strokeWidth"></a></p>
 <h3 id="graphicnodestrokewidth--number--0"><em>graphicNode.strokeWidth : <code>number</code></em> &gt;= 0</h3>
 <p><strong>Default</strong>: <code>1.0</code></p>
 <p>Thickness in pixels of the stroke.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokePosition"></a></p>
+<p><a id="GraphicNode-strokePosition"></a></p>
 <h3 id="graphicnodestrokeposition--string"><em>graphicNode.strokePosition : <code>string</code></em></h3>
 <p><strong>Default</strong>: <code>CENTER_STROKE</code> for most shapes, <code>INNER_STROKE</code> for Rectangle &amp; Ellipse</p>
 <p>Position of the stroke relative to the shape&apos;s path outline: GraphicNode.INNER_STROKE, OUTER_STROKE, or CENTER_STROKE. Ignored by Text and Line, which always render using CENTER_STROKE.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokeEndCaps"></a></p>
+<p><a id="GraphicNode-strokeEndCaps"></a></p>
 <h3 id="graphicnodestrokeendcaps--string"><em>graphicNode.strokeEndCaps : <code>string</code></em></h3>
 <p><strong>Default</strong>: <code>STROKE_CAP_SQUARE</code></p>
 <p>For Lines and non-closed Paths, how the dangling ends of the stroke are rendered: GraphicNode.STROKE_CAP_NONE, STROKE_CAP_SQUARE, or STROKE_CAP_ROUND.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokeJoins"></a></p>
+<p><a id="GraphicNode-strokeJoins"></a></p>
 <h3 id="graphicnodestrokejoins--string"><em>graphicNode.strokeJoins : <code>string</code></em></h3>
 <p><strong>Default</strong>: <code>STROKE_JOIN_MITER</code></p>
 <p>How sharp corners in the shape are rendered: GraphicNode.STROKE_JOIN_BEVEL, STROKE_JOIN_ROUND, or STROKE_JOIN_MITER.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokeMiterLimit"></a></p>
+<p><a id="GraphicNode-strokeMiterLimit"></a></p>
 <h3 id="graphicnodestrokemiterlimit--number--0"><em>graphicNode.strokeMiterLimit : <code>number</code></em> &gt;= 0</h3>
 <p><strong>Default</strong>: <code>4</code></p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokeDashArray"></a></p>
+<p><a id="GraphicNode-strokeDashArray"></a></p>
 <h3 id="graphicnodestrokedasharray--arraynumber"><em>graphicNode.strokeDashArray : <code>!Array&lt;number&gt;</code></em></h3>
 <p><strong>Default</strong>: <code>[]</code></p>
 <p>Empty array indicates a solid stroke. If non-empty, values represent the lengths of rendered and blank segments of the
@@ -3067,32 +3067,32 @@ as <code>[3, 3]</code>.</p>
 <p>The appearance of each segment&apos;s start/end follows the <a href="#GraphicNode#strokeEndCaps">strokeEndCaps</a> setting.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+strokeDashOffset"></a></p>
+<p><a id="GraphicNode-strokeDashOffset"></a></p>
 <h3 id="graphicnodestrokedashoffset--number"><em>graphicNode.strokeDashOffset : <code>number</code></em></h3>
 <p><strong>Default</strong>: <code>0</code></p>
 <p>Ignored unless <code>strokeDashArray</code> is non-empty. Shifts the &quot;phase&quot; of the repeating dash pattern along the length of the stroke.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+shadow"></a></p>
+<p><a id="GraphicNode-shadow"></a></p>
 <h3 id="graphicnodeshadow--shadow"><em>graphicNode.shadow : <code>?Shadow</code></em></h3>
 <p><strong>Default</strong>: <code>null</code></p>
 <p>The <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s drop shadow, if any. If there is no shadow applied, this property may be null <em>or</em> <code>shadow.visible</code> may be false.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+blur"></a></p>
+<p><a id="GraphicNode-blur"></a></p>
 <h3 id="graphicnodeblur--blur"><em>graphicNode.blur : <code>?Blur</code></em></h3>
 <p><strong>Default</strong>: <code>null</code></p>
 <p>The <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s object blur or background blur settings, if applicable (a <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> may not have both types of blur at once). If there is no blur
 effect applied, this property may be null <em>or</em> <code>blur.visible</code> may be false.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a>  </p>
 <hr>
-<p><a id="GraphicNode+pathData"></a></p>
+<p><a id="GraphicNode-pathData"></a></p>
 <h3 id="graphicnodepathdata--string"><em>graphicNode.pathData : <code>string</code></em></h3>
 <p>Returns a representation of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s outline in SVG <code>&lt;path&gt;</code> syntax. Note that only nodes with <a href="#GraphicNode#strokePosition">strokePosition</a> ==
 <code>GraphicNode.CENTER_STROKE</code> can be faithfully rendered in actual SVG using the exact pathData shown here.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#GraphicNode"><code>GraphicNode</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="GraphicNode+hasLinkedGraphicFill"></a></p>
+<p><a id="GraphicNode-hasLinkedGraphicFill"></a></p>
 <h3 id="graphicnodehaslinkedgraphicfill--boolean"><em>graphicNode.hasLinkedGraphicFill : <code>boolean</code></em></h3>
 <p>True if the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> has an image fill that comes from a link to an external resource, such as Creative Cloud Libraries. Equivalent to the expression: <code>node.fill &amp;&amp;
 node.fill.linked</code>.</p>
@@ -3112,41 +3112,41 @@ selection.items = [rect];
 </code></pre>
 <ul>
 <li><a href="#Rectangle">Rectangle</a><ul>
-<li><a href="#Rectangle+width">.width</a> : <code>number</code></li>
-<li><a href="#Rectangle+height">.height</a> : <code>number</code></li>
-<li><a href="#Rectangle+cornerRadii">.cornerRadii</a> : <code>!{topLeft:number, topRight:number, bottomRight:number, bottomLeft:number}</code></li>
-<li><a href="#Rectangle+setAllCornerRadii">.setAllCornerRadii(radius)</a></li>
-<li><a href="#Rectangle+effectiveCornerRadii">.effectiveCornerRadii</a> : <code>!{topLeft:number, topRight:number, bottomRight:number, bottomLeft:number}</code></li>
+<li><a href="#Rectangle-width">.width</a> : <code>number</code></li>
+<li><a href="#Rectangle-height">.height</a> : <code>number</code></li>
+<li><a href="#Rectangle-cornerRadii">.cornerRadii</a> : <code>!{topLeft:number, topRight:number, bottomRight:number, bottomLeft:number}</code></li>
+<li><a href="#Rectangle-setAllCornerRadii">.setAllCornerRadii(radius)</a></li>
+<li><a href="#Rectangle-effectiveCornerRadii">.effectiveCornerRadii</a> : <code>!{topLeft:number, topRight:number, bottomRight:number, bottomLeft:number}</code></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Rectangle+width"></a></p>
+<p><a id="Rectangle-width"></a></p>
 <h3 id="rectanglewidth--number--0">rectangle.width : <code>number</code> &gt; 0</h3>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Rectangle"><code>Rectangle</code></a>  </p>
 <hr>
-<p><a id="Rectangle+height"></a></p>
+<p><a id="Rectangle-height"></a></p>
 <h3 id="rectangleheight--number--0">rectangle.height : <code>number</code> &gt; 0</h3>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Rectangle"><code>Rectangle</code></a>  </p>
 <hr>
-<p><a id="Rectangle+cornerRadii"></a></p>
+<p><a id="Rectangle-cornerRadii"></a></p>
 <h3 id="rectanglecornerradii--topleftnumber-toprightnumber-bottomrightnumber-bottomleftnumber-all-numbers--0">rectangle.cornerRadii : <code>!{topLeft:number, topRight:number, bottomRight:number, bottomLeft:number}</code> (all numbers &gt;= 0)</h3>
 <p><strong>Default</strong>: <code>{topLeft:0, topRight:0, bottomRight:0, bottomLeft:0}</code></p>
 <p>The actual corner radius that is rendered is capped based on the size of the rectangle even if the radius value set here is higher (see
-<a href="#Rectangle+effectiveCornerRadii"><code>effectiveCornerRadii</code></a>.</p>
-<p>To set all corners to the same value, use <a href="#Rectangle+setAllCornerRadii"><code>setAllCornerRadii</code></a>.</p>
+<a href="#Rectangle-effectiveCornerRadii"><code>effectiveCornerRadii</code></a>.</p>
+<p>To set all corners to the same value, use <a href="#Rectangle-setAllCornerRadii"><code>setAllCornerRadii</code></a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Rectangle"><code>Rectangle</code></a>  </p>
 <hr>
-<p><a id="Rectangle+hasRoundedCorners"></a></p>
+<p><a id="Rectangle-hasRoundedCorners"></a></p>
 <h3 id="rectanglehasroundedcorners--boolean">rectangle.hasRoundedCorners : <code>boolean</code></h3>
 <p>True if any of the Rectangle&apos;s four corners is rounded (corner radius &gt; 0).</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Rectangle"><code>Rectangle</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="Rectangle+setAllCornerRadii"></a></p>
+<p><a id="Rectangle-setAllCornerRadii"></a></p>
 <h3 id="rectanglesetallcornerradiiradius">rectangle.setAllCornerRadii(radius)</h3>
 <p>Set the rounding radius of all four corners of the Rectangle to the same value. The actual corner radius that is rendered is capped based on
-the size of the rectangle even if the radius value set here is higher (see <a href="#Rectangle+effectiveCornerRadii"><code>effectiveCornerRadii</code></a>.</p>
-<p>To set the corners to different radius values, use <a href="#Rectangle+cornerRadii"><code>cornerRadii</code></a>.</p>
+the size of the rectangle even if the radius value set here is higher (see <a href="#Rectangle-effectiveCornerRadii"><code>effectiveCornerRadii</code></a>.</p>
+<p>To set the corners to different radius values, use <a href="#Rectangle-cornerRadii"><code>cornerRadii</code></a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> method of <a href="#Rectangle"><code>Rectangle</code></a>  </p>
 <table>
 <thead>
@@ -3163,7 +3163,7 @@ the size of the rectangle even if the radius value set here is higher (see <a hr
 </tbody>
 </table>
 <hr>
-<p><a id="Rectangle+effectiveCornerRadii"></a></p>
+<p><a id="Rectangle-effectiveCornerRadii"></a></p>
 <h3 id="rectangleeffectivecornerradii--topleftnumber-toprightnumber-bottomrightnumber-bottomleftnumber">rectangle.effectiveCornerRadii : <code>!{topLeft:number, topRight:number, bottomRight:number, bottomLeft:number}</code></h3>
 <p>The actual corner radius that is rendered may be capped by the size of the rectangle. Returns the actual radii that
 are currently in effect, which may be smaller than the <code>cornerRadii</code> values as a result.</p>
@@ -3182,30 +3182,30 @@ of the root (pasteboard). XD ensures this automatically: if a <a href="../GLOSSA
 Artboard, its parent will automatically be changed accordingly after the edit operation finishes.</p>
 <ul>
 <li><a href="#Artboard">Artboard</a><ul>
-<li><a href="#Artboard+width">.width</a> : <code>number</code></li>
-<li><a href="#Artboard+height">.height</a> : <code>number</code></li>
-<li><a href="#Artboard+viewportHeight">.viewportHeight</a> : <code>?number</code></li>
-<li><a href="#Group+addChild">.addChild(node, index)</a></li>
-<li><a href="#Group+addChildAfter">.addChildAfter(node, relativeTo)</a></li>
-<li><a href="#Group+addChildBefore">.addChildBefore(node, relativeTo)</a></li>
-<li><a href="#Group+removeAllChildren">.removeAllChildren()</a></li>
+<li><a href="#Artboard-width">.width</a> : <code>number</code></li>
+<li><a href="#Artboard-height">.height</a> : <code>number</code></li>
+<li><a href="#Artboard-viewportHeight">.viewportHeight</a> : <code>?number</code></li>
+<li><a href="#Group-addChild">.addChild(node, index)</a></li>
+<li><a href="#Group-addChildAfter">.addChildAfter(node, relativeTo)</a></li>
+<li><a href="#Group-addChildBefore">.addChildBefore(node, relativeTo)</a></li>
+<li><a href="#Group-removeAllChildren">.removeAllChildren()</a></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Artboard+width"></a></p>
+<p><a id="Artboard-width"></a></p>
 <h3 id="artboardwidth--number--0">artboard.width : <code>number</code> &gt; 0</h3>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Artboard"><code>Artboard</code></a>  </p>
 <hr>
-<p><a id="Artboard+height"></a></p>
+<p><a id="Artboard-height"></a></p>
 <h3 id="artboardheight--number--0">artboard.height : <code>number</code> &gt; 0</h3>
 <p>For scrollable Artboards, this is the total height encompassing all content - not just the viewport size (i.e. screen height).</p>
-<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Artboard"><code>Artboard</code></a><br><strong>See</strong>: <a href="#Artboard+viewportHeight">viewportHeight</a>  </p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Artboard"><code>Artboard</code></a><br><strong>See</strong>: <a href="#Artboard-viewportHeight">viewportHeight</a>  </p>
 <hr>
-<p><a id="Artboard+viewportHeight"></a></p>
+<p><a id="Artboard-viewportHeight"></a></p>
 <h3 id="artboardviewportheight--number">artboard.viewportHeight : <code>?number</code></h3>
 <p>If Artboard is scrollable, this is the height of the viewport (e.g. mobile device screen size). Null if Artboard isn&apos;t scrollable.</p>
-<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Artboard"><code>Artboard</code></a><br><strong>See</strong>: <a href="#Artboard+height">height</a>  </p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Artboard"><code>Artboard</code></a><br><strong>See</strong>: <a href="#Artboard-height">height</a>  </p>
 <hr>
 <p><a id="Ellipse"></a></p>
 <h2 id="ellipse">Ellipse</h2>
@@ -3214,22 +3214,22 @@ Artboard, its parent will automatically be changed accordingly after the edit op
 <p>Ellipse leaf <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> shape.</p>
 <ul>
 <li><a href="#Ellipse">Ellipse</a><ul>
-<li><a href="#Ellipse+radiusX">.radiusX</a> : <code>number</code></li>
-<li><a href="#Ellipse+radiusY">.radiusY</a> : <code>number</code></li>
-<li><a href="#Ellipse+isCircle">.isCircle</a> : <code>boolean</code></li>
+<li><a href="#Ellipse-radiusX">.radiusX</a> : <code>number</code></li>
+<li><a href="#Ellipse-radiusY">.radiusY</a> : <code>number</code></li>
+<li><a href="#Ellipse-isCircle">.isCircle</a> : <code>boolean</code></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Ellipse+radiusX"></a></p>
+<p><a id="Ellipse-radiusX"></a></p>
 <h3 id="ellipseradiusx--number">ellipse.radiusX : <code>number</code></h3>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Ellipse"><code>Ellipse</code></a>  </p>
 <hr>
-<p><a id="Ellipse+radiusY"></a></p>
+<p><a id="Ellipse-radiusY"></a></p>
 <h3 id="ellipseradiusy--number">ellipse.radiusY : <code>number</code></h3>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Ellipse"><code>Ellipse</code></a>  </p>
 <hr>
-<p><a id="Ellipse+isCircle"></a></p>
+<p><a id="Ellipse-isCircle"></a></p>
 <h3 id="ellipseiscircle--boolean">ellipse.isCircle : <code>boolean</code></h3>
 <p>True if the Ellipse is a circle (i.e., has a 1:1 aspect ratio).</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Ellipse"><code>Ellipse</code></a><br><strong>Read only</strong>: true  </p>
@@ -3241,24 +3241,24 @@ Artboard, its parent will automatically be changed accordingly after the edit op
 <p>Line leaf <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> shape. Lines have a stroke but no fill.</p>
 <ul>
 <li><a href="#Line">Line</a><ul>
-<li><a href="#Line+start">.start</a> : !<a href="#Point"><code>Point</code></a></li>
-<li><a href="#Line+end">.end</a> : !<a href="#Point"><code>Point</code></a></li>
-<li><a href="#Line+setStartEnd">.setStartEnd(startX, startY, endX, endY)</a></li>
+<li><a href="#Line-start">.start</a> : !<a href="#Point"><code>Point</code></a></li>
+<li><a href="#Line-end">.end</a> : !<a href="#Point"><code>Point</code></a></li>
+<li><a href="#Line-setStartEnd">.setStartEnd(startX, startY, endX, endY)</a></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Line+start"></a></p>
+<p><a id="Line-start"></a></p>
 <h3 id="linestart--point">line.start : !<a href="#Point"><code>Point</code></a></h3>
-<p>Start point of the Line in local coordinate space. To change the start point, use <a href="#Line+setStartEnd">setStartEnd</a>.</p>
+<p>Start point of the Line in local coordinate space. To change the start point, use <a href="#Line-setStartEnd">setStartEnd</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Line"><code>Line</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="Line+end"></a></p>
+<p><a id="Line-end"></a></p>
 <h3 id="lineend--point">line.end : !<a href="#Point"><code>Point</code></a></h3>
-<p>Endpoint of the Line in local coordinate space. To change the endpoint, use <a href="#Line+setStartEnd">setStartEnd</a>.</p>
+<p>Endpoint of the Line in local coordinate space. To change the endpoint, use <a href="#Line-setStartEnd">setStartEnd</a>.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Line"><code>Line</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="Line+setStartEnd"></a></p>
+<p><a id="Line-setStartEnd"></a></p>
 <h3 id="linesetstartendstartx-starty-endx-endy">line.setStartEnd(startX, startY, endX, endY)</h3>
 <p>Set the start and end points of the Line in local coordinate space. The values may be normalized by this setter, shifting the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>&apos;s
 translation and counter-shifting the start/end points. So the start/end getters may return values different from the values you
@@ -3300,12 +3300,12 @@ path&quot;). Even open Paths may have a fill - the fill is drawn as if the Path 
 <p>The path may not start at (0,0) in local coordinates, for example if it starts with a move (&quot;M&quot;) segment.</p>
 <ul>
 <li><a href="#Path">Path</a><ul>
-<li><a href="#Path+pathData">.pathData</a> : <code>string</code></li>
+<li><a href="#Path-pathData">.pathData</a> : <code>string</code></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Path+pathData"></a></p>
+<p><a id="Path-pathData"></a></p>
 <h3 id="pathpathdata--string">path.pathData : <code>string</code></h3>
 <p>Representation of the path outline in SVG <code>&lt;path&gt;</code> syntax. Unlike other <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> types, pathData is writable here. Syntax is
 automatically normalized, so the getter may return a slightly different string than what you passed to the setter.</p>
@@ -3322,16 +3322,16 @@ its children&apos;s paths.</p>
 to clone existing BooleanGroups.</p>
 <ul>
 <li><a href="#BooleanGroup">BooleanGroup</a><ul>
-<li><a href="#BooleanGroup+pathOp">.pathOp</a> : <code>string</code></li>
-<li><a href="#Group+addChild">.addChild(node, index)</a></li>
-<li><a href="#Group+addChildAfter">.addChildAfter(node, relativeTo)</a></li>
-<li><a href="#Group+addChildBefore">.addChildBefore(node, relativeTo)</a></li>
-<li><a href="#Group+removeAllChildren">.removeAllChildren()</a></li>
+<li><a href="#BooleanGroup-pathOp">.pathOp</a> : <code>string</code></li>
+<li><a href="#Group-addChild">.addChild(node, index)</a></li>
+<li><a href="#Group-addChildAfter">.addChildAfter(node, relativeTo)</a></li>
+<li><a href="#Group-addChildBefore">.addChildBefore(node, relativeTo)</a></li>
+<li><a href="#Group-removeAllChildren">.removeAllChildren()</a></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="BooleanGroup+pathOp"></a></p>
+<p><a id="BooleanGroup-pathOp"></a></p>
 <h3 id="booleangrouppathop--string">booleanGroup.pathOp : <code>string</code></h3>
 <p>Which boolean operation is used to generate the path: BooleanGroup.PATH_OP_ADD, PATH_OP_SUBTRACT, PATH_OP_INTERSECT, or PATH_OP_EXCLUDE_OVERLAP.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#BooleanGroup"><code>BooleanGroup</code></a><br><strong>Read only</strong>: true  </p>
@@ -3348,7 +3348,7 @@ will will be rejected).</p>
 breaks (&quot;\n&quot;).</li>
 <li>Area Text - Fixed width and height. Text is automatically wrapped (soft line wrapping) to fit the width. If it does not fit the
 height, any remaining text is clipped.
-Check whether <a href="#Text+areaBox"><code>areaBox</code></a> is null to determine the type of a Text <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>.</li>
+Check whether <a href="#Text-areaBox"><code>areaBox</code></a> is null to determine the type of a Text <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>.</li>
 </ul>
 <p>The baseline of a Point Text <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> is at y=0 in its own local coordinate system. Horizontally, local x=0 is the <em>anchor point</em> that the
 text grows from / shrinks toward when edited. This anchor depends on the justification: for example, if the text is centered, x=0 is
@@ -3357,18 +3357,18 @@ the horizontal centerpoint of the text.</p>
 string does not contain any of those characters. This makes aligning text based on its bounds behave more consistently.</p>
 <ul>
 <li><a href="#Text">Text</a><ul>
-<li><a href="#Text+text">.text</a> : <code>string</code></li>
-<li><a href="#Text+styleRanges">.styleRanges</a> : <code>!Array&lt;!{length:number, fontFamily:string, fontStyle:string, fontSize:number, fill:!Color, charSpacing:number, underline:boolean}&gt;</code></li>
-<li><a href="#Text+flipY">.flipY</a> : <code>boolean</code></li>
-<li><a href="#Text+textAlign">.textAlign</a> : <code>string</code></li>
-<li><a href="#Text+lineSpacing">.lineSpacing</a> : <code>number</code></li>
-<li><a href="#Text+areaBox">.areaBox</a> : <code>?{width:number, height:number}</code></li>
-<li><a href="#Text+clippedByArea">.clippedByArea</a> : <code>boolean</code></li>
+<li><a href="#Text-text">.text</a> : <code>string</code></li>
+<li><a href="#Text-styleRanges">.styleRanges</a> : <code>!Array&lt;!{length:number, fontFamily:string, fontStyle:string, fontSize:number, fill:!Color, charSpacing:number, underline:boolean}&gt;</code></li>
+<li><a href="#Text-flipY">.flipY</a> : <code>boolean</code></li>
+<li><a href="#Text-textAlign">.textAlign</a> : <code>string</code></li>
+<li><a href="#Text-lineSpacing">.lineSpacing</a> : <code>number</code></li>
+<li><a href="#Text-areaBox">.areaBox</a> : <code>?{width:number, height:number}</code></li>
+<li><a href="#Text-clippedByArea">.clippedByArea</a> : <code>boolean</code></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="Text+text"></a></p>
+<p><a id="Text-text"></a></p>
 <h3 id="texttext--string">text.text : <code>string</code></h3>
 <p><strong>Default</strong>: <code>&quot; &quot;</code> (a single space character)</p>
 <p>The plaintext content of the <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a>, including any hard line breaks but excluding soft line wrap breaks.</p>
@@ -3376,7 +3376,7 @@ string does not contain any of those characters. This makes aligning text based 
 the new string&apos;s indices unless you explicitly change styleRanges as well.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a>  </p>
 <hr>
-<p><a id="Text+styleRanges"></a></p>
+<p><a id="Text-styleRanges"></a></p>
 <h3 id="textstyleranges--arraylengthnumber-fontfamilystring-fontstylestring-fontsizenumber-fillcolor-charspacingnumber-underlineboolean">text.styleRanges : <code>!Array&lt;!{length:number, fontFamily:string, fontStyle:string, fontSize:number, fill:!Color, charSpacing:number, underline:boolean}&gt;</code></h3>
 <p>Array of text ranges and their character style settings. Each range covers a set number of characters in the text content. Ranges
 are contiguous, with each one starting immediately after the previous one. Any characters past the end of the last range use the
@@ -3385,12 +3385,12 @@ same style as the last range.</p>
 value of styleRanges. The styleRanges <em>getter</em> always returns fully realized range objects with all fields specified.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a>  </p>
 <hr>
-<p><a id="Text+flipY"></a></p>
+<p><a id="Text-flipY"></a></p>
 <h3 id="textflipy--boolean">text.flipY : <code>boolean</code></h3>
 <p>If true, the text is drawn upside down.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a>  </p>
 <hr>
-<p><a id="Text+textAlign"></a></p>
+<p><a id="Text-textAlign"></a></p>
 <h3 id="texttextalign--string">text.textAlign : <code>string</code></h3>
 <p>Horizontal alignment: Text.ALIGN_LEFT, ALIGN_CENTER, or ALIGN_RIGHT. This setting affects the layout of multiline text, and for point
 text it also affects how the text is positioned relative to its anchor point (x=0 in local coordinates) and what direction the text
@@ -3405,7 +3405,7 @@ textNode.moveInParentCoordinates(originalBounds.x - newBounds.x, <span class="hl
 </code></pre>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a>  </p>
 <hr>
-<p><a id="Text+lineSpacing"></a></p>
+<p><a id="Text-lineSpacing"></a></p>
 <h3 id="textlinespacing--number--0-or-0-for-default-spacing">text.lineSpacing : <code>number</code> &gt; 0, or 0 for default spacing</h3>
 <p>Distance between baselines in multiline text, in document pixels. The special value 0 causes XD to use the default line spacing
 defined by the font given the current font size &amp; style.</p>
@@ -3415,12 +3415,12 @@ rendered line spacing will change to match the new font size, since 0 means the 
 font settings.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a>  </p>
 <hr>
-<p><a id="Text+areaBox"></a></p>
+<p><a id="Text-areaBox"></a></p>
 <h3 id="textareabox--widthnumber-heightnumber">text.areaBox : <code>?{width:number, height:number}</code></h3>
 <p>Null for point text. For area text, specifies the size of the rectangle within which text is wrapped and clipped.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a><br><strong>Read only</strong>: true  </p>
 <hr>
-<p><a id="Text+clippedByArea"></a></p>
+<p><a id="Text-clippedByArea"></a></p>
 <h3 id="textclippedbyarea--boolean">text.clippedByArea : <code>boolean</code></h3>
 <p>Always false for point text. For area text, true if the text does not fit in the content box and its bottom is being clipped.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#Text"><code>Text</code></a><br><strong>Read only</strong>: true  </p>
@@ -3435,16 +3435,16 @@ other instances of the symbol - with certain exceptions, called &quot;overrides.
 <a href="commands.html#module_commands.duplicate">commands.duplicate</a> to clone existing SymbolInstances.</p>
 <ul>
 <li><a href="#SymbolInstance">SymbolInstance</a><ul>
-<li><a href="#SymbolInstance+symbolId">.symbolId</a> : <code>string</code></li>
-<li><a href="#Group+addChild">.addChild(node, index)</a></li>
-<li><a href="#Group+addChildAfter">.addChildAfter(node, relativeTo)</a></li>
-<li><a href="#Group+addChildBefore">.addChildBefore(node, relativeTo)</a></li>
-<li><a href="#Group+removeAllChildren">.removeAllChildren()</a></li>
+<li><a href="#SymbolInstance-symbolId">.symbolId</a> : <code>string</code></li>
+<li><a href="#Group-addChild">.addChild(node, index)</a></li>
+<li><a href="#Group-addChildAfter">.addChildAfter(node, relativeTo)</a></li>
+<li><a href="#Group-addChildBefore">.addChildBefore(node, relativeTo)</a></li>
+<li><a href="#Group-removeAllChildren">.removeAllChildren()</a></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="SymbolInstance+symbolId"></a></p>
+<p><a id="SymbolInstance-symbolId"></a></p>
 <h3 id="symbolinstancesymbolid--string">symbolInstance.symbolId : <code>string</code></h3>
 <p>An identifier unique within this document that is shared by all instances of the same Symbol.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#SymbolInstance"><code>SymbolInstance</code></a><br><strong>Read only</strong>: true  </p>
@@ -3462,59 +3462,59 @@ needed when the RepeatGrid is resized.</p>
 to clone existing RepeatGrids.</p>
 <ul>
 <li><a href="#RepeatGrid">RepeatGrid</a><ul>
-<li><a href="#RepeatGrid+width">.width</a> : <code>number</code></li>
-<li><a href="#RepeatGrid+height">.height</a> : <code>number</code></li>
-<li><a href="#RepeatGrid+numColumns">.numColumns</a> : <code>number</code></li>
-<li><a href="#RepeatGrid+numRows">.numRows</a> : <code>number</code></li>
-<li><a href="#RepeatGrid+paddingX">.paddingX</a> : <code>number</code></li>
-<li><a href="#RepeatGrid+paddingY">.paddingY</a> : <code>number</code></li>
-<li><a href="#RepeatGrid+cellSize">.cellSize</a> : <code>!{width: number, height: number}</code></li>
-<li><a href="#RepeatGrid+attachTextDataSeries">.attachTextDataSeries(textNode, textValues)</a></li>
-<li><a href="#RepeatGrid+attachImageDataSeries">.attachImageDataSeries(shapeNode, images)</a></li>
-<li><a href="#Group+addChild">.addChild(node, index)</a></li>
-<li><a href="#Group+addChildAfter">.addChildAfter(node, relativeTo)</a></li>
-<li><a href="#Group+addChildBefore">.addChildBefore(node, relativeTo)</a></li>
-<li><a href="#Group+removeAllChildren">.removeAllChildren()</a></li>
+<li><a href="#RepeatGrid-width">.width</a> : <code>number</code></li>
+<li><a href="#RepeatGrid-height">.height</a> : <code>number</code></li>
+<li><a href="#RepeatGrid-numColumns">.numColumns</a> : <code>number</code></li>
+<li><a href="#RepeatGrid-numRows">.numRows</a> : <code>number</code></li>
+<li><a href="#RepeatGrid-paddingX">.paddingX</a> : <code>number</code></li>
+<li><a href="#RepeatGrid-paddingY">.paddingY</a> : <code>number</code></li>
+<li><a href="#RepeatGrid-cellSize">.cellSize</a> : <code>!{width: number, height: number}</code></li>
+<li><a href="#RepeatGrid-attachTextDataSeries">.attachTextDataSeries(textNode, textValues)</a></li>
+<li><a href="#RepeatGrid-attachImageDataSeries">.attachImageDataSeries(shapeNode, images)</a></li>
+<li><a href="#Group-addChild">.addChild(node, index)</a></li>
+<li><a href="#Group-addChildAfter">.addChildAfter(node, relativeTo)</a></li>
+<li><a href="#Group-addChildBefore">.addChildBefore(node, relativeTo)</a></li>
+<li><a href="#Group-removeAllChildren">.removeAllChildren()</a></li>
 </ul>
 </li>
 </ul>
 <hr>
-<p><a id="RepeatGrid+width"></a></p>
+<p><a id="RepeatGrid-width"></a></p>
 <h3 id="repeatgridwidth--number">repeatGrid.width : <code>number</code></h3>
 <p>Defines size of the RepeatGrid. Cells are created and destroyed as necessary to fill the current size. Cells that only partially fit will be clipped.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+height"></a></p>
+<p><a id="RepeatGrid-height"></a></p>
 <h3 id="repeatgridheight--number">repeatGrid.height : <code>number</code></h3>
 <p>Defines size of the RepeatGrid. Cells are created and destroyed as necessary to fill the current size. Cells that only partially fit will be clipped.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+numColumns"></a></p>
+<p><a id="RepeatGrid-numColumns"></a></p>
 <h3 id="repeatgridnumcolumns--number">repeatGrid.numColumns : <code>number</code></h3>
 <p>Number of grid columns</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+numRows"></a></p>
+<p><a id="RepeatGrid-numRows"></a></p>
 <h3 id="repeatgridnumrows--number">repeatGrid.numRows : <code>number</code></h3>
 <p>Number of grid rows</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+paddingX"></a></p>
+<p><a id="RepeatGrid-paddingX"></a></p>
 <h3 id="repeatgridpaddingx--number">repeatGrid.paddingX : <code>number</code></h3>
 <p>Horizontal spacing between grid cells/columns</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+paddingY"></a></p>
+<p><a id="RepeatGrid-paddingY"></a></p>
 <h3 id="repeatgridpaddingy--number">repeatGrid.paddingY : <code>number</code></h3>
 <p>Vertical spacing between grid cells/rows</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+cellSize"></a></p>
+<p><a id="RepeatGrid-cellSize"></a></p>
 <h3 id="repeatgridcellsize--width-number-height-number">repeatGrid.cellSize : <code>!{width: number, height: number}</code></h3>
 <p>The size of each grid cell. The size of each cell&apos;s content can vary slightly due to text overrides; the cell size is always set to the width of the widest cell content and the height of the tallest cell content.</p>
 <p><strong>Kind</strong>: <a href="../GLOSSARY.html#instance" class="glossary-term" title="An instance of a class. May also refer to instance properties or methods.">instance</a> property of <a href="#RepeatGrid"><code>RepeatGrid</code></a>  </p>
 <hr>
-<p><a id="RepeatGrid+attachTextDataSeries"></a></p>
+<p><a id="RepeatGrid-attachTextDataSeries"></a></p>
 <h3 id="repeatgridattachtextdataseriestextnode-textvalues">repeatGrid.attachTextDataSeries(textNode, textValues)</h3>
 <p>Attach a sequence of text values to the instances of a given text <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> across all the cells of a Repeat Grid. The sequence is
 repeated as necessary to cover all the grid cells. This is a persistent data binding, so if the Repeat Grid is resized <em>later</em>
@@ -3547,7 +3547,7 @@ to increase the number of grid cells, items from this sequence will be used to f
 </tbody>
 </table>
 <hr>
-<p><a id="RepeatGrid+attachImageDataSeries"></a></p>
+<p><a id="RepeatGrid-attachImageDataSeries"></a></p>
 <h3 id="repeatgridattachimagedataseriesshapenode-images">repeatGrid.attachImageDataSeries(shapeNode, images)</h3>
 <p>Attach a sequence of image fills to the instances of a given shape <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> across all the cells of a Repeat Grid. The sequence is
 repeated as necessary to cover all the grid cells. This is a persistent data binding, so if the Repeat Grid is resized <em>later</em>
@@ -3629,7 +3629,7 @@ ungrouping it, breaking this link.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"scenegraph","level":"6.1.5","depth":2,"next":{"title":"SceneNodeList","level":"6.1.6","depth":2,"path":"reference/SceneNodeList.md","ref":"./reference/SceneNodeList.md","articles":[]},"previous":{"title":"commands","level":"6.1.4","depth":2,"path":"reference/commands.md","ref":"./reference/commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox","bulk-redirect"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|Text|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|Text|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"gi","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"gi","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"gi","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./tutorials/debugging/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-plugins","alt":"reload-plugins","nro":1,"url":"/images/reload-plugins.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-plugins","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./tutorials/debugging/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":2,"url":"/images/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./tutorials/debugging/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":3,"url":"/images/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":4,"url":"/images/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.2","level":"2.2.3","list_caption":"Figure: Rainbow text","alt":"Rainbow text","nro":5,"url":"/images/rainbow.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Rainbow text","attributes":{},"skip":false,"key":"2.2.3.2"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":6,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":7,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":8,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":9,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":10,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":11,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":12,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":13,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":14,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":15,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":16,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":17,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":18,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":19,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":20,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":21,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":22,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":23,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":24,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":25,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":26,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":27,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":28,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":29,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":30,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":31,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":32,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":33,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":34,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":35,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":36,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":37,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":38,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":39,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":40,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":41,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":42,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":43,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":44,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":45,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":46,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":47,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":48,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/elements/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":49,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":50,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.2","level":"3.4.4","list_caption":"Figure: Dialog Anatomy","alt":"Dialog Anatomy","nro":51,"url":"./assets/dialog-anatomy.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dialog Anatomy","attributes":{},"skip":false,"key":"3.4.4.2"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.3","level":"3.4.4","list_caption":"Figure: macOS Dialog Example","alt":"macOS Dialog Example","nro":52,"url":"./assets/Example%20About%20Dialog.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Dialog Example","attributes":{},"skip":false,"key":"3.4.4.3"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.4","level":"3.4.4","list_caption":"Figure: Windows Dialog Example","alt":"Windows Dialog Example","nro":53,"url":"./assets/Example%20About%20Dialog%20on%20UWP.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Dialog Example","attributes":{},"skip":false,"key":"3.4.4.4"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.5","level":"3.4.4","list_caption":"Figure: A Simple Dialog","alt":"A Simple Dialog","nro":54,"url":"./assets/dialog.png","index":5,"caption_template":"Figure: _CAPTION_","label":"A Simple Dialog","attributes":{},"skip":false,"key":"3.4.4.5"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.6","level":"3.4.4","list_caption":"Figure: Example Alert","alt":"Example Alert","nro":55,"url":"../assets/helper-alert.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Example Alert","attributes":{},"skip":false,"key":"3.4.4.6"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.7","level":"3.4.4","list_caption":"Figure: Example Error Alert","alt":"Example Error Alert","nro":56,"url":"./assets/Example%20Error%20Alert.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Example Error Alert","attributes":{},"skip":false,"key":"3.4.4.7"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.8","level":"3.4.4","list_caption":"Figure: Example Confirmation Dialog","alt":"Example Confirmation Dialog","nro":57,"url":"./assets/Example%20Confirmation%20Dialog.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Example Confirmation Dialog","attributes":{},"skip":false,"key":"3.4.4.8"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.9","level":"3.4.4","list_caption":"Figure: Example Warning Dialog","alt":"Example Warning Dialog","nro":58,"url":"./assets/Example%20Warning%20Dialog.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Example Warning Dialog","attributes":{},"skip":false,"key":"3.4.4.9"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.10","level":"3.4.4","list_caption":"Figure: Example Prompt Dialog","alt":"Example Prompt Dialog","nro":59,"url":"./assets/Example%20Prompt%20Dialog.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Example Prompt Dialog","attributes":{},"skip":false,"key":"3.4.4.10"},{"backlink":"./reference/scenegraph.html#fig6.1.5.1","level":"6.1.5","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":60,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.5.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, tutorials, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"reference/scenegraph.md","mtime":"2018-10-15T05:57:06.120Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T08:06:22.902Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"scenegraph","level":"6.1.5","depth":2,"next":{"title":"SceneNodeList","level":"6.1.6","depth":2,"path":"reference/SceneNodeList.md","ref":"./reference/SceneNodeList.md","articles":[]},"previous":{"title":"commands","level":"6.1.4","depth":2,"path":"reference/commands.md","ref":"./reference/commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox","bulk-redirect"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|Text|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|Text|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"gi","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|Node|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"gi","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"gi","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"gi","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./tutorials/debugging/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-plugins","alt":"reload-plugins","nro":1,"url":"/images/reload-plugins.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-plugins","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./tutorials/debugging/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":2,"url":"/images/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./tutorials/debugging/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":3,"url":"/images/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":4,"url":"/images/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.2","level":"2.2.3","list_caption":"Figure: Rainbow text","alt":"Rainbow text","nro":5,"url":"/images/rainbow.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Rainbow text","attributes":{},"skip":false,"key":"2.2.3.2"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":6,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":7,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":8,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":9,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":10,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":11,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":12,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":13,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":14,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":15,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":16,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":17,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":18,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":19,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":20,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":21,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":22,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":23,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":24,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":25,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":26,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":27,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":28,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":29,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":30,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":31,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":32,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":33,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":34,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":35,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":36,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":37,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":38,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":39,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":40,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":41,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":42,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":43,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":44,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":45,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":46,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":47,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":48,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/elements/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":49,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":50,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.2","level":"3.4.4","list_caption":"Figure: Dialog Anatomy","alt":"Dialog Anatomy","nro":51,"url":"./assets/dialog-anatomy.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dialog Anatomy","attributes":{},"skip":false,"key":"3.4.4.2"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.3","level":"3.4.4","list_caption":"Figure: macOS Dialog Example","alt":"macOS Dialog Example","nro":52,"url":"./assets/Example%20About%20Dialog.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Dialog Example","attributes":{},"skip":false,"key":"3.4.4.3"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.4","level":"3.4.4","list_caption":"Figure: Windows Dialog Example","alt":"Windows Dialog Example","nro":53,"url":"./assets/Example%20About%20Dialog%20on%20UWP.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Dialog Example","attributes":{},"skip":false,"key":"3.4.4.4"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.5","level":"3.4.4","list_caption":"Figure: A Simple Dialog","alt":"A Simple Dialog","nro":54,"url":"./assets/dialog.png","index":5,"caption_template":"Figure: _CAPTION_","label":"A Simple Dialog","attributes":{},"skip":false,"key":"3.4.4.5"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.6","level":"3.4.4","list_caption":"Figure: Example Alert","alt":"Example Alert","nro":55,"url":"../assets/helper-alert.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Example Alert","attributes":{},"skip":false,"key":"3.4.4.6"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.7","level":"3.4.4","list_caption":"Figure: Example Error Alert","alt":"Example Error Alert","nro":56,"url":"./assets/Example%20Error%20Alert.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Example Error Alert","attributes":{},"skip":false,"key":"3.4.4.7"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.8","level":"3.4.4","list_caption":"Figure: Example Confirmation Dialog","alt":"Example Confirmation Dialog","nro":57,"url":"./assets/Example%20Confirmation%20Dialog.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Example Confirmation Dialog","attributes":{},"skip":false,"key":"3.4.4.8"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.9","level":"3.4.4","list_caption":"Figure: Example Warning Dialog","alt":"Example Warning Dialog","nro":58,"url":"./assets/Example%20Warning%20Dialog.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Example Warning Dialog","attributes":{},"skip":false,"key":"3.4.4.9"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.10","level":"3.4.4","list_caption":"Figure: Example Prompt Dialog","alt":"Example Prompt Dialog","nro":59,"url":"./assets/Example%20Prompt%20Dialog.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Example Prompt Dialog","attributes":{},"skip":false,"key":"3.4.4.10"},{"backlink":"./reference/scenegraph.html#fig6.1.5.1","level":"6.1.5","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":60,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.5.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, tutorials, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"reference/scenegraph.md","mtime":"2018-10-15T12:39:37.158Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T12:42:43.625Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

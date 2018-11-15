@@ -1,6 +1,22 @@
 # Change Log
 
-## Focus Group Build #5: The Breaking Changes Update
+## Public Release 13.0.12
+
+### Fixes and improvements
+
+* You can now export renditions to any user-chosen location on Windows.
+    * Caveat: exporting renditions to a folder _created by_ your plugin will not work if the folder name contains spaces or other special characters. See [known issues](./known-issues.md) for details.
+
+### Breaking Changes
+
+* **File IO** - If the user cancels `getFileForOpening()` in single-file mode (the default), the API now resolves with null instead of an empty array. The multiple-file mode continues to resolve with an empty array when canceled.
+* **Export Renditions** - You cannot make multiple concurrent calls to `application.createRenditions()`, since it was not guaranteed to work correctly in this case. Either wait for for the Promise from one call to finish before calling again, or accumulate all your requests into one array and make a single call for all of them.
+* The undocumented global APIs `localStorage` and `sessionStorage` have been removed for now.
+
+
+----
+
+## General Prerelease 13.0.11: The Breaking Changes Update
 
 This release has UI polish and other finishing touches. It also comes with several breaking changes, as it was felt it to be better to break things _now_ rather than after the API has shipped to the whole world.
 
@@ -11,26 +27,34 @@ This release has UI polish and other finishing touches. It also comes with sever
 * Menus:
     * Menu items can have keyboard shortcuts
     * Menu items can be nested into plugin-specific submenus
+    * Menu item labels can be localized
+    * See [manifest.json documentation](./reference/structure/manifest.md) for details.
 
 ### Fixes and improvements
 
 * If `application.createRenditions()` is passed bad arguments, the error string it throws now contains a much more useful message.
 * `createEntry()` will _not_ create a file on disk until you write to it.
-* You can now export renditions to any user-mediated location on UWP. Previously you needed to export to a temporary entry first, and then move it into the correct location.
 * Dialogs have received minor layout tweaks and polish.
 * Dialog buttons on Windows are in the correct location.
 * Dialogs can be wider on Windows than previous builds.
 * On Windows it's now possible to show multiple dialogs in sequence, like on macOS. Be sure to wait for the first dialog's promise to resolve before showing a second dialog.
 * Text fields are no longer limited to 150 characters.
+- When upgrading or downgrading plugins, the plugin folder is now recursively deleted. This will no longer cause an error when attempting an installation.
+- Images within dialogs now render while the dialog is animating (macOS only).
+- Dialogs on Windows now will expand or shrink appropriately to fit the content.
+- On Windows, showing multiple dialogs in sequence should no longer result in a crash.
+- Tab order is now working correctly on macOS.
+- Secure Websockets are now supported.
+- When launching XD, plugin data that is orphaned (that is, a corresponding plugin isn't installed) will no longer be deleted. In the past, This could cause unexpected loss of preferences or data.
 
 ### Breaking Changes
 
 **Scenegraph**
 * The BitmapFill class has been replaced with a more streamlined [ImageFill](./reference/ImageFill.md) class.
 * `SceneNode.transform` is now read-only. Use other APIs to change a node's position or rotation.
-* If a Text node has varying styles within it (`textNode.styleRanges.length` > 1), changing its text content strips out the variation and sets the style of _all_ the new content to the _first_ style of the original text.
-* Minor: It is now an error to set fill or fillEnabled on a Line (previously doing so silently did nothing).
-* Minor: It is now an error to set stroke, strokeEnabled, shadow, or blur on an Artboard (previously doing so silently did nothing or resulted in buggy behavior).
+* If a Text node has varying styles within it (`textNode.styleRanges.length > 1`), changing its text content strips out the variation and sets the style of _all_ the new content to the _first_ style of the original text.
+* Minor: It is now an error to set `fill` or `fillEnabled` on a `Line` (previously doing so silently did nothing).
+* Minor: It is now an error to set `stroke`, `strokeEnabled`, `shadow`, or `blur` on an `Artboard` (previously doing so silently did nothing or resulted in buggy behavior).
 
 **Export Renditions**
 * The result of `application.createRenditions()` is now an array of objects with an `outputFile` property, rather than an array of output files directly.
@@ -42,12 +66,19 @@ This release has UI polish and other finishing touches. It also comes with sever
 * `getFileForOpening()` returns a File instead of an array if `allowMultiple` is false (the default value).
 * `getFileForOpening()`: the `types` parameter is now _required_, no longer optional. To allow the user to pick files of any type, use `types: [".*"]`.
 
+**Network IO**
+* `openExternal()` only supports `http` and `https` endpoints.
+* `XMLHttpRequest`, `fetch()`, and `Websocket` supports only secure endpoints on macOS.
+
 **User Interface**
 * Canceling a dialog via the Esc key will not reject the `showModal()` promise; instead it will be resolved the string value `"reasonCanceled"`.
+* When rendering dialogs, the suggested pattern now adds a `<hr/>` after your `<h1>` to draw the separator. If you don't add an `<hr/>`, there will be no divider between your heading and the content.
+
 
 ### Known Issues
 
 Please see [this page](./known-issues.md) for a comprehensive list.
+
 
 ---
 
@@ -85,11 +116,11 @@ The following has changed in this release.
 
 * The File I/O APIs have moved to a new module. Use `require("uxp").storage.localFileSystem` to get access to the local file system provider.
 * Your plugins must now use the typical `module.exports` form to return commands. Instead of using `return`, just replace it with `module.exports = `.
-* If you want to render any UI controls in your plugins, you will need to be on macOS 10.12 or better (or UWP).
+* If you want to render any UI controls in your plugins, you will need to be on macOS 10.12 or better (or Windows).
 
 ### Export Renditions
 
-For an example of using export renditions, [see this guide](https://adobe-xd.gitbook.io/plugin-guides/working-with-content/how-to-generate-an-export-rendition-guide).
+For an example of using export renditions, [see this guide](./guides/how-to-generate-an-export-rendition-guide).
 
 ### File I/O Improvements
 
@@ -158,7 +189,7 @@ The following has changed in this release.
 
 ### Networking APIs
 
-Networking APIs now work correctly on Windows (UWP).
+Networking APIs now work correctly on Windows.
 
 ### Asynchronous Scenegraph Access
 

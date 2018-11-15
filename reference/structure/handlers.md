@@ -1,11 +1,13 @@
-# Command handlers in `main.js`
+# The `main.js` file
 
-All plugins must have a `main.js` file, which serves as the entry point for execution of your code. In this document, we'll cover some points to help you get oriented.
+All plugins must have a `main.js` file, which serves as the entry point for execution of your JavaScript code. This file is where all the fun happens!
+
+Below, we'll cover some points to help you get oriented with `main.js`.
 
 
 ## Wiring your code to the manifest
 
-Your `main.js` file returns a map linking each `commandId` from the manifest to a _handler function_ in your code:
+Your `main.js` file exports a map linking each `commandId` from the manifest to a _handler function_ in your code:
 
 ```js
 function sayHello(selection, documentRoot) {
@@ -28,20 +30,9 @@ TBD Explanation of connection:
 The handler function (in the above example, `sayHello`) receives two contextual arguments from XD:
 
 * The current [selection](../selection.md) state
-* The root node of the entire document (see [scenegraph](../scenegraph.md))
+* The root node of the entire document (see [scenegraph > RootNode](../scenegraph.md#rootnode))
 
-
-## Sync and async
-
-A command handler can either complete _synchronously_, as in the example above, or it can _return a Promise_ and finish its work _asynchronously_, like this example using [file IO](../uxp/using-file-apis.md):
-
-```js
-function sayHello(selection, documentRoot) {
-    return fs.getFileForSaving().then(file => {
-        return file.write("Hello, world!");
-    });
-}
-```
+The argument names `selection` and `documentRoot` are arbitrary, but are considered convention. We use those names throughout our documentation.
 
 
 ## Accessing app APIs

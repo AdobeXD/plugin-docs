@@ -1,3 +1,10 @@
+# Glossary
+
+Welcome to the glossary! This is a list of terms to make sure we're all talking about the same thing. 
+
+Glossary terms are highlighted throughout the documentation like this: JavaScript. To see the definition, just hover your mouse over the word, or click on the word to jump back to this glossary page.
+
+
 ## Application
 An XD-specific namespace that provides access to various methods that aren't specific to the XD document. [Read more](./reference/application.md).
 
@@ -69,6 +76,9 @@ A manifest is used to declare various facts about a plugin. For example, a manif
 
 ## Node
 A tree node. Depending on context, this node may refer to a [HTML5 DOM Node](./reference/uxp/Node.md) or an [XD Scenegraph node](./reference/scenegraph.md#scenenode).
+
+## Node.js
+Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code server-side. Node.js is _not_ available as part of the XD plugin API.
 
 ## React
 Also known as ReactJS. A declarative, component-based JavaScript library for building user interfaces. [Learn more about React](https://reactjs.org/).

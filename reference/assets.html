@@ -1,0 +1,2903 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>assets &#xB7; Adobe XD Plugin Reference</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Adobe">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-collapse/collapse.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-styled-blockquotes/plugin-styled-blockquotes.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-simpletabs/tabs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+    <link rel="stylesheet" type="text/css" href="../public/custom.css">
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="clipboard.html">
+    
+    
+    <link rel="prev" href="application.html">
+    
+
+    </head>
+    <body><div class="gitbookPluginComponent">  <!-- privacy management via evidon -->
+  <link rel="stylesheet" type="text/css" href="https://wwwimages2.adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.css">
+  <script defer src="https://wwwimages2.adobe.com/etc/beagle/public/globalnav/adobe-privacy/latest/privacy.min.js"></script>
+  <script defer>
+    function createTrackerID() {
+      let fmt = 'xxxxxxxx-xxxx-4xxx-1xxx-xxxxxxxxxxxx';
+      return fmt.split("").map(function (c) {
+        if (c === 'x') {
+          return Math.floor(Math.random() * 16).toString(16);
+        } else {
+          return c;
+        }
+      }).join("");
+    }
+
+    let INGEST_ENDPOINT = "https://cc-api-data.adobe.io/ingest";
+    let TRACKER_KEY = "xdplatform";
+    let ENVIRONMENT = "prod";
+    let tracker;
+    let evidonTimer = setTimeout(track, 500);
+
+    /* report page hit IF we have privacy consent from the user */
+    window.addEventListener("adobePrivacy:PrivacyConsent", function () {
+
+      // check if the user has a cookie
+      let cookies = document.cookie.split(';');
+      let trackerCookie = cookies.filter(function (v) {
+        return v.trim().substr(0, TRACKER_KEY.length + 1) === TRACKER_KEY + '=';
+      });
+      if (trackerCookie.length > 0) {
+        tracker = trackerCookie[0].split("=")[1];
+      } else {
+        tracker = createTrackerID();
+        document.cookie = TRACKER_KEY + "=" + tracker;
+      }
+
+      clearInterval(evidonTimer);
+      track();
+
+      if (typeof gitbook !== "undefined") {
+        gitbook.events.on("page.change", () => track());
+      }
+    });
+
+    function track() {
+
+      // track the page hit
+      let req = new XMLHttpRequest();
+      req.open("POST", INGEST_ENDPOINT);
+
+      req.setRequestHeader("Content-Type", "application/json");
+      req.setRequestHeader("X-API-Key", "xdplatform-web-service");
+
+      // (Note: we don't care about errors here)
+
+      let data = {
+        "events": [{
+          "project": "xdplatform-web-service",
+          "environment": ENVIRONMENT,
+          "time": new Date().toISOString(),
+          "ingesttype": "dunamis",
+          "data": {
+            "event.workflow": "XD",
+            "event.category": "WEB",
+            "event.subcategory": "VIEW",
+            "event.type": "render",
+            "event.type": "page",
+            "event.pagename": location.hostname + location.pathname,
+            "event.user_guid": tracker || createTrackerID(), // fall back to random ID (in case of no evidon)
+            "event.user_agent": navigator.userAgent,
+            "event.language": navigator.language,
+            "event.url": location.href,
+            "event.referrer": document.referrer,
+            "source.name": "XD Platform",
+            "source.platform": "Web"
+          }
+        }]
+      };
+
+      req.send(JSON.stringify(data));
+
+    }
+  </script>
+
+<header style="border-bottom: 1px solid #ddd; height: 96px; display: flex; flex-direction: row; align-items: center;">
+  <a href="/" style="height: 48px; width: 48px; margin: 0px 24px 24px; position: relative; top: 14px;">
+  <img src="/plugin-docs/images/xd-logo.png" style="height: 48px; width: 48px;"></a>
+<h1 style="font-size: 24px; margin-top: 10px;"><a href="/">Adobe XD Platform</a></h1>
+<ul style="list-style: none; margin-top: 18px;">
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/plugin-docs/" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Overview</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/plugin-docs/tutorials/quick-start" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Quick
+            Start</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/plugin-docs/reference/how-to-read.html" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">API
+            Reference</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="https://github.com/AdobeXD/plugin-samples" target="_blank" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Samples</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a href="/plugin-docs/community.html" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Community</a></li>
+    <li style="display: inline-block; margin-right: 24px; font-size: 14px;"><a target="_blank" href="https://console.adobe.io/plugins" style="color: rgb(255, 38, 190); font-weight: bold; text-decoration: none;">Submit
+            Plugin</a></li>
+</ul>
+</header></div>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../tutorials/quick-start/">
+            
+                <a href="../tutorials/quick-start/">
+            
+                    
+                    Quick start
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../tutorials/debugging/">
+            
+                <a href="../tutorials/debugging/">
+            
+                    
+                    Debugging plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="structure/">
+            
+                <a href="structure/">
+            
+                    
+                    Plugin structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="structure/location.html">
+            
+                <a href="structure/location.html">
+            
+                    
+                    Plugin location
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="structure/folder-structure.html">
+            
+                <a href="structure/folder-structure.html">
+            
+                    
+                    Folder structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="structure/manifest.html">
+            
+                <a href="structure/manifest.html">
+            
+                    
+                    manifest.json
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="structure/handlers.html">
+            
+                <a href="structure/handlers.html">
+            
+                    
+                    main.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tutorials</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../tutorials/">
+            
+                <a href="../tutorials/">
+            
+                    
+                    About the tutorials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../tutorials/content-index.html">
+            
+                <a href="../tutorials/content-index.html">
+            
+                    
+                    Working with content
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../tutorials/how-to-draw-lines/">
+            
+                <a href="../tutorials/how-to-draw-lines/">
+            
+                    
+                    How to draw lines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../tutorials/how-to-create-paths/">
+            
+                <a href="../tutorials/how-to-create-paths/">
+            
+                    
+                    How to create paths
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../tutorials/how-to-style-text/">
+            
+                <a href="../tutorials/how-to-style-text/">
+            
+                    
+                    How to style text
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../tutorials/how-to-work-with-scenenodelist/">
+            
+                <a href="../tutorials/how-to-work-with-scenenodelist/">
+            
+                    
+                    Working with a SceneNodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../tutorials/io-index.html">
+            
+                <a href="../tutorials/io-index.html">
+            
+                    
+                    Working with I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../tutorials/how-to-export-a-rendition/">
+            
+                <a href="../tutorials/how-to-export-a-rendition/">
+            
+                    
+                    How to export a rendition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../tutorials/how-to-read-a-file/">
+            
+                <a href="../tutorials/how-to-read-a-file/">
+            
+                    
+                    How to read a file
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../tutorials/how-to-make-network-requests/">
+            
+                <a href="../tutorials/how-to-make-network-requests/">
+            
+                    
+                    How to make network requests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../tutorials/how-to-integrate-with-OAuth/">
+            
+                <a href="../tutorials/how-to-integrate-with-OAuth/">
+            
+                    
+                    How to integrate with OAuth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../tutorials/ui-index.html">
+            
+                <a href="../tutorials/ui-index.html">
+            
+                    
+                    Building user interfaces
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../tutorials/how-to-show-an-alert/">
+            
+                <a href="../tutorials/how-to-show-an-alert/">
+            
+                    
+                    How to show an alert
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../tutorials/how-to-ask-user-for-confirmation/">
+            
+                <a href="../tutorials/how-to-ask-user-for-confirmation/">
+            
+                    
+                    Asking user for confirmation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Advanced Concepts</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    About advanced concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="javascript/">
+            
+                <a href="javascript/">
+            
+                    
+                    JavaScript and XD plugin APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="javascript/javascript-support.html">
+            
+                <a href="javascript/javascript-support.html">
+            
+                    
+                    JavaScript support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="javascript/sync-async.html">
+            
+                <a href="javascript/sync-async.html">
+            
+                    
+                    Sync and async
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="javascript/environment.html">
+            
+                <a href="javascript/environment.html">
+            
+                    
+                    API environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="core/">
+            
+                <a href="core/">
+            
+                    
+                    XD concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="core/scenegraph.html">
+            
+                <a href="core/scenegraph.html">
+            
+                    
+                    The scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="core/edit-context.html">
+            
+                <a href="core/edit-context.html">
+            
+                    
+                    The edit context
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="core/coordinate-spaces-and-units.html">
+            
+                <a href="core/coordinate-spaces-and-units.html">
+            
+                    
+                    Coordinate spaces &amp; units
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="core/properties-with-object-values.html">
+            
+                <a href="core/properties-with-object-values.html">
+            
+                    
+                    Properties with object values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="core/automatic-cleanups.html">
+            
+                <a href="core/automatic-cleanups.html">
+            
+                    
+                    Automatic cleanups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="core/apis.html">
+            
+                <a href="core/apis.html">
+            
+                    
+                    APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="ui/">
+            
+                <a href="ui/">
+            
+                    
+                    User interface concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="ui/styles/">
+            
+                <a href="ui/styles/">
+            
+                    
+                    Styles
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1.1" data-path="ui/styles/color.html">
+            
+                <a href="ui/styles/color.html">
+            
+                    
+                    Color
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.1.2" data-path="ui/styles/typography.html">
+            
+                <a href="ui/styles/typography.html">
+            
+                    
+                    Typography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.1.3" data-path="ui/styles/using-css.html">
+            
+                <a href="ui/styles/using-css.html">
+            
+                    
+                    Using CSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="ui/layout/">
+            
+                <a href="ui/layout/">
+            
+                    
+                    Layout
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.2.1" data-path="ui/layout/block.html">
+            
+                <a href="ui/layout/block.html">
+            
+                    
+                    Block layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.2" data-path="ui/layout/flex.html">
+            
+                <a href="ui/layout/flex.html">
+            
+                    
+                    Flexbox layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.3" data-path="ui/layout/positioning.html">
+            
+                <a href="ui/layout/positioning.html">
+            
+                    
+                    Positioning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.4" data-path="ui/layout/utility-classes.html">
+            
+                <a href="ui/layout/utility-classes.html">
+            
+                    
+                    Utility classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="ui/elements/">
+            
+                <a href="ui/elements/">
+            
+                    
+                    Elements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.3.1" data-path="ui/elements/buttons.html">
+            
+                <a href="ui/elements/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.2" data-path="ui/elements/checkboxes.html">
+            
+                <a href="ui/elements/checkboxes.html">
+            
+                    
+                    Checkboxes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.3" data-path="ui/elements/dropdowns.html">
+            
+                <a href="ui/elements/dropdowns.html">
+            
+                    
+                    Dropdowns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.4" data-path="ui/elements/links.html">
+            
+                <a href="ui/elements/links.html">
+            
+                    
+                    Links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.5" data-path="ui/elements/rules.html">
+            
+                <a href="ui/elements/rules.html">
+            
+                    
+                    Rules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.6" data-path="ui/elements/sliders.html">
+            
+                <a href="ui/elements/sliders.html">
+            
+                    
+                    Sliders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.7" data-path="ui/elements/textfields.html">
+            
+                <a href="ui/elements/textfields.html">
+            
+                    
+                    Text fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3.8" data-path="ui/elements/tooltips.html">
+            
+                <a href="ui/elements/tooltips.html">
+            
+                    
+                    Tooltips
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="ui/dialogs/">
+            
+                <a href="ui/dialogs/">
+            
+                    
+                    Modal dialogs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.4.1" data-path="ui/dialogs/showing.html">
+            
+                <a href="ui/dialogs/showing.html">
+            
+                    
+                    Showing dialogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4.2" data-path="ui/dialogs/dismissal.html">
+            
+                <a href="ui/dialogs/dismissal.html">
+            
+                    
+                    Dismissing dialogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../xdpegs/">
+            
+                <a href="../xdpegs/">
+            
+                    
+                    XD Plugin Experience Guidelines
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../xdpegs/intro.html">
+            
+                <a href="../xdpegs/intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.2" data-path="../xdpegs/1-performance.html">
+            
+                <a href="../xdpegs/1-performance.html">
+            
+                    
+                    1.0 Performance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.3" data-path="../xdpegs/2-scenegraph.html">
+            
+                <a href="../xdpegs/2-scenegraph.html">
+            
+                    
+                    2.0 Scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.4" data-path="../xdpegs/3-network-io.html">
+            
+                <a href="../xdpegs/3-network-io.html">
+            
+                    
+                    3.0 Network I/O
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.5" data-path="../xdpegs/4-file-io.html">
+            
+                <a href="../xdpegs/4-file-io.html">
+            
+                    
+                    4.0 File I/O
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.6" data-path="../xdpegs/5-ui.html">
+            
+                <a href="../xdpegs/5-ui.html">
+            
+                    
+                    5.0 User interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Sharing</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../distribution/packaging.html">
+            
+                <a href="../distribution/packaging.html">
+            
+                    
+                    Packaging your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../distribution/options.html">
+            
+                <a href="../distribution/options.html">
+            
+                    
+                    Distribution options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../distribution/how-to-submit-to-plugin-manager.html">
+            
+                <a href="../distribution/how-to-submit-to-plugin-manager.html">
+            
+                    
+                    Publishing your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../distribution/marketing.html">
+            
+                <a href="../distribution/marketing.html">
+            
+                    
+                    Marketing your plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../distribution/how-to-create-deep-links.html">
+            
+                <a href="../distribution/how-to-create-deep-links.html">
+            
+                    
+                    Deep-linking to your plugin listing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Join the Community</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../community.html">
+            
+                <a href="../community.html">
+            
+                    
+                    Help, feedback, &amp; discussion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../CODE_OF_CONDUCT.html">
+            
+                <a href="../CODE_OF_CONDUCT.html">
+            
+                    
+                    Code of conduct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    How to contribute
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Technical Reference</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="how-to-read.html">
+            
+                <a href="how-to-read.html">
+            
+                    
+                    API references
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="how-to-read.html">
+            
+                <a href="how-to-read.html">
+            
+                    
+                    How to read this reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="application.html">
+            
+                <a href="application.html">
+            
+                    
+                    application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.1.3" data-path="assets.html">
+            
+                <a href="assets.html">
+            
+                    
+                    assets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="clipboard.html">
+            
+                <a href="clipboard.html">
+            
+                    
+                    clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="cloud.html">
+            
+                <a href="cloud.html">
+            
+                    
+                    cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="commands.html">
+            
+                <a href="commands.html">
+            
+                    
+                    commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="scenegraph.html">
+            
+                <a href="scenegraph.html">
+            
+                    
+                    scenegraph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="SceneNodeList.html">
+            
+                <a href="SceneNodeList.html">
+            
+                    
+                    SceneNodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.9" data-path="Color.html">
+            
+                <a href="Color.html">
+            
+                    
+                    Color
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.10" data-path="ImageFill.html">
+            
+                <a href="ImageFill.html">
+            
+                    
+                    ImageFill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.11" data-path="LinearGradientFill.html">
+            
+                <a href="LinearGradientFill.html">
+            
+                    
+                    LinearGradientFill
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.12" data-path="Matrix.html">
+            
+                <a href="Matrix.html">
+            
+                    
+                    Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.13" data-path="Shadow.html">
+            
+                <a href="Shadow.html">
+            
+                    
+                    Shadow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.14" data-path="Blur.html">
+            
+                <a href="Blur.html">
+            
+                    
+                    Blur
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.15" data-path="selection.html">
+            
+                <a href="selection.html">
+            
+                    
+                    selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.16" data-path="viewport.html">
+            
+                <a href="viewport.html">
+            
+                    
+                    viewport
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.17" data-path="uxp/class/OS.html">
+            
+                <a href="uxp/class/OS.html">
+            
+                    
+                    OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.18" data-path="uxp/storage-index.html">
+            
+                <a href="uxp/storage-index.html">
+            
+                    
+                    Storage APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.18.1" data-path="uxp/module/storage.html">
+            
+                <a href="uxp/module/storage.html">
+            
+                    
+                    Storage module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.19" data-path="uxp/network-index.html">
+            
+                <a href="uxp/network-index.html">
+            
+                    
+                    Network APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.19.1" data-path="uxp/class/XMLHttpRequest.html">
+            
+                <a href="uxp/class/XMLHttpRequest.html">
+            
+                    
+                    XMLHttpRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.19.2" data-path="uxp/function/fetch.html">
+            
+                <a href="uxp/function/fetch.html">
+            
+                    
+                    fetch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.19.3" data-path="uxp/class/WebSocket.html">
+            
+                <a href="uxp/class/WebSocket.html">
+            
+                    
+                    WebSocket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.19.4" data-path="uxp/class/Shell.html">
+            
+                <a href="uxp/class/Shell.html">
+            
+                    
+                    openExternal
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20" data-path="uxp/ui-index.html">
+            
+                <a href="uxp/ui-index.html">
+            
+                    
+                    UI APIs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.20.1" data-path="uxp/namespace/css.html">
+            
+                <a href="uxp/namespace/css.html">
+            
+                    
+                    CSS support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2" data-path="uxp/ui-classes-index.html">
+            
+                <a href="uxp/ui-classes-index.html">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.20.2.1" data-path="uxp/class/Attr.html">
+            
+                <a href="uxp/class/Attr.html">
+            
+                    
+                    Attr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.2" data-path="uxp/class/CharacterData.html">
+            
+                <a href="uxp/class/CharacterData.html">
+            
+                    
+                    CharacterData
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.3" data-path="uxp/class/Clipboard.html">
+            
+                <a href="uxp/class/Clipboard.html">
+            
+                    
+                    Clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.4" data-path="uxp/class/Comment.html">
+            
+                <a href="uxp/class/Comment.html">
+            
+                    
+                    Comment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.5" data-path="uxp/class/CSSRule.html">
+            
+                <a href="uxp/class/CSSRule.html">
+            
+                    
+                    CSSRule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.6" data-path="uxp/class/CSSRuleList.html">
+            
+                <a href="uxp/class/CSSRuleList.html">
+            
+                    
+                    CSSRuleList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.7" data-path="uxp/class/CSSStyleDeclaration.html">
+            
+                <a href="uxp/class/CSSStyleDeclaration.html">
+            
+                    
+                    CSSStyleDeclaration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.8" data-path="uxp/class/CSSStyleRule.html">
+            
+                <a href="uxp/class/CSSStyleRule.html">
+            
+                    
+                    CSSStyleRule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.9" data-path="uxp/class/CSSStyleSheet.html">
+            
+                <a href="uxp/class/CSSStyleSheet.html">
+            
+                    
+                    CSSStyleSheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.10" data-path="uxp/class/Document.html">
+            
+                <a href="uxp/class/Document.html">
+            
+                    
+                    Document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.11" data-path="uxp/class/DocumentFragment.html">
+            
+                <a href="uxp/class/DocumentFragment.html">
+            
+                    
+                    DocumentFragment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.12" data-path="uxp/class/DOMException.html">
+            
+                <a href="uxp/class/DOMException.html">
+            
+                    
+                    DOMException
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.13" data-path="uxp/class/DOMTokenList.html">
+            
+                <a href="uxp/class/DOMTokenList.html">
+            
+                    
+                    DOMTokenList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.14" data-path="uxp/class/NamedNodeMap.html">
+            
+                <a href="uxp/class/NamedNodeMap.html">
+            
+                    
+                    NamedNodeMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.15" data-path="uxp/class/Node.html">
+            
+                <a href="uxp/class/Node.html">
+            
+                    
+                    Node
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.16" data-path="uxp/class/NodeList.html">
+            
+                <a href="uxp/class/NodeList.html">
+            
+                    
+                    NodeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.17" data-path="uxp/class/StyleSheet.html">
+            
+                <a href="uxp/class/StyleSheet.html">
+            
+                    
+                    StyleSheet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.18" data-path="uxp/class/StyleSheetList.html">
+            
+                <a href="uxp/class/StyleSheetList.html">
+            
+                    
+                    StyleSheetList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.2.19" data-path="uxp/class/Text.html">
+            
+                <a href="uxp/class/Text.html">
+            
+                    
+                    Text
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3" data-path="uxp/ui-html-index.html">
+            
+                <a href="uxp/ui-html-index.html">
+            
+                    
+                    HTML elements
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.20.3.1" data-path="uxp/class/HTMLAnchorElement.html">
+            
+                <a href="uxp/class/HTMLAnchorElement.html">
+            
+                    
+                    HTMLAnchorElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.2" data-path="uxp/class/HTMLBodyElement.html">
+            
+                <a href="uxp/class/HTMLBodyElement.html">
+            
+                    
+                    HTMLBodyElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.3" data-path="uxp/class/HTMLButtonElement.html">
+            
+                <a href="uxp/class/HTMLButtonElement.html">
+            
+                    
+                    HTMLButtonElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.4" data-path="uxp/class/HTMLDialogElement.html">
+            
+                <a href="uxp/class/HTMLDialogElement.html">
+            
+                    
+                    HTMLDialogElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.5" data-path="uxp/class/HTMLElement.html">
+            
+                <a href="uxp/class/HTMLElement.html">
+            
+                    
+                    HTMLElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.6" data-path="uxp/class/HTMLFormElement.html">
+            
+                <a href="uxp/class/HTMLFormElement.html">
+            
+                    
+                    HTMLFormElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.7" data-path="uxp/class/HTMLHeadElement.html">
+            
+                <a href="uxp/class/HTMLHeadElement.html">
+            
+                    
+                    HTMLHeadElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.8" data-path="uxp/class/HTMLHtmlElement.html">
+            
+                <a href="uxp/class/HTMLHtmlElement.html">
+            
+                    
+                    HTMLHtmlElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.9" data-path="uxp/class/HTMLImageElement.html">
+            
+                <a href="uxp/class/HTMLImageElement.html">
+            
+                    
+                    HTMLImageElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.10" data-path="uxp/class/HTMLInputElement.html">
+            
+                <a href="uxp/class/HTMLInputElement.html">
+            
+                    
+                    HTMLInputElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.11" data-path="uxp/class/HTMLLabelElement.html">
+            
+                <a href="uxp/class/HTMLLabelElement.html">
+            
+                    
+                    HTMLLabelElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.12" data-path="uxp/class/HTMLLinkElement.html">
+            
+                <a href="uxp/class/HTMLLinkElement.html">
+            
+                    
+                    HTMLLinkElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.13" data-path="uxp/class/HTMLMenuElement.html">
+            
+                <a href="uxp/class/HTMLMenuElement.html">
+            
+                    
+                    HTMLMenuElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.14" data-path="uxp/class/HTMLOptionElement.html">
+            
+                <a href="uxp/class/HTMLOptionElement.html">
+            
+                    
+                    HTMLOptionElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.15" data-path="uxp/class/HTMLScriptElement.html">
+            
+                <a href="uxp/class/HTMLScriptElement.html">
+            
+                    
+                    HTMLScriptElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.16" data-path="uxp/class/HTMLSelectElement.html">
+            
+                <a href="uxp/class/HTMLSelectElement.html">
+            
+                    
+                    HTMLSelectElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.17" data-path="uxp/class/HTMLStyleElement.html">
+            
+                <a href="uxp/class/HTMLStyleElement.html">
+            
+                    
+                    HTMLStyleElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.3.18" data-path="uxp/class/HTMLTextAreaElement.html">
+            
+                <a href="uxp/class/HTMLTextAreaElement.html">
+            
+                    
+                    HTMLTextAreaElement
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4" data-path="uxp/events-index.html">
+            
+                <a href="uxp/events-index.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.20.4.1" data-path="uxp/class/BaseUIEvent.html">
+            
+                <a href="uxp/class/BaseUIEvent.html">
+            
+                    
+                    BaseUIEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.2" data-path="uxp/class/CloseEvent.html">
+            
+                <a href="uxp/class/CloseEvent.html">
+            
+                    
+                    CloseEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.3" data-path="uxp/class/Event.html">
+            
+                <a href="uxp/class/Event.html">
+            
+                    
+                    Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.4" data-path="uxp/class/EventTarget.html">
+            
+                <a href="uxp/class/EventTarget.html">
+            
+                    
+                    EventTarget
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.5" data-path="uxp/class/FocusEvent.html">
+            
+                <a href="uxp/class/FocusEvent.html">
+            
+                    
+                    FocusEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.6" data-path="uxp/class/GestureEvent.html">
+            
+                <a href="uxp/class/GestureEvent.html">
+            
+                    
+                    GestureEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.7" data-path="uxp/class/KeyboardEvent.html">
+            
+                <a href="uxp/class/KeyboardEvent.html">
+            
+                    
+                    KeyboardEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.8" data-path="uxp/class/MessageEvent.html">
+            
+                <a href="uxp/class/MessageEvent.html">
+            
+                    
+                    MessageEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.9" data-path="uxp/class/PointerEvent.html">
+            
+                <a href="uxp/class/PointerEvent.html">
+            
+                    
+                    PointerEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.20.4.10" data-path="uxp/class/ProgressEvent.html">
+            
+                <a href="uxp/class/ProgressEvent.html">
+            
+                    
+                    ProgressEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../known-issues.html">
+            
+                <a href="../known-issues.html">
+            
+                    
+                    Known issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../changes.html">
+            
+                <a href="../changes.html">
+            
+                    
+                    Change log
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../GLOSSARY.html">
+            
+                <a href="../GLOSSARY.html">
+            
+                    
+                    Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Upcoming</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../plugin-api-roadmap.html">
+            
+                <a href="../plugin-api-roadmap.html">
+            
+                    
+                    Plugin API roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="..">assets</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a id="module_assets"></a></p>
+<h2 id="assets">assets</h2>
+<p>Represents the document styles listed in the Assets panel. Styles can be added and removed manually by the user, so
+there&apos;s no guarantee that these styles are currently used anywhere in the document&apos;s content.</p>
+<p><strong>Since</strong>: XD 15</p>
+<ul>
+<li><a href="#module_assets">assets</a><ul>
+<li><a href="#module_assets-colors">.colors</a><ul>
+<li><a href="#module_assets-colors-get">.get()</a> &#x21D2; <code>!Array.&lt;ColorAsset|GradientAsset&gt;</code></li>
+<li><a href="#module_assets-colors-add">.add(colorAssets)</a> &#x21D2; <code>number</code></li>
+<li><a href="#module_assets-colors-delete">.delete(colorAssets)</a> &#x21D2; <code>number</code></li>
+</ul>
+</li>
+<li><a href="#module_assets-characterStyles">.characterStyles</a><ul>
+<li><a href="#module_assets-characterStyles-get">.get()</a> &#x21D2; <code>!Array.&lt;CharacterStyleAsset&gt;</code></li>
+<li><a href="#module_assets-characterStyles-add">.add(charStyleAssets)</a> &#x21D2; <code>number</code></li>
+<li><a href="#module_assets-characterStyles-delete">.delete(charStyleAssets)</a> &#x21D2; <code>number</code></li>
+</ul>
+</li>
+<li><a href="#GradientType">.GradientType</a> enum</li>
+<li>Typedefs:<ul>
+<li><a href="#ColorAsset">ColorAsset</a></li>
+<li><a href="#GradientAsset">GradientAsset</a></li>
+<li><a href="#CharacterStyleAsset">CharacterStyleAsset</a></li>
+<li><a href="#CharacterStyle">CharacterStyle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="enums">Enums</h3>
+<dl>
+<dt><a id="GradientType"></a> GradientType : </dt><dd><code>LINEAR</code>, <code>RADIAL</code> - Type of gradient color element: linear gradient or radial gradient</dd>
+
+</dl>
+
+<h2 id="typedefs">Typedefs</h2>
+<p><a id="ColorAsset"></a></p>
+<h3 id="typedef-colorasset">Typedef ColorAsset</h3>
+<p>Assets library entry representing a solid color.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>?string</td>
+<td>Name of the Assets entry, if it is explicitly named. (The UI shows an auto-generated label for any unnamed assets).</td>
+</tr>
+<tr>
+<td>color</td>
+<td>!Color</td>
+<td>Color of the asset</td>
+</tr>
+</tbody>
+</table>
+<p><a id="GradientAsset"></a></p>
+<h3 id="typedef-gradientasset">Typedef GradientAsset</h3>
+<p>Assets library entry representing a linear or radial gradient.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>?string</td>
+<td>Name of the Assets entry, if it is explicitly named. (The UI shows an auto-generated label for any unnamed assets).</td>
+</tr>
+<tr>
+<td>gradientType</td>
+<td>!GradientType</td>
+<td>Either <code>GradientType.LINEAR</code> or <code>GradientType.RADIAL</code></td>
+</tr>
+<tr>
+<td>colorStops</td>
+<td>!Array.&lt; {stop: number, color: !Color} &gt;</td>
+<td>Array of color stops used in the gradient, where <code>stop</code> &gt;= 0 and &lt;= 1, and the values are strictly increasing. Same format as the <code>colorStops</code> property of a <a href="LinearGradientFill.html">LinearGradientFill</a> object.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="CharacterStyleAsset"></a></p>
+<h3 id="typedef-characterstyleasset">Typedef CharacterStyleAsset</h3>
+<p>Assets library entry representing a set of text character styles.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>?string</td>
+<td>Name of the Assets entry, if it is explicitly named. (The UI shows an auto-generated label for any unnamed assets).</td>
+</tr>
+<tr>
+<td>style</td>
+<td>!CharacterStyle</td>
+<td>Object containing the style properties</td>
+</tr>
+</tbody>
+</table>
+<p><a id="CharacterStyle"></a></p>
+<h3 id="typedef-characterstyle">Typedef CharacterStyle</h3>
+<p>Character style properties. See documentation for the <a href="scenegraph.html#Text">Text</a> <a href="../GLOSSARY.html#node" class="glossary-term" title="A tree node. Depending on context, this node may refer to a HTML5 DOM Node or an XD Scenegraph node.">node</a> type for more details.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fontFamily</td>
+<td>!string</td>
+<td>the font family</td>
+</tr>
+<tr>
+<td>fontStyle</td>
+<td>!string</td>
+<td>the style of the font</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td>!number</td>
+<td>the size of the font</td>
+</tr>
+<tr>
+<td>fill</td>
+<td>!Color</td>
+<td>the Color of the font fill</td>
+</tr>
+<tr>
+<td>charSpacing</td>
+<td>!number</td>
+<td>the character spacing</td>
+</tr>
+<tr>
+<td>lineSpacing</td>
+<td>!number</td>
+<td>the line spacing</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>!boolean</td>
+<td>whether underline is turned on</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a id="module_assets-colors"></a></p>
+<h3 id="assetscolors">assets.colors</h3>
+<p>The collection of colors and gradients saved in this document&apos;s Assets library.</p>
+<ul>
+<li><a href="#module_assets-colors">.colors</a><ul>
+<li><a href="#module_assets-colors-get">.get()</a> &#x21D2; <code>!Array.&lt;ColorAsset|GradientAsset&gt;</code></li>
+<li><a href="#module_assets-colors-add">.add(colorAssets)</a> &#x21D2; <code>number</code></li>
+<li><a href="#module_assets-colors-delete">.delete(colorAssets)</a> &#x21D2; <code>number</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="module_assets-colors-get"></a></p>
+<h3 id="assetscolorsget-&#x21D2;-arraycolorassetgradientasset">assets.colors.get() &#x21D2; <code>!Array.&lt;ColorAsset|GradientAsset&gt;</code></h3>
+<p>Get a list of all color/gradient assets, in the order they appear in the Assets panel.</p>
+<p>The list may contain a mix of solid Color assets and/or gradient assets.
+If there are no color/gradient assets, an empty array is returned.</p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> method of <a href="#module_assets-colors"><code>colors</code></a></p>
+<p><strong>Returns</strong>: <code>!Array.&lt;ColorAsset|GradientAsset&gt;</code></p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> assets = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;assets&quot;</span>),
+    allColors = assets.colors.get();
+</code></pre>
+<hr>
+<p><a id="module_assets-colors-add"></a></p>
+<h3 id="assetscolorsaddcolorassets-&#x21D2;-number">assets.colors.add(colorAssets) &#x21D2; <code>number</code></h3>
+<p>Add color/gradient assets to the collection.</p>
+<p>The list may contain a mix of solid Color assets and/or gradient assets. Items are not added if a duplicate
+color/gradient already exists in the collection, <em>regardless of its name</em>.</p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> method of <a href="#module_assets-colors"><code>colors</code></a></p>
+<p><strong>Returns</strong>: <code>number</code> - number of assets added (may be less than requested if duplicates already exist)</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colorAssets</td>
+<td><code>! Color | ColorAsset | LinearGradientFill | RadialGradientFill | GradientAsset | Array.&lt;Color|ColorAsset|LinearGradientFill|RadialGradientFill|GradientAsset&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> assets = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;assets&quot;</span>),
+    redColor = <span class="hljs-keyword">new</span> Color(<span class="hljs-string">&quot;red&quot;</span>),
+    blueColor = <span class="hljs-keyword">new</span> Color(<span class="hljs-string">&quot;blue&quot;</span>),
+    stops = [{ <span class="hljs-attr">stop</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">color</span>: redColor }, { <span class="hljs-attr">stop</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">color</span>: blueColor }],
+    numAdded = assets.colors.add([
+        redColor,
+        { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;True Blue&quot;</span>, <span class="hljs-attr">color</span>: blueColor },
+        { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Red Blue Gradient&quot;</span>, <span class="hljs-attr">gradientType</span>: assets.GradientType.LINEAR, <span class="hljs-attr">colorStops</span>: stops }
+    ]);
+</code></pre>
+<hr>
+<p><a id="module_assets-colors-delete"></a></p>
+<h3 id="assetscolorsdeletecolorassets-&#x21D2;-number">assets.colors.delete(colorAssets) &#x21D2; <code>number</code></h3>
+<p>Delete color/gradient assets from the collection.</p>
+<p>The list may contain a mix of solid Color assets and/or gradient assets. Assets with the same color/gradient are
+removed <em>even if their names differ</em>. Assets that already don&apos;t exist in the collection are silently ignored.
+Typically you will pass asset objects returned from <a href="#module_assets-colors-get"><code>get()</code></a> directly to this function.</p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> method of <a href="#module_assets-colors"><code>colors</code></a></p>
+<p><strong>Returns</strong>: <code>number</code> - number of assets deleted (may be less than requested if some didn&apos;t exist)</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colorAssets</td>
+<td><code>! Color | ColorAsset | LinearGradientFill | RadialGradientFill | GradientAsset | Array.&lt;Color|ColorAsset|LinearGradientFill|RadialGradientFill|GradientAsset&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> assets = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;assets&quot;</span>),
+    numDeleted = assets.colors.delete(<span class="hljs-keyword">new</span> Color(<span class="hljs-string">&quot;red&quot;</span>));
+</code></pre>
+<hr>
+<p><a id="module_assets-characterStyles"></a></p>
+<h3 id="assetscharacterstyles">assets.characterStyles</h3>
+<p>The collection of character styles saved in this document&apos;s Assets library.</p>
+<ul>
+<li><a href="#module_assets-characterStyles">.characterStyles</a><ul>
+<li><a href="#module_assets-characterStyles-get">.get()</a> &#x21D2; <code>!Array.&lt;CharacterStyleAsset&gt;</code></li>
+<li><a href="#module_assets-characterStyles-add">.add(charStyleAssets)</a> &#x21D2; <code>number</code></li>
+<li><a href="#module_assets-characterStyles-delete">.delete(charStyleAssets)</a> &#x21D2; <code>number</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="module_assets-characterStyles-get"></a></p>
+<h3 id="assetscharacterstylesget-&#x21D2;-arraycharacterstyleasset">assets.characterStyles.get() &#x21D2; <code>!Array.&lt;CharacterStyleAsset&gt;</code></h3>
+<p>Get a list of all character style assets, in the order they appear in the Assets panel.</p>
+<p>If there are no character style assets, an empty array is returned.</p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> method of <a href="#module_assets-characterStyles"><code>characterStyles</code></a></p>
+<p><strong>Returns</strong>: <code>!Array.&lt;CharacterStyleAsset&gt;</code></p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> assets = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;assets&quot;</span>),
+    allCharacterStyles = assets.characterStyles.get();
+</code></pre>
+<hr>
+<p><a id="module_assets-characterStyles-add"></a></p>
+<h3 id="assetscharacterstylesaddcharstyleassets-&#x21D2;-number">assets.characterStyles.add(charStyleAssets) &#x21D2; <code>number</code></h3>
+<p>Add one or more character style assets to the collection.</p>
+<p>Items are not added if a duplicate character style already exists in the collection, <em>regardless of its name</em>.
+All character style properties must be fully specified (no properties are optional).</p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> method of <a href="#module_assets-characterStyles"><code>characterStyles</code></a></p>
+<p><strong>Returns</strong>: <code>number</code> - number of assets added (may be less than requested if duplicates already exist)</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>charStyleAssets</td>
+<td><code>! CharacterStyleAsset | Array.&lt;CharacterStyleAsset&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> assets = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;assets&quot;</span>),
+    arialItalic = {
+        <span class="hljs-attr">fontFamily</span>: <span class="hljs-string">&quot;Arial&quot;</span>,
+        <span class="hljs-attr">fontStyle</span>: <span class="hljs-string">&quot;Italic&quot;</span>,
+        <span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span>,
+        <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> Color(<span class="hljs-string">&quot;black&quot;</span>),
+        <span class="hljs-attr">charSpacing</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">lineSpacing</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">underline</span>: <span class="hljs-literal">false</span>
+    },
+    linkTextStyle = {
+        <span class="hljs-attr">fontFamily</span>: <span class="hljs-string">&quot;Arial&quot;</span>,
+        <span class="hljs-attr">fontStyle</span>: <span class="hljs-string">&quot;Regular&quot;</span>,
+        <span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span>,
+        <span class="hljs-attr">fill</span>: <span class="hljs-keyword">new</span> Color(<span class="hljs-string">&quot;blue&quot;</span>),
+        <span class="hljs-attr">charSpacing</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">lineSpacing</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">underline</span>: <span class="hljs-literal">false</span>
+    },
+    numAdded = assets.characterStyles.add([
+        { <span class="hljs-attr">style</span>: arialItalic },   <span class="hljs-comment">// (no name)</span>
+        { <span class="hljs-attr">style</span>: linkTextStyle, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Link Text&quot;</span> }
+    ]);
+</code></pre>
+<hr>
+<p><a id="module_assets-characterStyles-delete"></a></p>
+<h3 id="assetscharacterstylesdeletecharstyleassets-&#x21D2;-number">assets.characterStyles.delete(charStyleAssets) &#x21D2; <code>number</code></h3>
+<p>Delete one or more character style assets from the collection.</p>
+<p>Assets with the same character style are removed <em>even if their names differ</em>. Assets that already don&apos;t exist in the
+collection are silently ignored. All character style properties must be fully specified (no properties are optional).
+Typically you will pass asset objects returned from <a href="#module_assets-characterStyles-get"><code>get()</code></a> directly to this function.</p>
+<p><strong>Kind</strong>: <a href="../GLOSSARY.html#static" class="glossary-term" title="A static method or property. These exist at the class level, and not on instantiated objects.">static</a> method of <a href="#module_assets-characterStyles"><code>characterStyles</code></a></p>
+<p><strong>Returns</strong>: <code>number</code> - number of assets deleted (may be less than requested if some didn&apos;t exist)</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>charStyleAssets</td>
+<td><code>! CharacterStyleAsset | Array.&lt;CharacterStyleAsset&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-comment">// Delete all character style assets from the assets panel</span>
+<span class="hljs-keyword">var</span> assets = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;assets&quot;</span>),
+    allCharacterStyles = assets.characterStyles.get(),
+    numDeleted = assets.characterStyles.delete(allCharacterStyles);
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="application.html" class="navigation navigation-prev " aria-label="Previous page: application">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="clipboard.html" class="navigation navigation-next " aria-label="Next page: clipboard">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"assets","level":"6.1.3","depth":2,"next":{"title":"clipboard","level":"6.1.4","depth":2,"path":"reference/clipboard.md","ref":"./reference/clipboard.md","articles":[]},"previous":{"title":"application","level":"6.1.2","depth":2,"path":"reference/application.md","ref":"./reference/application.md","articles":[]},"dir":"ltr"},"config":{"plugins":["page-toc","anchorjs","collapse","-pretty-term","code","dashing","todo","-devops","expandable-chapters-interactive","styled-blockquotes","-codetabs","-recently-updated","-github-buttons","-prism","highlight","-lunr","-search","search-plus","addcssjs","replace","simpletabs","-layout","components","-lightbox","github-tables","nestedmd","image-captions","fancybox","bulk-redirect"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"fancybox":{"helpers":{"buttons":{}}},"todo":{},"page-toc":{"selector":".markdown-section h2, .markdown-section h3, .markdown-section h4","position":"before-first","showByDefault":true},"styled-blockquotes":{},"addcssjs":{"js":[],"css":["./public/custom.css"]},"code":{"copyButtons":true},"collapse":{},"nestedmd":{},"github-tables":{"myConfigKey":"it's the default value"},"simpletabs":{},"dashing":{"selectors":["h1, h2, h3, h4, h5, h6, p, ul, ol"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-interactive":{},"replace":{"substitutes":[{"pattern":"\\\\\\*","flags":"g","substitute":"*"},{"pattern":"\\\\\\|","flags":"g","substitute":" or "},{"pattern":"<a name=","flags":"gi","substitute":"<a id="},{"pattern":"([^\\[])`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`([^\\]])","flags":"g","substitute":"$1[`$2`](/reference/uxp/class/$2.html)$3"},{"pattern":"([^\\[])`(application|Blur|clipboard|Color|commands|ImageFill|LinearGradientFill|Matrix|scenegraph|SceneNodeList|selection|Shadow|OS)`([^\\]])","flags":"g","substitute":"$1[`$2`](/reference/$2.html)$3"},{"pattern":"([^\\[])`(SceneNode|RootNode|Group|GraphicNode|Rectangle|Artboard|Ellipse|Line|Path|BooleanGroup|SymbolInstance|RepeatGrid|LinkedGraphic)`([^\\]])","flags":"g","substitute":"$1[`$2`](/reference/scenegraph.html#$2)$3"},{"pattern":"([^\\[])`(fetch)`([^\\]])","flags":"g","substitute":"$1[`$2`](/reference/uxp/function/$2.html)$3"},{"pattern":"([^\\[])`(storage)`([^\\]])","flags":"g","substitute":"$1[`$2`](/reference/uxp/module/$2.html)$3"},{"pattern":"\\[`(Attr|BaseUIEvent|CharacterData|ClassList|Clipboard|CloseEvent|Comment|Document|DocumentFragment|DOMException|DOMTokenList|DragEvent|Element|Event|EventTarget|GestureEvent|HTMLElement|HTMLAncorElement|HTMLBodyElement|HTMLButtonElement|HTMLDialogElement|HTMLFormElement|HTMLHeadElement|HTMlHtmlElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLLinkElement|HTMLMenuElement|HTMLOptionElement|HTMLProgressELement|HTMLScriptElement|HTMLSelectElement|HTMLStyleElement|HTMLTextAreaElement|KeyboardEvent|MessageEvent|NamedNodeMap|NodeList|PointerEvent|ProgressEvent|Shell|WebSocket|XMLHttpRequest|CSSRule|CSSRuleList|CSSStyleDeclaration|CSSStyleRule|CSSStyleSheet|FocusEvent)`\\]\\([^\\)]*\\)","flags":"g","substitute":"[ `$1` ](/reference/uxp/class/$1.html)"},{"pattern":"\\([^#\\)]*#(storage)\\)","flags":"g","substitute":"(/reference/uxp/module/$1.html)"},{"pattern":"\\([^#\\)]*#(fetch)\\)","flags":"g","substitute":"(/reference/uxp/function/$1.html)"}]},"components":{"templatePath":"public/","templates":[{"name":"header","target":"body","prepend":"true"},{"name":"footer","target":"body","prepend":"false"}]},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"github-buttons":{"buttons":[{"user":"AdobeXD","repo":"Plugin-Docs","type":"star","size":"small"},{"user":"AdobeXD","type":"follow","width":"130","count":false,"size":"small"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"search-plus":{},"image-captions":{"variable_name":"_pictures"}},"theme":"default","author":"Adobe","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Georgia","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./tutorials/quick-start/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: A rectangle on the artboard","alt":"A rectangle on the artboard","nro":1,"url":"/../images/on-canvas.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A rectangle on the artboard","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"./tutorials/debugging/index.html#fig1.3.1","level":"1.3","list_caption":"Figure: reload-error.png","alt":"reload-error.png","nro":2,"url":"/images/reload-error.png","index":1,"caption_template":"Figure: _CAPTION_","label":"reload-error.png","attributes":{},"skip":false,"key":"1.3.1"},{"backlink":"./tutorials/debugging/index.html#fig1.3.2","level":"1.3","list_caption":"Figure: start-message","alt":"start-message","nro":3,"url":"/images/start-message.png","index":2,"caption_template":"Figure: _CAPTION_","label":"start-message","attributes":{},"skip":false,"key":"1.3.2"},{"backlink":"./tutorials/debugging/index.html#fig1.3.3","level":"1.3","list_caption":"Figure: wrong-color","alt":"wrong-color","nro":4,"url":"/images/wrong-color.png","index":3,"caption_template":"Figure: _CAPTION_","label":"wrong-color","attributes":{},"skip":false,"key":"1.3.3"},{"backlink":"./tutorials/how-to-draw-lines/index.html#fig2.2.1.1","level":"2.2.1","list_caption":"Figure: Created lines","alt":"Created lines","nro":5,"url":"/../images/lines.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Created lines","attributes":{},"skip":false,"key":"2.2.1.1"},{"backlink":"./tutorials/how-to-create-paths/index.html#fig2.2.2.1","level":"2.2.2","list_caption":"Figure: Created pie chart","alt":"Created pie chart","nro":6,"url":"/../images/pie-chart.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Created pie chart","attributes":{},"skip":false,"key":"2.2.2.1"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.1","level":"2.2.3","list_caption":"Figure: Red text","alt":"Red text","nro":7,"url":"/images/red.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Red text","attributes":{},"skip":false,"key":"2.2.3.1"},{"backlink":"./tutorials/how-to-style-text/index.html#fig2.2.3.2","level":"2.2.3","list_caption":"Figure: Rainbow text","alt":"Rainbow text","nro":8,"url":"/images/rainbow.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Rainbow text","attributes":{},"skip":false,"key":"2.2.3.2"},{"backlink":"./tutorials/how-to-work-with-scenenodelist/index.html#fig2.2.4.1","level":"2.2.4","list_caption":"Figure: multiple texts, rectangles, and circles","alt":"multiple texts, rectangles, and circles","nro":9,"url":"/../images/filter-and-color.png","index":1,"caption_template":"Figure: _CAPTION_","label":"multiple texts, rectangles, and circles","attributes":{},"skip":false,"key":"2.2.4.1"},{"backlink":"./tutorials/how-to-export-a-rendition/index.html#fig2.3.1.1","level":"2.3.1","list_caption":"Figure: System folder picker screen","alt":"System folder picker screen","nro":10,"url":"/../images/export-rendition-pick-file.png","index":1,"caption_template":"Figure: _CAPTION_","label":"System folder picker screen","attributes":{},"skip":false,"key":"2.3.1.1"},{"backlink":"./tutorials/how-to-read-a-file/index.html#fig2.3.2.1","level":"2.3.2","list_caption":"Figure: System file picker","alt":"System file picker","nro":11,"url":"/../images/filepicker.png","index":1,"caption_template":"Figure: _CAPTION_","label":"System file picker","attributes":{},"skip":false,"key":"2.3.2.1"},{"backlink":"./tutorials/how-to-read-a-file/index.html#fig2.3.2.2","level":"2.3.2","list_caption":"Figure: blue text added to the artboard","alt":"blue text added to the artboard","nro":12,"url":"/../images/displayed-results.png","index":2,"caption_template":"Figure: _CAPTION_","label":"blue text added to the artboard","attributes":{},"skip":false,"key":"2.3.2.2"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.1","level":"2.4.1","list_caption":"Figure: A typical alert message","alt":"A typical alert message","nro":13,"url":"assets/Our%20Alert.png","index":1,"caption_template":"Figure: _CAPTION_","label":"A typical alert message","attributes":{},"skip":false,"key":"2.4.1.1"},{"backlink":"./tutorials/how-to-show-an-alert/index.html#fig2.4.1.2","level":"2.4.1","list_caption":"Figure: An error alert","alt":"An error alert","nro":14,"url":"assets/Error%20Alert.png","index":2,"caption_template":"Figure: _CAPTION_","label":"An error alert","attributes":{},"skip":false,"key":"2.4.1.2"},{"backlink":"./reference/core/scenegraph.html#fig3.3.1.1","level":"3.3.1","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":15,"url":"../../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"3.3.1.1"},{"backlink":"./reference/core/edit-context.html#fig3.3.2.1","level":"3.3.2","list_caption":"Figure: diagram of Edit Contexts","alt":"diagram of Edit Contexts","nro":16,"url":"../../images/editContexts.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of Edit Contexts","attributes":{},"skip":false,"key":"3.3.2.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.1","level":"3.3.3","list_caption":"Figure: diagram of coordinate spaces","alt":"diagram of coordinate spaces","nro":17,"url":"../../images/coordSpaces.png","index":1,"caption_template":"Figure: _CAPTION_","label":"diagram of coordinate spaces","attributes":{},"skip":false,"key":"3.3.3.1"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.2","level":"3.3.3","list_caption":"Figure: examples of localBounds origin","alt":"examples of localBounds origin","nro":18,"url":"../../images/localOrigin.png","index":2,"caption_template":"Figure: _CAPTION_","label":"examples of localBounds origin","attributes":{},"skip":false,"key":"3.3.3.2"},{"backlink":"./reference/core/coordinate-spaces-and-units.html#fig3.3.3.3","level":"3.3.3","list_caption":"Figure: examples of path bounds vs. draw bounds","alt":"examples of path bounds vs. draw bounds","nro":19,"url":"../../images/pathBounds.png","index":3,"caption_template":"Figure: _CAPTION_","label":"examples of path bounds vs. draw bounds","attributes":{},"skip":false,"key":"3.3.3.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.1","level":"3.4.1.2","list_caption":"Figure: macOS Headings","alt":"macOS Headings","nro":20,"url":"assets/macOS%20Headings.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Headings","attributes":{},"skip":false,"key":"3.4.1.2.1"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.2","level":"3.4.1.2","list_caption":"Figure: Windows Headings","alt":"Windows Headings","nro":21,"url":"assets/Windows%20Headings.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Headings","attributes":{},"skip":false,"key":"3.4.1.2.2"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.3","level":"3.4.1.2","list_caption":"Figure: macOS Text Sizes","alt":"macOS Text Sizes","nro":22,"url":"assets/macOS%20Text%20Sizes.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.3"},{"backlink":"./reference/ui/styles/typography.html#fig3.4.1.2.4","level":"3.4.1.2","list_caption":"Figure: Windows Text Sizes","alt":"Windows Text Sizes","nro":23,"url":"assets/Windows%20Text%20Sizes.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Text Sizes","attributes":{},"skip":false,"key":"3.4.1.2.4"},{"backlink":"./reference/ui/layout/block.html#fig3.4.2.1.1","level":"3.4.2.1","list_caption":"Figure: Block Layout","alt":"Block Layout","nro":24,"url":"../assets/block-layout.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Block Layout","attributes":{},"skip":false,"key":"3.4.2.1.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.1","level":"3.4.2.2","list_caption":"Figure: Flex stretching","alt":"Flex stretching","nro":25,"url":"../assets/flex-stretch.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Flex stretching","attributes":{},"skip":false,"key":"3.4.2.2.1"},{"backlink":"./reference/ui/layout/flex.html#fig3.4.2.2.2","level":"3.4.2.2","list_caption":"Figure: Flexbox spacing","alt":"Flexbox spacing","nro":26,"url":"../assets/flex-spacing.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Flexbox spacing","attributes":{},"skip":false,"key":"3.4.2.2.2"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.1","level":"3.4.2.3","list_caption":"Figure: Relative Positioning","alt":"Relative Positioning","nro":27,"url":"../assets/position-relative.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Relative Positioning","attributes":{},"skip":false,"key":"3.4.2.3.1"},{"backlink":"./reference/ui/layout/positioning.html#fig3.4.2.3.2","level":"3.4.2.3","list_caption":"Figure: Absolute positioning","alt":"Absolute positioning","nro":28,"url":"../assets/position-absolute.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Absolute positioning","attributes":{},"skip":false,"key":"3.4.2.3.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.1","level":"3.4.3.1","list_caption":"Figure: Standard (loud) button anatomy","alt":"Standard (loud) button anatomy","nro":29,"url":"../assets/button-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard (loud) button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.1"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.2","level":"3.4.3.1","list_caption":"Figure: Quiet button anatomy","alt":"Quiet button anatomy","nro":30,"url":"../assets/button-anatomy-quiet.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Quiet button anatomy","attributes":{},"skip":false,"key":"3.4.3.1.2"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.3","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":31,"url":"../assets/buttons-mac.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.3"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.4","level":"3.4.3.1","list_caption":"Figure: Types of buttons","alt":"Types of buttons","nro":32,"url":"../assets/buttons-uwp.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Types of buttons","attributes":{},"skip":false,"key":"3.4.3.1.4"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.5","level":"3.4.3.1","list_caption":"Figure: Call To Action Button Variant","alt":"Call To Action Button Variant","nro":33,"url":"../assets/button-variant-cta.png","index":5,"caption_template":"Figure: _CAPTION_","label":"Call To Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.5"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.6","level":"3.4.3.1","list_caption":"Figure: Primary Button Variant","alt":"Primary Button Variant","nro":34,"url":"../assets/button-variant-primary.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Primary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.6"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.7","level":"3.4.3.1","list_caption":"Figure: Secondary Button Variant","alt":"Secondary Button Variant","nro":35,"url":"../assets/button-variant-secondary.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Secondary Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.7"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.8","level":"3.4.3.1","list_caption":"Figure: Warning Button Variant","alt":"Warning Button Variant","nro":36,"url":"../assets/button-variant-warning.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Warning Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.8"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.9","level":"3.4.3.1","list_caption":"Figure: Action Button Variant","alt":"Action Button Variant","nro":37,"url":"../assets/button-variant-action.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Action Button Variant","attributes":{},"skip":false,"key":"3.4.3.1.9"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.10","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":38,"url":"../assets/button-variants-mac.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.10"},{"backlink":"./reference/ui/elements/buttons.html#fig3.4.3.1.11","level":"3.4.3.1","list_caption":"Figure: Pill buttons","alt":"Pill buttons","nro":39,"url":"../assets/button-variants-uwp.png","index":11,"caption_template":"Figure: _CAPTION_","label":"Pill buttons","attributes":{},"skip":false,"key":"3.4.3.1.11"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.1","level":"3.4.3.2","list_caption":"Figure: Standard checkbox button anatomy","alt":"Standard checkbox button anatomy","nro":40,"url":"../assets/checkbox-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Standard checkbox button anatomy","attributes":{},"skip":false,"key":"3.4.3.2.1"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.2","level":"3.4.3.2","list_caption":"Figure: Checkbox on macOS","alt":"Checkbox on macOS","nro":41,"url":"../assets/checkbox-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Checkbox on macOS","attributes":{},"skip":false,"key":"3.4.3.2.2"},{"backlink":"./reference/ui/elements/checkboxes.html#fig3.4.3.2.3","level":"3.4.3.2","list_caption":"Figure: Checkbox on Windows 10","alt":"Checkbox on Windows 10","nro":42,"url":"../assets/checkbox-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Checkbox on Windows 10","attributes":{},"skip":false,"key":"3.4.3.2.3"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.1","level":"3.4.3.3","list_caption":"Figure: Dropdown anatomy","alt":"Dropdown anatomy","nro":43,"url":"../assets/dropdown-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Dropdown anatomy","attributes":{},"skip":false,"key":"3.4.3.3.1"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.2","level":"3.4.3.3","list_caption":"Figure: Dropdowns on macOS","alt":"Dropdowns on macOS","nro":44,"url":"../assets/select-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on macOS","attributes":{},"skip":false,"key":"3.4.3.3.2"},{"backlink":"./reference/ui/elements/dropdowns.html#fig3.4.3.3.3","level":"3.4.3.3","list_caption":"Figure: Dropdowns on Windows 10","alt":"Dropdowns on Windows 10","nro":45,"url":"../assets/select-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Dropdowns on Windows 10","attributes":{},"skip":false,"key":"3.4.3.3.3"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.1","level":"3.4.3.4","list_caption":"Figure: macOS Link","alt":"macOS Link","nro":46,"url":"assets/macOS%20Link.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Link","attributes":{},"skip":false,"key":"3.4.3.4.1"},{"backlink":"./reference/ui/elements/links.html#fig3.4.3.4.2","level":"3.4.3.4","list_caption":"Figure: Windows Link","alt":"Windows Link","nro":47,"url":"assets/Windows%20Link.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Link","attributes":{},"skip":false,"key":"3.4.3.4.2"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.1","level":"3.4.3.5","list_caption":"Figure: macOS Rules","alt":"macOS Rules","nro":48,"url":"assets/macOS%20Rules.png","index":1,"caption_template":"Figure: _CAPTION_","label":"macOS Rules","attributes":{},"skip":false,"key":"3.4.3.5.1"},{"backlink":"./reference/ui/elements/rules.html#fig3.4.3.5.2","level":"3.4.3.5","list_caption":"Figure: Windows Rules","alt":"Windows Rules","nro":49,"url":"assets/Windows%20Rules.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Windows Rules","attributes":{},"skip":false,"key":"3.4.3.5.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.1","level":"3.4.3.6","list_caption":"Figure: Slider anatomy","alt":"Slider anatomy","nro":50,"url":"../assets/slider-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Slider anatomy","attributes":{},"skip":false,"key":"3.4.3.6.1"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.2","level":"3.4.3.6","list_caption":"Figure: Slider on macOS","alt":"Slider on macOS","nro":51,"url":"../assets/sliders-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Slider on macOS","attributes":{},"skip":false,"key":"3.4.3.6.2"},{"backlink":"./reference/ui/elements/sliders.html#fig3.4.3.6.3","level":"3.4.3.6","list_caption":"Figure: Slider on Windows 10","alt":"Slider on Windows 10","nro":52,"url":"../assets/sliders-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Slider on Windows 10","attributes":{},"skip":false,"key":"3.4.3.6.3"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.1","level":"3.4.3.7","list_caption":"Figure: Text Field Anatomy","alt":"Text Field Anatomy","nro":53,"url":"../assets/text-field-anatomy.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Text Field Anatomy","attributes":{},"skip":false,"key":"3.4.3.7.1"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.2","level":"3.4.3.7","list_caption":"Figure: Text Field on macOS","alt":"Text Field on macOS","nro":54,"url":"../assets/textfield-mac.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Text Field on macOS","attributes":{},"skip":false,"key":"3.4.3.7.2"},{"backlink":"./reference/ui/elements/textfields.html#fig3.4.3.7.3","level":"3.4.3.7","list_caption":"Figure: Text Field on Windows 10","alt":"Text Field on Windows 10","nro":55,"url":"../assets/textfield-uwp.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Text Field on Windows 10","attributes":{},"skip":false,"key":"3.4.3.7.3"},{"backlink":"./reference/ui/elements/tooltips.html#fig3.4.3.8.1","level":"3.4.3.8","list_caption":"Figure: Tooltip","alt":"Tooltip","nro":56,"url":"assets/macOS%20Tooltip.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Tooltip","attributes":{},"skip":false,"key":"3.4.3.8.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.1","level":"3.4.4","list_caption":"Figure: Example of a Modal Dialog","alt":"Example of a Modal Dialog","nro":57,"url":"./assets/dialog.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Example of a Modal Dialog","attributes":{},"skip":false,"key":"3.4.4.1"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.2","level":"3.4.4","list_caption":"Figure: Dialog Anatomy","alt":"Dialog Anatomy","nro":58,"url":"./assets/dialog-anatomy.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Dialog Anatomy","attributes":{},"skip":false,"key":"3.4.4.2"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.3","level":"3.4.4","list_caption":"Figure: macOS Dialog Example","alt":"macOS Dialog Example","nro":59,"url":"./assets/Example%20About%20Dialog.png","index":3,"caption_template":"Figure: _CAPTION_","label":"macOS Dialog Example","attributes":{},"skip":false,"key":"3.4.4.3"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.4","level":"3.4.4","list_caption":"Figure: Windows Dialog Example","alt":"Windows Dialog Example","nro":60,"url":"./assets/Example%20About%20Dialog%20on%20UWP.png","index":4,"caption_template":"Figure: _CAPTION_","label":"Windows Dialog Example","attributes":{},"skip":false,"key":"3.4.4.4"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.5","level":"3.4.4","list_caption":"Figure: A Simple Dialog","alt":"A Simple Dialog","nro":61,"url":"./assets/dialog.png","index":5,"caption_template":"Figure: _CAPTION_","label":"A Simple Dialog","attributes":{},"skip":false,"key":"3.4.4.5"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.6","level":"3.4.4","list_caption":"Figure: Example Alert","alt":"Example Alert","nro":62,"url":"../assets/helper-alert.png","index":6,"caption_template":"Figure: _CAPTION_","label":"Example Alert","attributes":{},"skip":false,"key":"3.4.4.6"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.7","level":"3.4.4","list_caption":"Figure: Example Error Alert","alt":"Example Error Alert","nro":63,"url":"./assets/Example%20Error%20Alert.png","index":7,"caption_template":"Figure: _CAPTION_","label":"Example Error Alert","attributes":{},"skip":false,"key":"3.4.4.7"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.8","level":"3.4.4","list_caption":"Figure: Example Confirmation Dialog","alt":"Example Confirmation Dialog","nro":64,"url":"./assets/Example%20Confirmation%20Dialog.png","index":8,"caption_template":"Figure: _CAPTION_","label":"Example Confirmation Dialog","attributes":{},"skip":false,"key":"3.4.4.8"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.9","level":"3.4.4","list_caption":"Figure: Example Warning Dialog","alt":"Example Warning Dialog","nro":65,"url":"./assets/Example%20Warning%20Dialog.png","index":9,"caption_template":"Figure: _CAPTION_","label":"Example Warning Dialog","attributes":{},"skip":false,"key":"3.4.4.9"},{"backlink":"./reference/ui/dialogs/index.html#fig3.4.4.10","level":"3.4.4","list_caption":"Figure: Example Prompt Dialog","alt":"Example Prompt Dialog","nro":66,"url":"./assets/Example%20Prompt%20Dialog.png","index":10,"caption_template":"Figure: _CAPTION_","label":"Example Prompt Dialog","attributes":{},"skip":false,"key":"3.4.4.10"},{"backlink":"./distribution/packaging.html#fig4.1.1","level":"4.1","list_caption":"Figure: XD package install prompt","alt":"XD package install prompt","nro":67,"url":"/../images/install.png","index":1,"caption_template":"Figure: _CAPTION_","label":"XD package install prompt","attributes":{},"skip":false,"key":"4.1.1"},{"backlink":"./distribution/packaging.html#fig4.1.2","level":"4.1","list_caption":"Figure: XD package install success","alt":"XD package install success","nro":68,"url":"/../images/installed.png","index":2,"caption_template":"Figure: _CAPTION_","label":"XD package install success","attributes":{},"skip":false,"key":"4.1.2"},{"backlink":"./distribution/options.html#fig4.2.1","level":"4.2","list_caption":"Figure: XD Plugin Manager","alt":"XD Plugin Manager","nro":69,"url":"/images/plugin-manager.png","index":1,"caption_template":"Figure: _CAPTION_","label":"XD Plugin Manager","attributes":{},"skip":false,"key":"4.2.1"},{"backlink":"./distribution/how-to-submit-to-plugin-manager.html#fig4.3.1","level":"4.3","list_caption":"Figure: XD Plugin Manager","alt":"XD Plugin Manager","nro":70,"url":"/images/plugin-manager.png","index":1,"caption_template":"Figure: _CAPTION_","label":"XD Plugin Manager","attributes":{},"skip":false,"key":"4.3.1"},{"backlink":"./distribution/how-to-create-deep-links.html#fig4.5.1","level":"4.5","list_caption":"Figure: Console displaying plugin ID","alt":"Console displaying plugin ID","nro":71,"url":"/images/console.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Console displaying plugin ID","attributes":{},"skip":false,"key":"4.5.1"},{"backlink":"./distribution/how-to-create-deep-links.html#fig4.5.2","level":"4.5","list_caption":"Figure: Open XD confirmation","alt":"Open XD confirmation","nro":72,"url":"/images/openxd.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Open XD confirmation","attributes":{},"skip":false,"key":"4.5.2"},{"backlink":"./distribution/how-to-create-deep-links.html#fig4.5.3","level":"4.5","list_caption":"Figure: Inaccurate parameter","alt":"Inaccurate parameter","nro":73,"url":"/images/inaccurateparam.png","index":3,"caption_template":"Figure: _CAPTION_","label":"Inaccurate parameter","attributes":{},"skip":false,"key":"4.5.3"},{"backlink":"./community.html#fig5.1.1","level":"5.1","list_caption":"Figure: XD Dev Days Event","alt":"XD Dev Days Event","nro":74,"url":"/images/xd-dev-days.png","index":1,"caption_template":"Figure: _CAPTION_","label":"XD Dev Days Event","attributes":{},"skip":false,"key":"5.1.1"},{"backlink":"./reference/scenegraph.html#fig6.1.7.1","level":"6.1.7","list_caption":"Figure: example of scenegraph tree","alt":"example of scenegraph tree","nro":75,"url":"../images/scenegraphExample.png","index":1,"caption_template":"Figure: _CAPTION_","label":"example of scenegraph tree","attributes":{},"skip":false,"key":"6.1.7.1"}]},"title":"Adobe XD Plugin Reference","gitbook":"*","description":"Documentation, tutorials, how-tos, and technical reference for building Adobe XD Plugins"},"file":{"path":"reference/assets.md","mtime":"2019-01-29T19:57:31.730Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-29T19:59:15.757Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapse/collapse.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-interactive/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-simpletabs/tabs.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.mousewheel.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    <div class="gitbookPluginComponent"><div style="background-size: cover; background-color: rgb(44, 44, 44);">
+    <div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: baseline; margin: 0 28px; line-height: 32px;">
+        <p style="margin: 0;" class="footer evidon-notice-link">&#xA9; Copyright 2018 Adobe. All rights reserved. / <a rel="noopener noreferrer" target="_blank" href="https://www.adobe.com/privacy.html">Privacy</a>
+            / <a target="_blank" rel="noopener noreferrer" href="https://www.adobe.com/legal/terms.html">Terms of Use</a> / <a target="_blank" rel="noopener noreferrer" href="https://www.adobe.com/privacy/cookies.html">Cookies</a> /
+        </p>
+    </div>
+</div></div></body>
+</html>
+

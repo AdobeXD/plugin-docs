@@ -1,3 +1,0 @@
-# Submission Checklist
-
-Coming soon..

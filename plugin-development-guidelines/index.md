@@ -1,6 +1,10 @@
 # Plugin Development 101
 
-On this page, we'll give you a quick overview of some basic concepts you need to know to build a successfull XD plugin.
+On this page, we'll give you a quick overview of some basic concepts you need to know to build a successful XD plugin.
+
+<a href="https://example.com"><object style="width: 100%" type="image/png" data="./img.png"></object></a>
+
+
 
 Here are four topics we recommend you get familiar with:
 
@@ -9,7 +13,7 @@ Here are four topics we recommend you get familiar with:
 * [XD Concepts](/reference/core/index.md)
 * [Development best practices](/devbestpractices/index.md)
 
-By learning these topics, you will fully understand how you can build an XD plugin. 
+By learning these topics, you will fully understand how you can build an XD plugin.
 
 Here are some of the recommended next steps for you:
 

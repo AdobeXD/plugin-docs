@@ -45,7 +45,7 @@ Use alert messaging whenever the plugin cannot perform the intended task, dialog
 
 ![Aler dialog requirements](../ux_images/Alert_Requirements.png)
 
-#### UX Requirements
+### UX Requirements
 
 **Header**  
 Have a clear header that describes the error
@@ -58,7 +58,7 @@ Include at least one modal dismissal button to allow the user to dismiss/close t
 
 ![Alert Dialog Best Practices](../ux_images/Alert_Recommendations.png)
 
-#### Best practices
+### Best practices
 
 **Warning icon**  
 To help communicate critical information for an error you can include a warning icon next to the header
@@ -79,7 +79,7 @@ Use success messaging whenever the plugin successfully completes a task and has 
 
 ![Alert Success Dialog example](../ux_images/Alert_Requirements.png)
 
-#### UX Requirements
+### UX Requirements
 
 **Header**  
 Have a clear header for the dialog.
@@ -97,7 +97,7 @@ If a plugin generates output that the user needs to complete a workflow, then th
 
 ![Plugin output example](../ux_images/Plugin_output.png)
 
-#### UX Requirements
+### UX Requirements
 
 **Plugin output**  
 In use cases like these, the plugin output can be shown in the UI, copied onto the clipboard, populated on the document or generate a file.
@@ -115,7 +115,7 @@ Use permission dialogs when being destructive or making modifications.
 
 ![Permission dialog example](../ux_images/Permission_dialog_example.png)
 
-#### UX Requirements
+### UX Requirements
 
 **Header**   
 Have a clear header for the dialog.
@@ -133,14 +133,14 @@ Esc key or Enter key Dismisses the dialog when the “Cancel” button is in foc
 # Loaders & Progress bars
 Let the user know when something is happening in the background in the plugin UI. 
 
-#### Determinate
+### Determinate
 **Use case**  
 Use case If the progress can be reflected on a loader. 
 
 ![Determinate example](../ux_images/Determinate_loader_example.png)
 
 
-#### Indeterminate
+### Indeterminate
 **Use case**  
 If the progress can’t be determined then provide a loader to let the user know something is loading.
 

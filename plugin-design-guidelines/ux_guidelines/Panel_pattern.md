@@ -12,6 +12,8 @@ This section has recommendations when using a Plugins Panel - Non-Blocking UI. I
 ![XD frame example with panel](../ux_images/Panel_XDapplication_frame.png)
 
 ----------
+ <br />
+
 # Specs & UX Requirements
 
 MacOS example
@@ -20,24 +22,25 @@ MacOS example
 
 ### Specs
 
-**Plugin icon (your app icon)**
+**Plugin icon (your app icon)**  
 The plugin panel UI will include a plugin icon at the top of the panel next to the plugin name. 
 
-**Padding** 
+**Padding**  
 The panel will have padding built-in (ex: MacOS panel will have a 12px padding). Additional padding shouldn’t be added.
 
 
 ### UX Requirements
 
-**Navigation** 
+**Navigation**  
 If the user is drilling down multiple panels, then provide a way for them to navigate back
 
-**Login & Logout**
+**Login & Logout**  
 If the user has to login then provide a way for them to logout through the plugin UI
 
-**Refresh**
+**Refresh**  
 If the plugin needs to refresh for the user to see new information then provide a way for the user to refresh/sync through the plugin UI
 
+ <br />
 
 # Plugin launch pad & UI
 ### Launch Pad - built-in 
@@ -48,6 +51,7 @@ If the plugin needs to refresh for the user to see new information then provide 
 ### Panel UI
 ![Panel UI example](../ux_images/Panel_pattern_3.png)
 
+ <br />
 
 # Contextual Feedback
 ### Selection based actions
@@ -92,7 +96,7 @@ When dropping in multiple items into the canvas then let the user know where the
 
 Avoid dropping an artboard on top of other artboards. 
 
-**UX feedback examples**
+**UX feedback examples**  
 - Move viewport to object on the canvas
 - Select the new object 
 
@@ -108,6 +112,7 @@ This can also be a great opportunity to brand your empty states.
 
 ![Running an action & providing feedback example](../ux_images/Panel_pattern_8.png)
 
+ <br />
 
 # Adaptive Layouts
 
@@ -115,7 +120,6 @@ Since the user can resize the panel, content should adjust to accomodate for scr
 
 ### Scrolling
 ![Panel Scrolling behaviors example](../ux_images/Panel_pattern_9.png)
-
 
 
 ### Responsiveness

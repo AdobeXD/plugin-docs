@@ -7,9 +7,9 @@ These are the guidelines and best practices on when and how to provide users wit
 - Success
 - Output
 - Permission dialogs
-- Loaders & Progress bars
+- Loaders and Progress bars
 
-Provide users with feedback as they interact with your plugin, this can be alert & success messaging, permission dialogs or loaders & progress bars to let them know something is running in the background. Below is a guide to help determine where to render plugin messages.
+Provide users with feedback as they interact with your plugin, this can be alert and success messaging, permission dialogs or loaders and progress bars to let them know something is running in the background. Below is a guide to help determine where to render plugin messages.
 
 
 ![Plugin Messaging flow chart](../ux_images/Messaging_1.png)
@@ -140,7 +140,7 @@ Esc key or Enter key Dismisses the dialog when the “Cancel” button is in foc
 
  <br />
   
-# Loaders & Progress bars
+# Loaders and Progress bars
 Let the user know when something is happening in the background in the plugin UI. 
 
 ### Determinate

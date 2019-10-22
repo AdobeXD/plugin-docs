@@ -2,8 +2,8 @@
 
 This section has recommendations when using a Plugins Panel - Non-Blocking UI. If the user needs to have access to the canvas then the plugin panel would be the best option, since it’s contextual to the users selection and allows the user to modify items on their canvas while interacting with the plugin UI. 
 
-- Specs & UX Requirements
-- Plugin Launch Pad & UI
+- Specs and UX Requirements
+- Plugin Launch Pad and UI
 - Contextual Feedback
 - Adaptive layout
 
@@ -14,7 +14,7 @@ This section has recommendations when using a Plugins Panel - Non-Blocking UI. I
 ----------
  <br />
 
-# Specs & UX Requirements
+# Specs and UX Requirements
 
 MacOS example
 
@@ -34,7 +34,7 @@ The panel will have padding built-in (ex: MacOS panel will have a 12px padding).
 **Navigation**  
 If the user is drilling down multiple panels, then provide a way for them to navigate back
 
-**Login & Logout**  
+**Login and Logout**  
 If the user has to login then provide a way for them to logout through the plugin UI
 
 **Refresh**  
@@ -42,7 +42,7 @@ If the plugin needs to refresh for the user to see new information then provide 
 
  <br />
 
-# Plugin launch pad & UI
+# Plugin launch pad and UI
 ### Launch Pad - built-in 
 ![Panel launch pad example](../ux_images/Panel_pattern_2.png)
 
@@ -104,13 +104,13 @@ Avoid dropping an artboard on top of other artboards.
 
 
 
-### Running an action & providing feedback
+### Running an action and providing feedback
 
 If the plugin is running an action, then let the user know by providing UI elements such as a progress indicator. 
 
 This can also be a great opportunity to brand your empty states. 
 
-![Running an action & providing feedback example](../ux_images/Panel_pattern_8.png)
+![Running an action and providing feedback example](../ux_images/Panel_pattern_8.png)
 
  <br />
 

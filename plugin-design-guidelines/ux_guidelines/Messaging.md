@@ -15,6 +15,7 @@ Provide users with feedback as they interact with your plugin, this can be alert
 ![Plugin Messaging flow chart](../ux_images/Messaging_1.png)
 
 ----------
+
 # Examples
 
 ![Operation failed to complete](../ux_images/Error_alert_example.png)
@@ -36,7 +37,7 @@ Information dialog - if the plugin is unable to connect to the internet to compl
 
 **Network connectivity**  
 “Please connect to WiFi to sync your tasks to your product management tool”.
-
+  
 
 # Alerts
 
@@ -72,6 +73,7 @@ Provide image/GIF example as part of the dialog, to help users understand the ac
 **Messaging**  
 In the alert messages use language that is easy to understand for the user.
 
+  
 # Success
 
 **Use case**  
@@ -90,6 +92,7 @@ Explain what the plugin successfully completed, if it is not visually apparent t
 **Dialog buttons**  
 Include at least one modal dismissal button to allow the user to dismiss/close the modal.
 
+  
 # Output
 
 **Use case**  
@@ -108,6 +111,7 @@ Copied onto the clipboard - the plugin can add copy to the clipboard and provide
 **Don’t**  
 Require users to go into the developer console to complete an action.
 
+  
 # Permission dialogs
 
 **Use case**  
@@ -129,7 +133,7 @@ Include a modal dismissal button to allow the user to cancel/close the modal and
 **Key Commands**   
 Esc key or Enter key Dismisses the dialog when the “Cancel” button is in focus
 
-
+  
 # Loaders & Progress bars
 Let the user know when something is happening in the background in the plugin UI. 
 

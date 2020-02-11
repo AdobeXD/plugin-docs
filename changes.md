@@ -1,5 +1,12 @@
 # Change Log
 
+XD Release 27.0.12 (February 2020)
+-------------------------------------
+XD 27 is a minor update for plugin developers, with one new added API:
+
+* Get and set [`SceneNode.blendMode`](./reference/scenegraph.md#SceneNode-blendMode)
+
+
 XD Release 26.0.12 (January 2020)
 -------------------------------------
 

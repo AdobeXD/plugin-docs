@@ -16,7 +16,7 @@ New features:
 * Custom text field styling using `appearance: none`
 * `HTMLElement.scrollTo()` method
 * SVG `<polygon>` and `<polyline>`
-* Get version of the UXP runtime & version of your own plugin via `require("uxp").versions`
+* Get version of the UXP runtime & version of your own plugin via `require("uxp").versions.uxp` / `.versions.plugin`
 * Limited support for CustomElementRegistry (using `is` but not using custom HTML tags; Web Components APIs such as `attachShadow()` remain unsupported)
 * `HTMLImageElement.complete` flag
 

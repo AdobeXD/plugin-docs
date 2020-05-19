@@ -1,0 +1,5 @@
+user-agent: *
+disallow: /
+
+sitemap: /sitemap.xml
+sitemap: http://example.com/alt_sitemap.xml

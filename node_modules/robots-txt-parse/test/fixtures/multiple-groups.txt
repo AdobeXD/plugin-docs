@@ -1,0 +1,10 @@
+user-agent: *
+user-agent: agent1
+disallow: /path1
+allow: /path2
+
+user-agent: agent2
+allow: /
+
+user-agent: agent3
+disallow: /path3

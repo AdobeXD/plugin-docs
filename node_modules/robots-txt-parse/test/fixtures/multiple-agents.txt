@@ -1,0 +1,4 @@
+user-agent: *
+user-agent: agent1
+user-agent: agent2
+disallow: /

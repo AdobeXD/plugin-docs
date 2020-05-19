@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">test/BrokenLinkChecker.spec.js | broken-link-checker-local</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Find broken links, missing images, etc in your HTML, even in local files"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="broken-link-checker-local"><meta property="twitter:description" content="Find broken links, missing images, etc in your HTML, even in local files"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/LukasHechenberger/broken-link-checker-local"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/BrokenLinkChecker.js~BrokenLinkChecker.html">BrokenLinkChecker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CliOptions">CliOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://expressjs.com/en/4x/api.html#app">express.Application</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://nodejs.org/api/http.html#http_class_http_server">http.Server</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://yargs.js.org/docs/#methods-optionskey-opt">yargs.Option</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/BrokenLinkChecker.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { createServer, Server } from &apos;http&apos;;
+import { join } from &apos;path&apos;;
+import expect from &apos;unexpected&apos;;
+import { spy } from &apos;sinon&apos;;
+import request from &apos;supertest&apos;;
+import getPort from &apos;get-port&apos;;
+import BrokenLinkChecker from &apos;../src/BrokenLinkChecker&apos;;
+
+/** @test {BrokenLinkChecker} */
+describe(&apos;BrokenLinkChecker&apos;, function() {
+  /** @test {BrokenLinkChecker#startServer} */
+  describe(&apos;#startServer&apos;, function() {
+    const checker = new BrokenLinkChecker();
+    checker.path = __dirname;
+
+    it(&apos;should fail with invalid port&apos;, function() {
+      return expect(checker.startServer(-13), &apos;to be rejected with&apos;, /^Port should be/);
+    });
+
+    it(&apos;should create instance of express&apos;, function() {
+      return getPort()
+        .then(port =&gt; checker.startServer(port))
+        .then(() =&gt; {
+          expect(checker.app, &apos;to be a&apos;, &apos;function&apos;);
+        });
+    });
+
+    it(&apos;should create instance of http.Server&apos;, function() {
+      return getPort()
+        .then(port =&gt; checker.startServer(port))
+        .then(() =&gt; {
+          expect(checker.server, &apos;to be a&apos;, Server);
+        });
+    });
+
+    it(&apos;should serve on custom baseUrl if passed&apos;, async function() {
+      checker.options = { baseUrl: &apos;/test/&apos; };
+
+      const port = await getPort();
+      await checker.startServer(port);
+
+      const index = await request(checker.app).get(&apos;/&apos;);
+      expect(index.status, &apos;to equal&apos;, 404);
+
+      const customIndex = await request(checker.app).get(&apos;/test/BrokenLinkChecker.spec.js&apos;);
+      expect(customIndex.status, &apos;to equal&apos;, 200);
+    });
+
+    it(&apos;should fail without path&apos;, function() {
+      checker.path = false;
+      return expect(checker.startServer(9000), &apos;to be rejected with&apos;, &apos;No path given&apos;);
+    });
+  });
+
+  /** @test {BrokenLinkChecker#runChecker} */
+  describe(&apos;#runChecker&apos;, function() {
+    let checker;
+
+    this.timeout(5000);
+
+    beforeEach(() =&gt; (checker = new BrokenLinkChecker()));
+
+    it(&apos;should fail without port and url&apos;, function() {
+      return expect(checker.runChecker(), &apos;to be rejected with&apos;, &apos;No url given&apos;);
+    });
+
+    it(&apos;should fail with invalid url&apos;, function() {
+      checker.url = &apos;http://localhost:80&apos;;
+      return expect(checker.runChecker(), &apos;to be fulfilled with&apos;, 1);
+    });
+
+    it(&apos;should fail with path to invalid document&apos;, function() {
+      checker.path = join(__dirname, &apos;fixtures&apos;, &apos;broken&apos;);
+
+      return expect(
+        getPort()
+          .then(port =&gt; checker.startServer(port))
+          .then(port =&gt; checker.runChecker(port)),
+        &apos;to be fulfilled with&apos;, 1
+      );
+    });
+
+    it(&apos;should work with path to valid document&apos;, function() {
+      checker.path = join(__dirname, &apos;fixtures&apos;, &apos;no-broken&apos;);
+
+      return expect(
+        getPort()
+          .then(port =&gt; checker.startServer(port))
+          .then(port =&gt; checker.runChecker(port)),
+        &apos;to be fulfilled with&apos;, 0
+      );
+    });
+  });
+
+  /** @test {BrokenLinkChecker#validateOptions} */
+  describe(&apos;#validateOptions&apos;, function() {
+    it(&apos;should fail without non-optional argument&apos;, function() {
+      const checker = new BrokenLinkChecker();
+
+      return expect(checker.validateOptions(), &apos;to be rejected with&apos;,
+        &apos;Neither directory nor url given&apos;
+      );
+    });
+
+    it(&apos;should fail with multiple non-optional arguments &apos;, function() {
+      const checker = new BrokenLinkChecker([&apos;dir&apos;, &apos;another&apos;]);
+
+      return expect(checker.validateOptions(), &apos;to be rejected with&apos;,
+        &apos;Too many non-option arguments: got 2, maximum of 1&apos;
+      );
+    });
+
+    it(&apos;should work with single non-optional argument&apos;, function() {
+      const checker = new BrokenLinkChecker([&apos;dir&apos;]);
+
+      return expect(checker.validateOptions(), &apos;when fulfilled&apos;, &apos;to be a&apos;, &apos;object&apos;);
+    });
+
+    it(&apos;should add leading slash to base-url if needed&apos;, async function() {
+      const checker = new BrokenLinkChecker([&apos;dir&apos;, &apos;--base-url&apos;, &apos;asdf&apos;]);
+
+      await expect(checker.validateOptions(), &apos;when fulfilled&apos;, &apos;to be a&apos;, &apos;object&apos;);
+      expect(checker.baseUrl, &apos;to equal&apos;, &apos;/asdf&apos;);
+    });
+  });
+
+  /** @test {BrokenLinkChecker#getPathOrUrl} */
+  describe(&apos;#getPathOrUrl&apos;, function() {
+    it(&apos;should set url if a url is passed&apos;, function() {
+      const checker = new BrokenLinkChecker([&apos;http://google.com&apos;]);
+
+      return checker.validateOptions()
+        .then(() =&gt; checker.getPathOrUrl())
+        .then(() =&gt; expect(checker.url, &apos;to equal&apos;, &apos;http://google.com&apos;));
+    });
+
+    it(&apos;should set path if a path is passed&apos;, function() {
+      const checker = new BrokenLinkChecker([&apos;./directory&apos;]);
+
+      return checker.validateOptions()
+        .then(() =&gt; checker.getPathOrUrl())
+        .then(() =&gt; expect(checker.path, &apos;to equal&apos;, join(process.cwd(), &apos;directory&apos;)));
+    });
+  });
+
+  /** @test {BrokenLinkChecker#exit} */
+  describe(&apos;#exit&apos;, function() {
+    let checker;
+    let consoleError;
+
+    before(function() {
+      consoleError = spy(console, &apos;error&apos;);
+    });
+
+    beforeEach(function() {
+      checker = new BrokenLinkChecker();
+    });
+
+    it(&apos;should set exitCode&apos;, function() {
+      checker.exit(123);
+      expect(process.exitCode, &apos;to equal&apos;, 123);
+    });
+
+    it(&apos;should report error&apos;, function() {
+      const errorMessage = &apos;an error&apos;;
+
+      checker.exit(1, new Error(errorMessage));
+      expect(consoleError.calledOnce, &apos;to be&apos;, true);
+      expect(consoleError.lastCall.args[0], &apos;to contain&apos;, errorMessage);
+    });
+
+    it(&apos;should close server&apos;, function(done) {
+      checker.server = createServer();
+      checker.server.on(&apos;close&apos;, done);
+
+      checker.exit(1);
+    });
+
+    after(function() {
+      console.error.restore(); // eslint-disable-line no-console
+    });
+  });
+
+  /** @test {BrokenLinkChecker#launch} */
+  describe(&apos;#launch&apos;, function() {
+    this.timeout(5000);
+
+    it(&apos;should fail with invalid directory&apos;, function() {
+      const checker = new BrokenLinkChecker([join(&apos;test&apos;, &apos;fixtures&apos;, &apos;broken&apos;)]);
+
+      return expect(checker.launch(), &apos;to be fulfilled with&apos;, 1);
+    });
+
+    it(&apos;should work with valid directory&apos;, function() {
+      const checker = new BrokenLinkChecker([join(&apos;test&apos;, &apos;fixtures&apos;, &apos;no-broken&apos;)]);
+
+      return expect(checker.launch(), &apos;to be fulfilled with&apos;, 0);
+    });
+
+    it(&apos;should fail with invalid url&apos;, function() {
+      const checker = new BrokenLinkChecker([&apos;htt://ls-age.com&apos;]);
+
+      return expect(checker.launch(), &apos;to be fulfilled with&apos;, 1);
+    });
+
+    it(&apos;should work with valid url&apos;, function() {
+      const checker = new BrokenLinkChecker([join(&apos;test&apos;, &apos;fixtures&apos;, &apos;no-broken&apos;)]);
+
+      return expect(
+        getPort()
+          .then(() =&gt; checker.validateOptions())
+          .then(() =&gt; checker.getPathOrUrl())
+          .then(getPort)
+          .then(port =&gt; checker.startServer(port))
+          .then(port =&gt; (new BrokenLinkChecker([`http://localhost:${port}`])).launch()),
+        &apos;to be fulfilled with&apos;, 0
+      );
+    });
+  });
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

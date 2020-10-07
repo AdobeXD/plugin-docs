@@ -2007,19 +2007,19 @@ wrapping's appearance exactly.
 ### text.layoutBox : <code>{type:string, ?width:number, ?height:number}</code>
 **Since**: XD 34
 
-Type: Text.POINT, FIXED_HEIGHT or AUTO_HEIGHT
+Type: Text.POINT (for point text aslo referenced as auto width), FIXED_HEIGHT (for area text also referenced as fixed size) or AUTO_HEIGHT (for the new auto height text)
 
 Width: number between 0-999999. This is ignored and can be omitted for Text.POINT
 
 Height: number between 0-999999. This is ignored and can be omitted for Text.POINT and Text.AUTO_HEIGHT
 
-Changing point text to area or auto-height text or vice versa will change the origin / anchor point of the text, thus changing its localBounds, but it will also automatically change the node's transform so its `globalBounds` and `boundsInParent` origins remain unchanged.
+Changing POINT text to FIXED_HEIGHT or AUTO_HEIGHT text or vice versa will change the origin / anchor point of the text, thus changing its localBounds, but it will also automatically change the node's transform so its `globalBounds` and `boundsInParent` origins remain unchanged.
 
-Changing area or auto-height text to point text will automatically insert hard line break ("\n") into the text to match the previous line wrapping's appearance exactly.
+Changing FIXED_HEIGHT or AUTO_HEIGHT text to POINT text will automatically insert hard line break ("\n") into the text to match the previous line wrapping's appearance exactly.
 
-Changing from area to auto-height text will automatically change the height of the bounds to match the height of the total text (can be a no-op).
+Changing from FIXED_HEIGHT to AUTO_HEIGHT text will automatically change the height of the bounds to match the height of the total text (can be a no-op).
 
-Changing from auto-height to area text will not change the bounds, tranform or origin (no-op).
+Changing from AUTO_HEIGHT to FIXED_HEIGHT text will not change the bounds, tranform or origin (no-op).
 
 **Kind**: instance property of [<code>Text</code>](#Text)
 * * *

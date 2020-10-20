@@ -2007,7 +2007,7 @@ wrapping's appearance exactly.
 ### text.layoutBox : <code>{type:string, ?width:number, ?height:number}</code>
 **Since**: XD 34
 
-Type: Text.POINT (for point text aslo referred as auto width), FIXED_HEIGHT (for area text also referred as fixed size) or AUTO_HEIGHT (for the new auto height text)
+Type: Text.POINT (for point text also referred as auto width), FIXED_HEIGHT (for area text also referred as fixed size) or AUTO_HEIGHT (for the new auto height text)
 
 Width: number between 0-999999. This is ignored and can be omitted for Text.POINT
 
@@ -2019,7 +2019,7 @@ Changing FIXED_HEIGHT or AUTO_HEIGHT text to POINT text will automatically inser
 
 Changing from FIXED_HEIGHT to AUTO_HEIGHT text will automatically change the height of the bounds to match the height of the total text (can be a no-op).
 
-Changing from AUTO_HEIGHT to FIXED_HEIGHT text will not change the bounds, tranform or origin (no-op).
+Changing from AUTO_HEIGHT to FIXED_HEIGHT text will not change the bounds, transform or origin (no-op).
 
 **Kind**: instance property of [<code>Text</code>](#Text)
 * * *

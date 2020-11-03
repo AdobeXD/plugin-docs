@@ -34,12 +34,12 @@ elements  ||||
          |button| `uxp-variant="action"`             | Block  | Action Button
          |button| `uxp-selected="true"`              | Block  | Selected Action Button
          |button| `uxp-quiet="true"`                 | Block  | Quiet variation (except call to action)
-         |input]| [type="checkbox"](#input-checkbox) | Block  | Checkbox
-         |input]| [type="image"](#input-image)       | Block  | Image Button
-         |input]| [type="number"](#input-number)     | Block  | Text field
-         |input]| [type="range"](#input-range)       | Block  | Slider
-         |input]| [type="text"](#input-text)         | Block  | Text field
-         |input]| `type="text"` `uxp-quiet="true"`   | Block  | Quiet text field
+         |input| [type="checkbox"](#input-checkbox) | Block  | Checkbox
+         |input| [type="image"](#input-image)       | Block  | Image Button
+         |input| [type="number"](#input-number)     | Block  | Text field
+         |input| [type="range"](#input-range)       | Block  | Slider
+         |input| [type="text"](#input-text)         | Block  | Text field
+         |input| `type="text"` `uxp-quiet="true"`   | Block  | Quiet text field
          |select|                                    | Block  | Dropdown
          |option|                                    | N/A    | Dropdown options
          |textarea|                                    | Block  | Standard text area

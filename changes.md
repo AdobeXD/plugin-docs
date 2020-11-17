@@ -1,4 +1,11 @@
 # Change Log
+XD Release 35.0.12.14 (November 2020)
+-------------------------------------
+
+### New API features
+
+[LocalStorage, sessionStorage, and secureStorage are now available.](./reference/uxp/module/localStorage.html)
+
 
 XD Release 34.0.12 (October 2020)
 -------------------------------------

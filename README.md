@@ -2,6 +2,8 @@
 
 **Bring new features and capabilities to XD**
 
+> **NOTE:** This XD Plugin documentation is out of date. Find updated documentation on [Adobe.io](https://adobe.com/go/xd-plugin-api-docs-from-legacy).
+
 Shape the future of design by creating plugins for yourself, your team, or the world. To share a plugin for all XD users, submit it to Adobe. After review, you’ll be published in the XD Plugin Manager.
 
 <a href="/develop.md"><img alt="Develop: API documentation, code tutorials, and samples" src="/images/develop@3x.png" class="plain" style="width: 100%"/></a>

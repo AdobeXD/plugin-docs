@@ -14,7 +14,7 @@ There are two ways you can debug an XD plugin:
 * For **in-depth debugging**, set up your plugin for [debugging with Chrome DevTools](#debugging-with-chrome-devtools-beta) _(beta)_
 
 
-## Quick debugging with Developer Console
+## Quick debugging with Developer Console (Deprecated)
 
 ### 1. Check the Developer Console
 
@@ -31,6 +31,11 @@ The console output for _all_ installed XD plugins is mixed together in one singl
 
 You can easily iterate on your plugin code without heaving to restart XD. Click _Plugins > Development > Reload Plugins_ to reload all plugins in your `develop` folder. This will reflect any changes in [manifest.json](/reference/structure/manifest.md) in addition to any changes to your JS code.
 
+## The `develop` folder
+The `develop` folder can be used during plugin development, and is the only folder XD will reload plugins from when you [reload plugins from the _Plugins_ menu](/tutorials/debugging/#2-try-reloading-the-plugins).
+
+XD makes it very easy for you to get to the `develop` folder: simply go to this menu item: Plugins > Development > Show Develop Folder.
+
 There's also a handy keyboard shortcut to make reloading easier:
 
 | Platform      | Keyboard shortcut  |
@@ -43,7 +48,7 @@ If there are any errors blocking the plugin from loading, they will appear in th
 ![Error during reload](/images/reload-error.png)
 
 
-## Debugging with Chrome DevTools _(beta)_
+## Debugging with Chrome DevTools _(deprecated)_
 
 ### 1. Enable debugging on your plugin
 

@@ -9,7 +9,6 @@
     * [Debugging plugins](./tutorials/debugging/index.md)
   * [Plugin Development 101](./plugin-development-guidelines/index.md)
     * [Plugin structure](./reference/structure/index.md)
-      * [Plugin location](./reference/structure/location.md)
       * [Folder structure](./reference/structure/folder-structure.md)
         * [manifest.json](./reference/structure/manifest.md)
         * [main.js](./reference/structure/handlers.md)

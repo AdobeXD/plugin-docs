@@ -11,10 +11,10 @@ At least one plugin in your `develop` folder (you can create one using our [Quic
 There are two ways you can debug an XD plugin:
 
 * For **quick, simple debugging**, [use the Developer Console built into XD](#quick-debugging-with-developer-console)
-* For **in-depth debugging**, set up your plugin for [debugging with Chrome DevTools](#debugging-with-chrome-devtools-beta) _(deprecated)_
+* For **in-depth debugging**, set up your plugin for [debugging with Chrome DevTools](#debugging-with-chrome-devtools-beta) _(beta)_
 
 
-## Quick debugging with Developer Console (Deprecated)
+## Quick debugging with Developer Console
 
 ### 1. Check the Developer Console
 
@@ -47,7 +47,7 @@ If there are any errors blocking the plugin from loading, they will appear in th
 ![Error during reload](/images/reload-error.png)
 
 
-## Debugging with Chrome DevTools _(deprecated)_
+## Debugging with Chrome DevTools _(beta)_
 
 ### 1. Enable debugging on your plugin
 

@@ -10,7 +10,7 @@ my-plugin-folder
 
 ## Your plugin's parent folder
 
-In [the `develop` folder](/reference/structure/location.html#the-develop-folder), create a new folder for your plugin with any name you like.
+Create a new folder for your plugin with any name you like.
 
 
 ## Your plugin files

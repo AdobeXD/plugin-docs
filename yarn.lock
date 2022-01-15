@@ -3631,10 +3631,10 @@ markdown-escape@^1.0.1:
   resolved "https://registry.yarnpkg.com/markdown-escape/-/markdown-escape-1.0.2.tgz#7184ae24554c49e84b82fd5648fe2a53d1f91b08"
   integrity sha1-cYSuJFVMSehLgv1WSP4qU9H5Gwg=
 
-marked@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
-  integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
+marked@^4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.10.tgz#423e295385cc0c3a70fa495e0df68b007b879423"
+  integrity sha512-+QvuFj0nGgO970fySghXGmuw+Fd0gD2x3+MqCWLIPf5oxdv1Ka6b2q+z9RP01P/IaKPMEramy+7cNy/Lw8c3hw==
 
 "marked@https://github.com/mrpotes/marked/tarball/html-structure":
   version "0.3.2"

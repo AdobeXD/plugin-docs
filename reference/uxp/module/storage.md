@@ -238,6 +238,7 @@ original item - it is _not_ updated to reference the copy.
 | folder | `Folder` |  | the folder to which to copy this entry |
 | options | `\*` |  |  |
 | [options.overwrite] | `boolean` | <code>false</code> | if `true`, allows overwriting existing entries |
+| [options.allowFolderCopy] | `boolean` | <code>false</code> if `true`, allows copying the folder. |
 
 **Example**
 ```js
@@ -249,7 +250,7 @@ await someFile.copyTo(someFolder, {overwrite: true});
 ```
 **Example**
 ```js
-await someFolder.copyTo(anotherFolder, {overwrite: true});
+await someFolder.copyTo(anotherFolder, {overwrite: true, allowFolderCopy: true});
 ```
 
 <a name="module-storage-entry-moveto" id="module-storage-entry-moveto"></a>
